@@ -21,18 +21,18 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
     >
       {/* Locked Overlay */}
       {isLocked && (
-        <div className="absolute inset-0 bg-stone-900/70 backdrop-blur-[3px] z-20 flex flex-col items-center justify-center text-center p-6 transition-opacity group-hover:opacity-90">
-          <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white mb-4 border border-white/20">
+        <div className="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px] z-20 flex flex-col items-center justify-center text-center p-6 transition-opacity group-hover:opacity-80">
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white mb-4 border border-white/30">
             <Lock size={24} />
           </div>
-          <div className="text-white font-bold text-sm mb-6 font-serif-jp leading-relaxed">
+          <div className="text-white font-bold text-sm mb-4 font-serif-jp">
             このコンテンツは<br />未購入またはロックされています
           </div>
           <Button 
             size="sm" 
             variant="orange" 
+            className="bg-white text-stone-900 hover:bg-stone-100"
             onClick={() => navigate('/pricing')}
-            className="shadow-lg shadow-black/20"
           >
             コースを有効化する
           </Button>
@@ -73,8 +73,8 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
           disabled={isLocked}
           className={`w-full py-2.5 rounded-xl border font-bold text-xs font-serif-jp transition-all ${
             isLocked 
-            ? 'border-stone-200 text-stone-500 bg-stone-100/50 cursor-not-allowed opacity-60' 
-            : 'border-[#FF8C6B] text-[#FF8C6B] hover:bg-[#FF8C6B] hover:text-white bg-white'
+            ? 'border-stone-200 text-stone-400 cursor-not-allowed' 
+            : 'border-[#FF8C6B] text-[#FF8C6B] hover:bg-[#FF8C6B] hover:text-white'
           }`}
         >
           {isLocked ? '学習を開始する' : '受講を継続する'}
