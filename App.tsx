@@ -1,0 +1,51 @@
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { Home } from './pages/Home';
+import { Seekers } from './pages/Seekers';
+import { Instructors } from './pages/Instructors';
+import { Courses } from './pages/Courses';
+import { Pricing } from './pages/Pricing';
+import { Methods } from './pages/Methods';
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
+import { CertificateDemo } from './pages/CertificateDemo';
+import { ProfessionalCourse } from './pages/ProfessionalCourse';
+import { useScrollToTop } from './hooks/useScrollToTop';
+import { ScrollToTopButton } from './components/common/ScrollToTopButton';
+
+// Component to scroll to top on route change, using the hook
+const ScrollToTop = () => {
+  useScrollToTop();
+  return null;
+}
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen relative">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/seekers" element={<Seekers />} />
+            <Route path="/instructors" element={<Instructors />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/professional" element={<ProfessionalCourse />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/methods" element={<Methods />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
+          </Routes>
+        </main>
+        <Footer />
+        <ScrollToTopButton />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
