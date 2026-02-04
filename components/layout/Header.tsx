@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { 
   Menu, X, FileText, Send, 
-  Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight 
+  Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight, User 
 } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -63,7 +63,15 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* Right: CTAs (Desktop) */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-4">
+              <button 
+                onClick={() => navigate('/login')}
+                className="flex flex-col items-center justify-center px-4 hover:text-[#FF8C6B] transition-colors group"
+              >
+                <User size={20} className="group-hover:scale-110 transition-transform mb-0.5" />
+                <span className="text-[10px] font-bold">ログイン</span>
+              </button>
+
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => navigate('/seekers')}
@@ -131,6 +139,14 @@ export const Header: React.FC = () => {
                       )}
                     </NavLink>
                   ))}
+                  <NavLink
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 py-4 text-[#FF8C6B] font-bold border-t border-stone-100 mt-2"
+                  >
+                    <User size={20} />
+                    <span className="text-base font-serif-jp">メンバーログイン</span>
+                  </NavLink>
                 </nav>
              </div>
           </div>

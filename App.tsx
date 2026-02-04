@@ -12,6 +12,8 @@ import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { CertificateDemo } from './pages/CertificateDemo';
 import { ProfessionalCourse } from './pages/ProfessionalCourse';
+import { Login } from './pages/Login';
+import { MemberArea } from './pages/MemberArea';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
@@ -39,6 +41,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/member-area" element={<MemberArea />} />
           </Routes>
         </main>
         <Footer />
