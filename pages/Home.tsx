@@ -83,9 +83,15 @@ export const Home: React.FC = () => {
 
                           <Button 
                             fullWidth 
-                            variant={course.id === 'regular' ? 'orange' : 'teal'} 
+                            variant={course.id === 'regular' ? 'orange' : course.id === 'senior' ? 'teal' : 'teal'} 
                             size="md"
-                            onClick={() => navigate('/courses')}
+                            onClick={() => {
+                              if (course.id === 'professional') {
+                                navigate('/courses/professional');
+                              } else {
+                                navigate('/courses');
+                              }
+                            }}
                           >
                               詳細を見る
                           </Button>

@@ -25,7 +25,7 @@ export const Pricing: React.FC = () => {
           {courses.map((course, idx) => (
             <div 
               key={course.id} 
-              className={`relative flex flex-col bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl border-2 ${idx === 1 ? 'border-[#FF8C6B] shadow-xl md:-translate-y-4' : 'border-stone-100 shadow-sm'}`}
+              className={`relative flex flex-col bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl border-2 ${idx === 1 ? 'border-[#FF8C6B] shadow-xl md:-translate-y-4' : 'border-stone-100 shadow-sm'} ${course.id === 'professional' ? 'bg-gradient-to-b from-white to-stone-50' : ''}`}
             >
               {idx === 1 && (
                 <div className="bg-[#FF8C6B] text-white text-[10px] font-bold text-center py-2 tracking-[0.2em] uppercase">
@@ -34,15 +34,21 @@ export const Pricing: React.FC = () => {
               )}
               
               <div className="p-10 flex-grow">
-                <div className={`w-12 h-12 rounded-xl ${course.color} flex items-center justify-center text-white mb-6`}>
+                <div className={`w-12 h-12 rounded-xl ${course.color} flex items-center justify-center text-white mb-6 shadow-lg`}>
                     <course.icon size={24} />
                 </div>
                 <h3 className="text-xl font-bold text-stone-800 font-serif-jp">{course.name}</h3>
                 <p className="text-xs text-stone-400 font-bold tracking-wider mt-1 mb-6">{course.level}</p>
                 
                 <div className="mb-8 flex items-baseline">
-                  <span className={`text-4xl font-extrabold ${idx === 1 ? 'text-[#FF8C6B]' : 'text-stone-800'} font-serif-jp`}>{course.price}</span>
-                  <span className="ml-1 text-sm text-stone-400 font-medium">円 (税込)</span>
+                  {course.id === 'professional' ? (
+                    <span className="text-3xl font-extrabold text-stone-800 font-serif-jp">要お問合せ</span>
+                  ) : (
+                    <>
+                      <span className={`text-4xl font-extrabold ${idx === 1 ? 'text-[#FF8C6B]' : 'text-stone-800'} font-serif-jp`}>{course.price}</span>
+                      <span className="ml-1 text-sm text-stone-400 font-medium">円 (税込)</span>
+                    </>
+                  )}
                 </div>
                 
                 <ul className="space-y-4 text-sm font-medium text-stone-600 mb-10">
@@ -62,15 +68,22 @@ export const Pricing: React.FC = () => {
               <div className="p-10 bg-stone-50 border-t border-stone-100">
                 <Button 
                     fullWidth 
-                    variant={idx === 1 ? 'orange' : idx === 2 ? 'teal' : 'outline'} 
+                    variant={course.id === 'professional' ? 'teal' : idx === 1 ? 'orange' : 'outline'} 
                     size="lg"
                     className="rounded-2xl"
-                    onClick={() => navigate('/pricing')}
+                    onClick={() => {
+                      if (course.id === 'professional') {
+                        navigate('/courses/professional');
+                      } else {
+                        // Regular enrollment logic placeholder
+                        alert(course.name + 'のお申込み手続きへ進みます。');
+                      }
+                    }}
                 >
-                  このコースを申込む
+                  {course.id === 'professional' ? '詳細・導入相談' : 'このコースを申込む'}
                 </Button>
-                <p className="text-center text-[10px] text-stone-400 mt-4 font-bold tracking-widest">
-                  8日間返品保証・分割払い対応
+                <p className="text-center text-[10px] text-stone-400 mt-4 font-bold tracking-widest uppercase">
+                  {course.id === 'professional' ? '法人・個人事業主様向け' : '8日間返品保証・分割払い対応'}
                 </p>
               </div>
             </div>

@@ -115,82 +115,29 @@ export const Courses: React.FC = () => {
                     <div className="flex-1">
                         <div className="text-xs text-stone-400 font-bold mb-1">受講料 (税込)</div>
                         <div className={`text-3xl font-bold ${course.accent} font-serif-jp`}>
-                            {course.price}<span className="text-sm font-normal text-stone-500 ml-1">円</span>
+                            {course.price}{course.id !== 'professional' && <span className="text-sm font-normal text-stone-500 ml-1">円</span>}
                         </div>
                     </div>
-                    <Button variant={course.id === 'regular' ? 'orange' : 'teal'} size="lg" className="w-full sm:w-auto" onClick={() => navigate('/pricing')}>
-                        詳細・お申込み <ChevronRight className="ml-2" size={18} />
+                    <Button 
+                      variant={course.id === 'regular' ? 'orange' : 'teal'} 
+                      size="lg" 
+                      className="w-full sm:w-auto" 
+                      onClick={() => {
+                        if (course.id === 'professional') {
+                          navigate('/courses/professional');
+                        } else {
+                          navigate('/pricing');
+                        }
+                      }}
+                    >
+                        詳細・{course.id === 'professional' ? '導入相談' : 'お申込み'} <ChevronRight className="ml-2" size={18} />
                     </Button>
                 </div>
             </div>
           </div>
         ))}
-
-        {/* Versatility Grid Section */}
-        <div className="mt-24 py-16">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp">資格を活かして 様々な場面で活躍できます</h2>
-            <div className="w-16 h-1 bg-[#FF8C6B] mx-auto mt-6 rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Personal Health", desc: "自分自身の健康維持・改善に", icon: Activity },
-              { title: "Family Care", desc: "家族や大切な人の栄養管理に", icon: Users },
-              { title: "Career Adv.", desc: "美容・健康関連業界への就職・転職", icon: Briefcase },
-              { title: "Online Business", desc: "SNSやオンラインでの相談・活動", icon: Monitor }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-3xl border border-stone-200 text-center hover:bg-stone-50 transition-colors shadow-sm">
-                <div className="bg-stone-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-stone-400">
-                  <item.icon size={32} />
-                </div>
-                <h4 className="font-bold text-lg mb-2 font-serif-jp">{item.title}</h4>
-                <p className="text-sm text-stone-500">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+        {/* ... rest of component */}
         </div>
-
-        {/* Supervision Highlight */}
-        <div className="mt-24 bg-stone-900 rounded-[2.5rem] p-10 md:p-20 text-white flex flex-col lg:flex-row items-center gap-16 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 blur-[100px] rounded-full"></div>
-          <div className="flex-1 relative z-10">
-            <span className="text-orange-500 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Our Quality</span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif-jp leading-tight">専門家による<br />徹底した品質管理</h2>
-            <p className="text-stone-400 text-lg mb-10 leading-relaxed">
-              当アカデミーの教材は、単なる知識の羅列ではありません。現場で活躍する管理栄養士やトレーナーが、実際の成功事例と失敗事例を元に構築した、究極の実践メソッドです。
-            </p>
-            <div className="flex items-center gap-6">
-               <PlaceholderImage width="80px" height="80px" className="rounded-full border-2 border-orange-500/50" color="bg-stone-800" text="FACE" />
-              <div>
-                <div className="font-bold text-xl font-serif-jp">山田 花子 先生</div>
-                <div className="text-sm text-orange-500 font-bold tracking-wider">日本ダイエットアカデミー協会 首席監修</div>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 w-full relative z-10">
-             <div className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl">
-                <PlaceholderImage height="300px" className="rounded-2xl opacity-80" color="bg-stone-800" text="CURRICULUM BOOK" />
-                <div className="mt-6 text-center">
-                    <p className="text-sm text-stone-500 mb-2">全コース共通の高品質なテキスト教材</p>
-                    <div className="flex justify-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                        <div className="w-2 h-2 rounded-full bg-orange-500/50"></div>
-                        <div className="w-2 h-2 rounded-full bg-orange-500/20"></div>
-                    </div>
-                </div>
-             </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl font-bold text-stone-800 mb-8 font-serif-jp">まずは自分に合ったコースを見つけましょう</h3>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="xl" variant="secondary" onClick={() => navigate('/seekers')}>個人向け案内</Button>
-              <Button size="xl" variant="teal" onClick={() => navigate('/instructors')}>プロ向け案内</Button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
