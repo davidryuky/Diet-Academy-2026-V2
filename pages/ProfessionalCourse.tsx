@@ -12,10 +12,7 @@ import {
   Stethoscope, 
   Dumbbell, 
   Sparkles,
-  Zap,
-  Target,
-  FileCheck,
-  Scale
+  Target
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,10 +24,78 @@ export const ProfessionalCourse: React.FC = () => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
+  const faqData = [
+    { 
+      q: "Q1. 結局、どんな指導法なんですか?", 
+      a: (
+        <div className="space-y-3">
+          <p>ダイエットマスターの指導は、「〇〇を食べてください」「△△をやりましょう」といった単発のアドバイス型指導ではありません。</p>
+          <p>初回のダイエット診断とカウンセリングで、体の状態・生活習慣・行動のクセを整理し、行動修正療法を軸にした設計型のダイエットサポートを行います。</p>
+          <p>何をどれだけ頑張らせるかではなく、<br /><strong>「どこをどう整えれば、自然に体が変わるか」</strong>を見極める指導法です。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q2. 他に導入している施設では、どんなメニューを作っていますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>プロフェッショナルコースでは、メニューの作り方を固定していません。多くの施設では、以下の2点を軸にしながら、自分たちの業態に合わせてメニューを組み立てています。</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>初回の「ダイエット診断」</li>
+            <li>3 か月間のダイエットサポート</li>
+          </ul>
+          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q3. サプリ・エステ・パーソナルトレーニングなどと組み合わせられますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>はい、組み合わせ可能です。むしろ、多くの施設が既存メニューと併用しています。</p>
+          <p>ダイエットマスターの考え方では、サプリ・エステ・トレーニング等は「主役」ではなく<strong>「サポート要素」</strong>。ダイエット診断とサポート設計で必要性があると判断した場合に、無理なく組み合わせる、という位置づけです。</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>無理な売り込みにならない</li>
+            <li>顧客に納得感がある</li>
+            <li>継続しやすい</li>
+          </ul>
+          <p>プロフェッショナルコースは、特定の商品やサービスを売るための仕組みではありません。どんなサービスを組み合わせてもブレない「判断の軸」を施設に持つことを目的としています。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q4. スタッフ全員が資格を取る必要はありますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>いいえ。施設認定のため、全員必須ではありません。</p>
+          <p>ただし、スタッフが複数名いる場合は、施設内に判断できる担当者がいることを推奨しています。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q5. オーナー本人が受講しないといけませんか?", 
+      a: (
+        <div className="space-y-3">
+          <p>原則として、事業の運営責任を担う方の受講を想定しています。</p>
+          <p>現場責任者を別に置く場合は、その方の受講でも可能です。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q6. 費用はどれくらいかかりますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>費用は内容説明後にご案内しています。</p>
+          <p>まずは、導入の考え方や相性を確認したうえでご検討ください。</p>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="bg-white text-stone-800 font-sans">
       
-      {/* 1. Hero Section (First View) */}
+      {/* 1. Hero Section */}
       <section className="relative h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -53,9 +118,6 @@ export const ProfessionalCourse: React.FC = () => {
             <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
               個人の才能に依存しない。技術ではなく「システム」として<br className="hidden md:block" />
               ダイエット指導を運用するためのプロフェッショナルコース。
-            </p>
-            <p className="text-stone-400 text-sm md:text-base mb-12 leading-loose max-w-2xl">
-              日本ダイエットアカデミー協会のProfessional Courseは、「個人の経験や勘」に頼らない診断とサポートを可能にします。安全かつ確実な指導体制（仕組み）を構築し、どのスタッフでも質の高いサービスを提供できるデザインを共有します。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>
@@ -185,7 +247,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Curriculum Grid (10 Chapters) */}
+      {/* 5. Curriculum Grid */}
       <section className="py-24 bg-white">
         <div className="w-[92%] max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
@@ -248,67 +310,16 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. Case Study Section */}
-      <section className="py-24 bg-white">
-        <div className="w-[92%] max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">導入推奨施設</h2>
-            <p className="text-stone-500 mt-4">専門家として、活躍の場は多岐にわたります</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "エステサロン", icon: Sparkles, desc: "外側からのアプローチに、生活習慣改善のサポートを融合させ、圧倒的な結果を提供。" },
-              { title: "パーソナルジム", icon: Dumbbell, desc: "トレーニングに3ヶ月のダイエット診断・サポートを加え、食事管理の質を劇的に向上。" },
-              { title: "整骨院・治療院", icon: Stethoscope, desc: "体のケアと並行して、食事や生活スタイルの見直しを提案し、根本的な健康を支援。" }
-            ].map((item, idx) => (
-              <div key={idx} className="group overflow-hidden rounded-3xl bg-stone-50 border border-stone-200 hover:border-teal-200 transition-all shadow-sm">
-                <div className="h-48 bg-stone-200 relative">
-                   <div className="absolute inset-0 bg-stone-800/40 group-hover:bg-teal-600/20 transition-colors duration-500"></div>
-                   <div className="absolute inset-0 flex items-center justify-center text-white">
-                      <item.icon size={48} strokeWidth={1} />
-                   </div>
-                </div>
-                <div className="p-8">
-                   <h4 className="text-xl font-bold text-stone-900 mb-3 font-serif-jp">{item.title}</h4>
-                   <p className="text-sm text-stone-500 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. FAQ Section */}
+      {/* 7. FAQ Section */}
       <section className="py-24 bg-stone-50">
         <div className="w-[92%] max-w-3xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">よくあるご質問</h2>
+            <p className="text-stone-500 mt-2 font-medium">プロフェッショナルコースに関する疑問にお答えします</p>
           </div>
 
           <div className="space-y-4">
-            {[
-              { 
-                q: "どのような指導法を学ぶのですか？", 
-                a: "単なるアドバイスではなく「行動変容療法」を用いた体系的なサポートです。どこを調整すれば体が自然に変わるかを特定し、習慣を書き換える手法を学びます。" 
-              },
-              { 
-                q: "現在のサービスやサプリメントと併用できますか？", 
-                a: "はい。サプリメントやトレーニングは「サポート要素」として捉えます。本システムはそれらの必要性を論理的に裏付け、顧客の納得感を高める役割を果たします。" 
-              },
-              { 
-                q: "全スタッフが認定を受ける必要がありますか？", 
-                a: "いいえ。認定は「施設」に対して行われます。ただし、品質維持のために運用の中心となる責任者の方は基準を深く理解していることが求められます。" 
-              },
-              { 
-                q: "オーナーが必ず受講しなければなりませんか？", 
-                a: "はい、オーナーまたは事業の責任者の方が受講してください。本コースの焦点は、サービスの「管理とデザイン」にあります。" 
-              },
-              { 
-                q: "受講料はいくらですか？", 
-                a: "ビジネスモデルに最適化された提案を行うため、個別相談会にて詳細を説明しております。まずはお問い合わせください。" 
-              }
-            ].map((faq, idx) => (
+            {faqData.map((faq, idx) => (
               <div key={idx} className="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
                 <button 
                   onClick={() => toggleFaq(idx)}
@@ -318,7 +329,7 @@ export const ProfessionalCourse: React.FC = () => {
                   <ChevronDown size={20} className={`text-stone-400 transition-transform duration-300 ${activeFaq === idx ? 'rotate-180' : ''}`} />
                 </button>
                 {activeFaq === idx && (
-                  <div className="px-6 pb-6 text-stone-600 text-sm leading-relaxed border-t border-stone-50 pt-4 animate-in fade-in duration-300">
+                  <div className="px-6 pb-6 text-stone-600 text-sm leading-relaxed border-t border-stone-50 pt-6 animate-in fade-in duration-300">
                     {faq.a}
                   </div>
                 )}
@@ -328,20 +339,13 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. Authority Section */}
+      {/* 8. Authority Section */}
       <section className="py-24 bg-white border-y border-stone-200">
         <div className="w-[92%] max-w-4xl mx-auto px-4">
           <div className="bg-stone-900 rounded-[3rem] p-10 md:p-16 text-white text-center relative overflow-hidden">
              <div className="absolute top-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl"></div>
              
              <div className="relative z-10">
-                <div className="flex justify-center mb-8">
-                  <div className="inline-flex items-center gap-2 bg-white/10 px-6 py-2 rounded-full border border-white/10">
-                    <Target size={16} className="text-teal-400" />
-                    <span className="text-xs font-bold tracking-widest uppercase">Important Notice</span>
-                  </div>
-                </div>
-                
                 <h3 className="text-2xl md:text-3xl font-bold mb-8 font-serif-jp">お申込み前の注意事項</h3>
                 <p className="text-stone-400 leading-loose text-base mb-12">
                   本コースは「短期間で稼ぐテクニック」を教えるものではありません。<br className="hidden md:block" />
@@ -370,7 +374,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 10. Final CTA */}
+      {/* 9. Final CTA */}
       <section className="py-24 bg-white text-center">
         <div className="w-[92%] max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-8 font-serif-jp">
