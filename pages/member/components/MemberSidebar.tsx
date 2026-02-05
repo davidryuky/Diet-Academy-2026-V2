@@ -1,3 +1,4 @@
+
 import React from 'react';
 // Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
@@ -18,6 +19,7 @@ interface MemberSidebarProps {
   memberStatus: string;
 }
 
+// Fix: Add MemberSidebarProps to React.FC and destructure props to fix type error
 export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberStatus }) => {
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
     { label: 'ダッシュボード', icon: LayoutDashboard, active: true, path: '/member-area' },
     { label: '学習の進捗', icon: CheckCircle2, path: '#' },
     { label: '課題・テスト', icon: FileText, path: '#' },
-    { label: 'マイ認定証', icon: Award, path: '#' },
+    { label: 'マイ認定証', icon: Award, path: '/demo' },
     { label: '受講生サポート', icon: LifeBuoy, path: '#' },
     { label: 'お知らせ', icon: Bell, path: '#' },
     { label: '設定', icon: Settings, path: '#' },
@@ -53,7 +55,7 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
             className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
               item.active 
               ? 'bg-[#FF8C6B] text-white shadow-md shadow-orange-100' 
-              : 'text-stone-50 hover:bg-stone-50 hover:text-stone-800'
+              : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
             }`}
           >
             <item.icon size={18} />
