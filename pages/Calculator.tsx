@@ -161,17 +161,17 @@ export const CalculatorPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-[#FDFCFB] min-h-screen pb-20">
+        <div className="bg-[#FDFCFB] min-h-screen pb-24">
             {/* Header Area */}
-            <div className="bg-white border-b border-stone-200 py-16 mb-12">
+            <div className="bg-white border-b border-stone-200 py-20 mb-12">
                <div className="max-w-4xl mx-auto px-6 text-center">
-                  <span className="text-[#FF8C6B] font-bold text-xs tracking-[0.3em] uppercase block mb-4">Diagnostics</span>
-                  <h1 className="text-4xl md:text-5xl font-bold text-stone-800 font-serif-jp leading-tight">
-                     ダイエット計算機
+                  <span className="text-[#FF8C6B] font-bold text-xs tracking-[0.3em] uppercase block mb-6">Simulation</span>
+                  <h1 className="text-4xl md:text-6xl font-bold text-stone-800 font-serif-jp leading-tight">
+                     ダイエットマスターなら<br />
+                     短期間で、誰でも痩せる!
                   </h1>
-                  <p className="mt-6 text-stone-500 font-medium leading-relaxed max-w-2xl mx-auto">
-                     あなたの性別・年齢・現在の体格と目標から、<br className="hidden md:block" />
-                     科学的なダイエットプランをシミュレーションします。
+                  <p className="mt-8 text-[#FF8C6B] text-xl md:text-2xl font-bold font-serif-jp leading-relaxed max-w-2xl mx-auto">
+                     あなたの希望は何ヶ月で何kg?
                   </p>
                </div>
             </div>
@@ -257,9 +257,9 @@ export const CalculatorPage: React.FC = () => {
                     <div className="hidden md:block md:w-2/5 relative bg-[#FFF5F0]">
                         <div className="absolute inset-0 bg-gradient-to-t from-orange-100/50 to-transparent"></div>
                         <img 
-                           src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=80" 
+                           src="https://i.postimg.cc/j2LMDz8W/calcu-girl-1-copiar.png" 
                            alt="Diet motivation" 
-                           className="w-full h-full object-cover grayscale-[20%] opacity-90" 
+                           className="w-full h-full object-cover grayscale-[10%] opacity-90 object-center" 
                         />
                         <div className="absolute bottom-10 left-10 right-10 p-8 glass-card rounded-[2rem] border border-white/20">
                            <div className="flex items-center gap-3 mb-3">
@@ -271,6 +271,42 @@ export const CalculatorPage: React.FC = () => {
                            <p className="text-xs text-stone-600 leading-relaxed font-medium">
                               当協会のシミュレーションは、最新の生理学・栄養学のデータに基づいています。無理な減量は代謝を落とすだけ。正しい設計が成功の近道です。
                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Technical Explanation Section */}
+                <div className="mt-20 max-w-4xl mx-auto border-t border-stone-200 pt-16">
+                    <div className="grid md:grid-cols-2 gap-12 text-[11px] leading-relaxed font-medium text-stone-500">
+                        {/* BMI Column */}
+                        <div className="space-y-4">
+                            <h4 className="text-xs font-bold text-stone-800 uppercase tracking-widest flex items-center gap-2">
+                                <span className="w-1.5 h-4 bg-[#FF8C6B] rounded-full"></span>
+                                BMIについて
+                            </h4>
+                            <p>BMI値とは（Body Mass Index）の略で、世界で最も広く使われている肥満判定用の体格指数です。</p>
+                            <div className="bg-stone-100/50 p-4 rounded-xl text-center font-bold text-stone-700 border border-stone-100">
+                                BMI = 体重(kg) ÷ 身長(m) ÷ 身長(m)
+                            </div>
+                            <p>BMI値は例え身長が同じでも体格（肩幅やお腹回り、腰回りなど）により体重が変わって来るようにBMI値も大きく変わってきます。</p>
+                        </div>
+
+                        {/* Calculations Column */}
+                        <div className="space-y-4">
+                            <h4 className="text-xs font-bold text-stone-800 uppercase tracking-widest flex items-center gap-2">
+                                <span className="w-1.5 h-4 bg-[#5D9B9B] rounded-full"></span>
+                                計算の根拠
+                            </h4>
+                            <div className="space-y-4">
+                                <div>
+                                    <p className="font-bold text-stone-700 mb-1">基礎代謝量（BMR）</p>
+                                    <p>ハリス・ベネデクト方程式を元に、性別、年齢、身長、体重から1日の生命維持に必要な最低限のエネルギー量を算出しています。</p>
+                                </div>
+                                <div className="pt-2">
+                                    <p className="font-bold text-stone-700 mb-1">運動消費エネルギー</p>
+                                    <p>厚生労働省の定めるMets数値（運動の種類によって数値は変わります）により計算しています。本シミュレーションでは標準的な活動係数1.2を適用しています。</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
