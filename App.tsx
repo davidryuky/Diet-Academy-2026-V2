@@ -17,6 +17,9 @@ import { CertificateDemo } from './pages/CertificateDemo';
 import { Login } from './pages/Login';
 import { MemberDashboard } from './pages/member/MemberDashboard';
 import { CourseStudyView } from './pages/member/CourseStudyView';
+import { AdminLogin } from './pages/admin/AdminLogin';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { AdminCurriculumEditor } from './pages/admin/AdminCurriculumEditor';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
@@ -25,20 +28,26 @@ const ScrollToTop = () => {
   return null;
 }
 
-// Fixed: Make children optional in AppLayout props to avoid 'Property children is missing' error at call site
-// This handles cases where TypeScript compiler might not correctly infer children presence in the JSX tree
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const isMemberArea = location.pathname.startsWith('/member-area');
+  const isAdminArea = location.pathname.startsWith('/admin') && location.pathname !== '/admin/login';
+  const isLoginPage = location.pathname === '/login' || location.pathname === '/admin/login';
+
+  // Se for página de login, não mostra Header/Footer padrão
+  if (isLoginPage) return <main className="flex-grow">{children}</main>;
 
   return (
     <div className="flex flex-col min-h-screen relative">
-      {isMemberArea ? <MemberHeader /> : <Header />}
+      {isMemberArea ? <MemberHeader /> : !isAdminArea && <Header />}
+      
+      {/* Área Admin tem seu próprio estilo de Header interno para foco total no CMS */}
       <main className="flex-grow">
         {children}
       </main>
-      {isMemberArea ? <MemberFooter /> : <Footer />}
-      <ScrollToTopButton />
+
+      {isMemberArea ? <MemberFooter /> : !isAdminArea && <Footer />}
+      {!isAdminArea && <ScrollToTopButton />}
     </div>
   );
 };
@@ -49,6 +58,7 @@ function App() {
       <ScrollToTop />
       <AppLayout>
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/seekers" element={<Seekers />} />
           <Route path="/instructors" element={<Instructors />} />
@@ -60,8 +70,15 @@ function App() {
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
           <Route path="/login" element={<Login />} />
+
+          {/* Member Routes */}
           <Route path="/member-area" element={<MemberDashboard />} />
           <Route path="/member-area/course/:courseId" element={<CourseStudyView />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/course/:courseId" element={<AdminCurriculumEditor />} />
         </Routes>
       </AppLayout>
     </Router>
