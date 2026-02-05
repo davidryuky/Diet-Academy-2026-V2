@@ -31,7 +31,8 @@ const ScrollToTop = () => {
 }
 
 // Componente de proteção de rota para Admin
-const AdminGuard = ({ children }: { children: React.ReactNode }) => {
+// Fix: Make children optional to resolve "Property 'children' is missing in type '{}' but required" errors
+const AdminGuard = ({ children }: { children?: React.ReactNode }) => {
   const navigate = useNavigate();
   const isAuthenticated = sessionStorage.getItem('admin_auth') === 'true';
 
@@ -45,11 +46,13 @@ const AdminGuard = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Componente de Layout principal
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const isMemberArea = location.pathname.startsWith('/member-area');
   const isAdminArea = location.pathname.startsWith('/admin') && location.pathname !== '/admin/login';
-  const isLoginPage = location.pathname === '/login' || location.pathname === '/admin/login';
+  // Atualizado: /login agora é /member
+  const isLoginPage = location.pathname === '/member' || location.pathname === '/admin/login';
 
   // Se for página de login, não mostra Header/Footer padrão
   if (isLoginPage) return <main className="flex-grow">{children}</main>;
@@ -86,7 +89,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
-          <Route path="/login" element={<Login />} />
+          {/* Rota de login alterada para /member */}
+          <Route path="/member" element={<Login />} />
 
           {/* Member Routes */}
           <Route path="/member-area" element={<MemberDashboard />} />

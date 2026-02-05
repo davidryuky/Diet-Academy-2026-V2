@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 // Fix: Import NavLink, useNavigate, useLocation from 'react-router'
 import { NavLink, useNavigate, useLocation } from 'react-router';
@@ -67,7 +66,7 @@ export const Header: React.FC = () => {
             {/* Right: CTAs (Desktop) */}
             <div className="hidden md:flex items-center space-x-4">
               <button 
-                onClick={() => navigate('/login')}
+                onClick={() => navigate('/member')}
                 className="flex flex-col items-center justify-center px-4 hover:text-[#FF8C6B] transition-colors group"
               >
                 <User size={20} className="group-hover:scale-110 transition-transform mb-0.5" />
@@ -142,7 +141,7 @@ export const Header: React.FC = () => {
                     </NavLink>
                   ))}
                   <NavLink
-                    to="/login"
+                    to="/member"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-3 py-4 text-[#FF8C6B] font-bold border-t border-stone-100 mt-2"
                   >

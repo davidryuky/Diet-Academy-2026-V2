@@ -1,4 +1,3 @@
-
 import React from 'react';
 // Fix: Import useNavigate, Link from 'react-router'
 import { useNavigate, Link } from 'react-router';
@@ -15,7 +14,7 @@ export const MemberHeader: React.FC = () => {
 
   const handleLogout = () => {
     // Lógica de logout aqui
-    navigate('/login');
+    navigate('/member');
   };
 
   return (

@@ -1,4 +1,3 @@
-
 import React from 'react';
 // Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
@@ -54,7 +53,7 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
             className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
               item.active 
               ? 'bg-[#FF8C6B] text-white shadow-md shadow-orange-100' 
-              : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
+              : 'text-stone-50 hover:bg-stone-50 hover:text-stone-800'
             }`}
           >
             <item.icon size={18} />
@@ -66,7 +65,7 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
       {/* Logout Action */}
       <div className="pt-10">
         <button 
-          onClick={() => navigate('/login')}
+          onClick={() => navigate('/member')}
           className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-stone-400 hover:text-red-500 hover:bg-red-50 transition-all"
         >
           <LogOut size={18} />
