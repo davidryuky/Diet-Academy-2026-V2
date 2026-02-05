@@ -51,7 +51,7 @@ export const ProfessionalCourse: React.FC = () => {
             <li>初回の「ダイエット診断」</li>
             <li>3 か月間のダイエットサポート</li>
           </ul>
-          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせtたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
+          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
         </div>
       )
     },
@@ -100,16 +100,16 @@ export const ProfessionalCourse: React.FC = () => {
   ];
 
   const chapters = [
-    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。", accent: "from-teal-400 to-teal-600" },
-    { icon: Layout, num: "02", title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造とフローの構築。", accent: "from-blue-400 to-blue-600" },
-    { icon: ClipboardCheck, num: "03", title: "診断・初回面談デザイン", desc: "誰でも同じ技術的判断に到達するためのマニュアル化。", accent: "from-cyan-400 to-cyan-600" },
-    { icon: Brain, num: "04", title: "行動変容療法の活用", desc: "62項目のチェックアップを用いた習慣のズレの特定と計画化。", accent: "from-indigo-400 to-indigo-600" },
-    { icon: CalendarRange, num: "05", title: "3ヶ月運用モデル", desc: "成果と継続を安定させる、属人化しないサポート構造。", accent: "from-purple-400 to-purple-600" },
-    { icon: ShieldCheck, num: "06", title: "施設認定と責任", desc: "技術責任者の役割と認定シールの意味・運用方法。", accent: "from-emerald-400 to-emerald-600" },
-    { icon: Users, num: "07", title: "チーム運営と教育", desc: "品質を維持し、判断力のある人材を育成する方法。", accent: "from-orange-400 to-orange-600" },
-    { icon: Scale, num: "08", title: "倫理と専門性の限界", desc: "顧客とビジネスを守るための境界線と禁止事項の定義。", accent: "from-rose-400 to-rose-600" },
-    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との組み合わせ方。", accent: "from-amber-400 to-amber-600" },
-    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。", accent: "from-teal-500 to-teal-700" }
+    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
+    { icon: Layout, num: "02", title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造とフローの構築。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: ClipboardCheck, num: "03", title: "診断・初回面談デザイン", desc: "誰でも同じ技術的判断に到達するためのマニュアル化。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
+    { icon: Brain, num: "04", title: "行動変容療法の活用", desc: "62項目のチェックアップを用いた習慣のズレの特定と計画化。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { icon: CalendarRange, num: "05", title: "3ヶ月運用モデル", desc: "成果と継続を安定させる、属人化しないサポート構造。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
+    { icon: ShieldCheck, num: "06", title: "施設認定と責任", desc: "技術責任者の役割と認定シールの意味・運用方法。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { icon: Users, num: "07", title: "チーム運営と教育", desc: "品質を維持し、判断力のある人材を育成する方法。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
+    { icon: Scale, num: "08", title: "倫理と専門性の限界", desc: "顧客とビジネスを守るための境界線と禁止事項の定義。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
+    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との組み合わせ方。", textColor: "text-amber-600", bgColor: "bg-amber-50" },
+    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。", textColor: "text-teal-700", bgColor: "bg-teal-50" }
   ];
 
   return (
@@ -289,28 +289,25 @@ export const ProfessionalCourse: React.FC = () => {
             {chapters.map((chapter, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden"
+                className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full overflow-hidden"
               >
-                {/* Visual Accent Layer */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${chapter.accent} opacity-0 group-hover:opacity-10 transition-opacity rounded-bl-[5rem] -mr-8 -mt-8`}></div>
-                
-                {/* Chapter Badge */}
-                <div className="absolute top-8 right-8 text-4xl font-black text-stone-100 group-hover:text-stone-200 transition-colors pointer-events-none select-none font-sans">
+                {/* Background Number Accent */}
+                <div className="absolute top-8 right-8 text-4xl font-black text-stone-50 group-hover:text-stone-100 transition-colors pointer-events-none select-none font-sans">
                   {chapter.num}
                 </div>
 
                 <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon with Dynamic Gradient Background on Hover */}
-                  <div className={`w-18 h-18 bg-stone-50 rounded-3xl flex items-center justify-center text-stone-400 group-hover:text-white group-hover:bg-gradient-to-br ${chapter.accent} mb-10 transition-all duration-500 shadow-inner group-hover:shadow-lg group-hover:rotate-12`}>
-                    <chapter.icon size={36} strokeWidth={1.5} />
+                  {/* Icon with Subtle Hover Highlight */}
+                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} group-hover:${chapter.bgColor} mb-8 transition-all duration-300 shadow-inner group-hover:rotate-6`}>
+                    <chapter.icon size={32} strokeWidth={1.5} />
                   </div>
 
                   <div className="flex-grow">
                     <div className="flex items-center gap-2 mb-3">
-                       <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.accent}`}></span>
+                       <span className={`w-2 h-2 rounded-full ${chapter.bgColor.replace('bg-', 'bg-')}`}></span>
                        <span className="text-stone-400 font-bold text-[11px] tracking-widest uppercase font-sans">Chapter {chapter.num}</span>
                     </div>
-                    <h4 className="text-xl font-bold text-stone-900 mb-5 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">
+                    <h4 className="text-lg font-bold text-stone-900 mb-4 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">
                       {chapter.title}
                     </h4>
                     <p className="text-sm text-stone-500 leading-relaxed font-medium">
@@ -423,7 +420,7 @@ export const ProfessionalCourse: React.FC = () => {
 
                 <p className="mt-12 text-sm text-stone-500 italic">
                   Professional Courseは資格を取ることが目的ではありません。<br />
-                  あなたの施設に完成された指導メカニズムを導入し、育てることが真의目的です。
+                  あなたの施設に完成された指導メカニズムを導入し、育てることが真の目的です。
                 </p>
              </div>
           </div>
