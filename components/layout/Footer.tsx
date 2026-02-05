@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-3 text-sm">
                 <li><Link to="/courses" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />講座一覧</Link></li>
-                <li><Link to="/calculator" className="hover:text-[#FF8C6B] transition-colors flex items-center group font-bold text-[#FF8C6B]"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />ダイエット診断</Link></li>
+                <li><Link to="/calculator" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />ダイエット診断</Link></li>
                 <li><Link to="/pricing" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />受講料</Link></li>
               </ul>
             </div>
