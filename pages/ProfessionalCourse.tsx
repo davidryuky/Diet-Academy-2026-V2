@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../components/common/Button';
 import { 
@@ -10,12 +9,17 @@ import {
   ArrowRight, 
   Award, 
   Building2, 
-  Stethoscope, 
-  Dumbbell, 
-  Sparkles,
+  LineChart,
+  Layout,
+  ClipboardCheck,
+  Brain,
+  CalendarRange,
+  Users,
+  Scale,
+  Layers,
+  Rocket,
   Target
 } from 'lucide-react';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 
 export const ProfessionalCourse: React.FC = () => {
@@ -92,6 +96,19 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       )
     }
+  ];
+
+  const chapters = [
+    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。" },
+    { icon: Layout, num: "02", title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造とフローの構築。" },
+    { icon: ClipboardCheck, num: "03", title: "診断・初回面談デザイン", desc: "誰でも同じ技術的判断に到達するためのマニュアル化。" },
+    { icon: Brain, num: "04", title: "行動変容療法の活用", desc: "62項目のチェックアップを用いた習慣のズレの特定と計画化。" },
+    { icon: CalendarRange, num: "05", title: "3ヶ月運用モデル", desc: "成果と継続を安定させる、属人化しないサポート構造。" },
+    { icon: ShieldCheck, num: "06", title: "施設認定と責任", desc: "技術責任者の役割と認定シールの意味・運用方法。" },
+    { icon: Users, num: "07", title: "チーム運営と教育", desc: "品質を維持し、判断力のある人材を育成する方法。" },
+    { icon: Scale, num: "08", title: "倫理と専門性の限界", desc: "顧客とビジネスを守るための境界線と禁止事項の定義。" },
+    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との組み合わせ方。" },
+    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。" }
   ];
 
   return (
@@ -249,33 +266,53 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Curriculum Grid */}
-      <section className="py-24 bg-white">
-        <div className="w-[92%] max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 font-serif-jp">コース詳細（全10章）</h2>
-            <p className="text-stone-500 mt-4">経営から実戦までを網羅したカリキュラム</p>
+      {/* 5. Curriculum Grid - ENHANCED VERSION */}
+      <section className="py-32 bg-white">
+        <div className="w-[92%] max-w-[1500px] mx-auto">
+          <div className="text-center mb-20">
+            <span className="inline-block bg-teal-50 text-teal-700 font-bold px-6 py-2 rounded-full text-xs tracking-widest uppercase mb-6 border border-teal-100">
+              Complete Curriculum
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight">
+              コース詳細（全10章）
+            </h2>
+            <p className="text-stone-500 mt-6 text-lg max-w-2xl mx-auto">
+              経営戦略から現場の実践までを網羅した、最高峰のカリキュラムを紐解きます。
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { num: "01", title: "ビジネスとしてのダイエット", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。" },
-              { num: "02", title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造とフローの構築。" },
-              { num: "03", title: "診断・初回面談デザイン", desc: "誰でも同じ技術的判断に到達するためのマニュアル化。" },
-              { num: "04", title: "行動変容療法の活用", desc: "62項目のチェックアップを用いた習慣のズレの特定と計画化。" },
-              { num: "05", title: "3ヶ月運用モデル", desc: "成果と継続を安定させる、属人化しないサポート構造。" },
-              { num: "06", title: "施設認定と責任", desc: "技術責任者の役割と認定シールの意味・運用方法。" },
-              { num: "07", title: "チーム運営と教育", desc: "品質を維持し、判断力のある人材を育成する方法。" },
-              { num: "08", title: "倫理と専門性の限界", desc: "顧客とビジネスを守るための境界線と禁止事項の定義。" },
-              { num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との組み合わせ方。" },
-              { num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。" }
-            ].map((chapter, idx) => (
-              <div key={idx} className="bg-stone-50 p-6 rounded-2xl border border-stone-100 hover:shadow-md transition-all">
-                <div className="text-teal-500 font-bold text-xs mb-3 font-mono">{chapter.num}</div>
-                <h4 className="text-sm font-bold text-stone-900 mb-2 font-serif-jp min-h-[40px]">{chapter.title}</h4>
-                <p className="text-[11px] text-stone-500 leading-relaxed font-medium">
-                  {chapter.desc}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {chapters.map((chapter, idx) => (
+              <div 
+                key={idx} 
+                className="group relative bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-2xl hover:border-teal-200 transition-all duration-500 flex flex-col h-full overflow-hidden"
+              >
+                {/* Background Number Accent */}
+                <div className="absolute -top-4 -right-4 text-8xl font-black text-stone-50 group-hover:text-teal-50/50 transition-colors pointer-events-none">
+                  {chapter.num}
+                </div>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-teal-600 mb-8 group-hover:bg-teal-600 group-hover:text-white transition-all duration-500 shadow-sm group-hover:rotate-6">
+                    <chapter.icon size={30} strokeWidth={1.5} />
+                  </div>
+
+                  <div className="flex-grow">
+                    <div className="text-teal-500 font-bold text-[10px] mb-2 font-mono tracking-widest uppercase">Chapter {chapter.num}</div>
+                    <h4 className="text-lg font-bold text-stone-900 mb-4 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">
+                      {chapter.title}
+                    </h4>
+                    <p className="text-sm text-stone-500 leading-relaxed font-medium">
+                      {chapter.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-stone-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center text-teal-600 text-[10px] font-bold tracking-widest uppercase">
+                      Learn More <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
