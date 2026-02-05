@@ -4,7 +4,7 @@ import { MemberSidebar } from './components/MemberSidebar';
 import { MemberCourseCard } from './components/MemberCourseCard';
 import { courses } from '../../data/coursesData';
 import { Button } from '../../components/common/Button';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, MessageCircle } from 'lucide-react';
 
 export const MemberDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -78,7 +78,14 @@ export const MemberDashboard: React.FC = () => {
                 <h4 className="text-lg font-bold text-stone-800 font-serif-jp mb-1">受講生コミュニティに参加する</h4>
                 <p className="text-sm text-stone-500 font-medium">同じ目標を持つ仲間と知識を共有し、モチベーションを高め合いましょう。</p>
              </div>
-             <Button variant="outline" size="md">Discordに参加</Button>
+             <Button 
+               variant="outline" 
+               size="md" 
+               className="border-[#06C755] text-[#06C755] hover:bg-[#06C755] hover:text-white flex items-center gap-2 transition-all duration-300"
+             >
+               <MessageCircle size={18} />
+               LINEで参加
+             </Button>
           </div>
         </section>
       </main>

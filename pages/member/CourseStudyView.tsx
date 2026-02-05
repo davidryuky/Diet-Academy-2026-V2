@@ -47,36 +47,37 @@ export const CourseStudyView: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] flex flex-col">
-      {/* Top Navigation Bar */}
-      <header className="bg-white border-b border-stone-100 h-16 flex items-center px-4 md:px-8 sticky top-0 z-40">
-        <button 
-          onClick={() => navigate('/member-area')}
-          className="flex items-center gap-2 text-stone-500 hover:text-stone-800 transition-colors font-bold text-sm"
-        >
-          <ChevronLeft size={18} />
-          <span className="hidden md:inline">ダッシュボードへ戻る</span>
-        </button>
-        <div className="mx-auto flex items-center gap-3">
-           <div className={`w-8 h-8 rounded-lg ${courseInfo.color} flex items-center justify-center text-white`}>
+    <div className="min-h-[calc(100vh-160px)] bg-[#FDFCFB] flex flex-col">
+      {/* Informações Auxiliares do Curso (Sub-header) */}
+      <div className="bg-white border-b border-stone-100 py-3 px-4 md:px-8 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+           <button 
+             onClick={() => navigate('/member-area')}
+             className="p-2 hover:bg-stone-50 rounded-lg text-stone-400 hover:text-stone-800 transition-all"
+           >
+             <ChevronLeft size={20} />
+           </button>
+           <div className={`w-8 h-8 rounded-lg ${courseInfo.color} flex items-center justify-center text-white shadow-sm`}>
               <courseInfo.icon size={16} />
            </div>
-           <h2 className="text-sm md:text-base font-bold text-stone-800 font-serif-jp line-clamp-1">
-             {courseInfo.name}：{courseInfo.subtitle}
-           </h2>
+           <div>
+             <h2 className="text-xs md:text-sm font-bold text-stone-800 font-serif-jp">
+               {courseInfo.name} <span className="text-stone-400 font-normal">| {courseInfo.subtitle}</span>
+             </h2>
+           </div>
         </div>
         <div className="hidden md:flex items-center gap-4">
            <div className="text-[10px] text-stone-400 font-bold uppercase text-right">
-             Current Progress
-             <div className="text-stone-800 text-xs">12% (2/10 Lessons)</div>
+             Module Progress
+             <div className="text-stone-800 text-xs">12% Completed</div>
            </div>
         </div>
-      </header>
+      </div>
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         
         {/* Main Content (Video Player & Info) */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10">
           <div className="max-w-5xl mx-auto space-y-8">
             
             {/* Video Player Container */}
@@ -97,7 +98,7 @@ export const CourseStudyView: React.FC = () => {
 
             {/* Lesson Info */}
             {activeLesson && (
-              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="space-y-6">
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                   <div>
                     <h1 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">
@@ -117,7 +118,7 @@ export const CourseStudyView: React.FC = () => {
                   <div className="flex gap-3">
                     <button className="flex items-center gap-2 px-4 py-2 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-600 hover:bg-stone-50 transition-all">
                       <Download size={14} />
-                      レジュメ (PDF)
+                      資料 (PDF)
                     </button>
                     <button className="p-2 bg-white border border-stone-200 rounded-xl text-stone-400 hover:text-[#FF8C6B] transition-all">
                       <CheckCircle2 size={18} />
@@ -128,7 +129,7 @@ export const CourseStudyView: React.FC = () => {
                 <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-100 shadow-sm space-y-4">
                    <h3 className="flex items-center gap-2 text-stone-800 font-bold font-serif-jp">
                       <Info size={18} className="text-[#FF8C6B]" />
-                      講義内容の解説
+                      講義のポイント
                    </h3>
                    <p className="text-stone-600 text-sm leading-loose">
                      {activeLesson.description}
@@ -140,15 +141,15 @@ export const CourseStudyView: React.FC = () => {
         </main>
 
         {/* Sidebar (Curriculum) */}
-        <aside className="w-full lg:w-[400px] bg-white border-l border-stone-100 overflow-y-auto flex-shrink-0">
+        <aside className="w-full lg:w-[380px] bg-white border-l border-stone-100 overflow-y-auto flex-shrink-0">
            <div className="p-6 border-b border-stone-50">
-              <h3 className="text-lg font-bold text-stone-800 font-serif-jp flex items-center gap-2">
-                 <BookOpen size={20} className="text-stone-400" />
-                 コースカリキュラム
+              <h3 className="text-base font-bold text-stone-800 font-serif-jp flex items-center gap-2">
+                 <BookOpen size={18} className="text-stone-400" />
+                 カリキュラム
               </h3>
            </div>
 
-           <div className="p-2 space-y-2">
+           <div className="p-2 space-y-1">
               {content.modules.map((module, mIdx) => (
                 <div key={module.id} className="bg-white">
                    <button 
@@ -181,13 +182,12 @@ export const CourseStudyView: React.FC = () => {
                              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                                activeLesson?.id === lesson.id ? 'bg-[#FF8C6B] text-white' : 'bg-stone-100 text-stone-400 group-hover:bg-stone-200'
                              }`}>
-                                {activeLesson?.id === lesson.id ? <Play size={12} fill="currentColor" /> : <Play size={12} />}
+                                {activeLesson?.id === lesson.id ? <Play size={10} fill="currentColor" /> : <Play size={10} />}
                              </div>
                              <div className="text-left">
-                                <div className="text-[10px] font-bold opacity-60 uppercase mb-0.5">Lesson {lIdx + 1}</div>
+                                <div className="text-[9px] font-bold opacity-60 uppercase mb-0.5">Lesson {lIdx + 1}</div>
                                 <div className="text-xs font-bold line-clamp-1">{lesson.title}</div>
                              </div>
-                             <div className="ml-auto text-[10px] font-medium opacity-50">{lesson.duration}</div>
                           </button>
                         ))}
                      </div>
