@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 // Fix: Import HashRouter, Routes, Route, useLocation, useNavigate from 'react-router'
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router';
@@ -17,6 +16,7 @@ import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { CertificateDemo } from './pages/CertificateDemo';
 import { Login } from './pages/Login';
+import { CalculatorPage } from './pages/Calculator';
 import { MemberDashboard } from './pages/member/MemberDashboard';
 import { CourseStudyView } from './pages/member/CourseStudyView';
 import { AdminLogin } from './pages/admin/AdminLogin';
@@ -80,6 +80,7 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/seekers" element={<Seekers />} />
           <Route path="/instructors" element={<Instructors />} />
           <Route path="/courses" element={<Courses />} />

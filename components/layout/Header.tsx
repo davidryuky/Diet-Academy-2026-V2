@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router';
 import { 
   Menu, X, FileText, Send, 
-  Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight, User 
+  Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight, User, Calculator
 } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -20,8 +20,8 @@ export const Header: React.FC = () => {
     { name: '目的から探す', path: '/seekers', sub: 'For Seekers', icon: Users },
     { name: '講師・プロ向け', path: '/instructors', sub: 'For Instructors', icon: Briefcase },
     { name: '講座一覧', path: '/courses', sub: 'Courses', icon: BookOpen },
-    { name: '学習方法', path: '/methods', sub: 'Methods', icon: Monitor },
     { name: '受講料', path: '/pricing', sub: 'Pricing', icon: CreditCard },
+    { name: 'ダイエット診断', path: '/calculator', sub: 'BMI', icon: Calculator },
     { name: 'ブログ', path: '/blog', sub: 'Blog', icon: FileText },
   ];
 
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Center: Main Navigation (Desktop) */}
-            <nav className="hidden xl:flex items-center space-x-8 2xl:space-x-12">
+            <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-10">
               {navLinks.map((link) => (
                 <NavLink 
                   key={link.path}
