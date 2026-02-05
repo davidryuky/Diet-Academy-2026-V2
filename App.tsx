@@ -6,18 +6,18 @@ import { Home } from './pages/Home';
 import { Seekers } from './pages/Seekers';
 import { Instructors } from './pages/Instructors';
 import { Courses } from './pages/Courses';
+import { ProfessionalCourse } from './pages/ProfessionalCourse';
 import { Pricing } from './pages/Pricing';
 import { Methods } from './pages/Methods';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { CertificateDemo } from './pages/CertificateDemo';
-import { ProfessionalCourse } from './pages/ProfessionalCourse';
 import { Login } from './pages/Login';
 import { MemberDashboard } from './pages/member/MemberDashboard';
+import { CourseStudyView } from './pages/member/CourseStudyView';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
-// Component to scroll to top on route change, using the hook
 const ScrollToTop = () => {
   useScrollToTop();
   return null;
@@ -43,6 +43,7 @@ function App() {
             <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
             <Route path="/login" element={<Login />} />
             <Route path="/member-area" element={<MemberDashboard />} />
+            <Route path="/member-area/course/:courseId" element={<CourseStudyView />} />
           </Routes>
         </main>
         <Footer />

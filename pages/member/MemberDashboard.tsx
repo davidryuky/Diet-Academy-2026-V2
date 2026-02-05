@@ -4,14 +4,15 @@ import { MemberSidebar } from './components/MemberSidebar';
 import { MemberCourseCard } from './components/MemberCourseCard';
 import { courses } from '../../data/coursesData';
 import { Button } from '../../components/common/Button';
+import { Sparkles } from 'lucide-react';
 
 export const MemberDashboard: React.FC = () => {
   const navigate = useNavigate();
 
-  // Mock data - In a real app, this would come from a context or backend API
+  // Mock data - Em um app real, isso viria de um contexto de autenticação
   const user = {
     name: 'Demo User',
-    status: 'Free Member'
+    status: 'Premium Member' // Alterado para Premium no Demo
   };
 
   return (
@@ -22,16 +23,33 @@ export const MemberDashboard: React.FC = () => {
 
       {/* Main Content Area */}
       <main className="flex-1 p-6 md:p-12 max-w-6xl">
-        <header className="mb-12">
-          <h1 className="text-3xl font-bold text-stone-800 font-serif-jp">ようこそ、{user.name}様</h1>
-          <p className="text-stone-500 mt-2 font-medium">現在受講可能なコースはありません。学習を開始するにはコースのアクティベーションが必要です。</p>
+        <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 text-[#FF8C6B] font-bold text-xs uppercase tracking-widest mb-2">
+              <Sparkles size={14} />
+              Welcome Back
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp leading-tight">ようこそ、{user.name}様</h1>
+            <p className="text-stone-500 mt-2 font-medium">デモアカウントとして全てのコースが開放されています。学習を継続しましょう。</p>
+          </div>
+          
+          <div className="bg-white p-4 rounded-2xl border border-stone-100 shadow-sm flex items-center gap-4">
+             <div className="text-right">
+                <div className="text-[10px] text-stone-400 font-bold uppercase">Total Progress</div>
+                <div className="text-xl font-bold text-stone-800">12%</div>
+             </div>
+             <div className="w-12 h-12 rounded-full border-4 border-[#FF8C6B]/20 border-t-[#FF8C6B] rotate-45"></div>
+          </div>
         </header>
 
         {/* Courses Section */}
         <section className="space-y-8">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
             <h2 className="text-xl font-bold text-stone-800 font-serif-jp">受講コース一覧</h2>
-            <span className="text-xs font-bold text-stone-400 tracking-widest uppercase">My Courses</span>
+            <div className="flex gap-4">
+               <button className="text-[10px] font-bold text-[#FF8C6B] bg-[#FFF5F0] px-3 py-1 rounded-full">ACTIVE</button>
+               <button className="text-[10px] font-bold text-stone-400 px-3 py-1 hover:bg-stone-100 rounded-full transition-colors">COMPLETED</button>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -39,42 +57,34 @@ export const MemberDashboard: React.FC = () => {
               <MemberCourseCard 
                 key={course.id} 
                 course={course} 
-                isLocked={true} 
-                progress={0} 
+                isLocked={false} // Desbloqueado no Demo
+                progress={idxToMockProgress(course.id)} 
               />
             ))}
           </div>
         </section>
 
-        {/* Upsell / Info Banner */}
+        {/* Community / Support Banner */}
         <section className="mt-16">
-          <div className="bg-gradient-to-r from-stone-900 to-stone-800 rounded-[2.5rem] p-10 md:p-14 text-white relative overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[100px] -mr-32 -mt-32"></div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
-              <div className="flex-1">
-                <span className="text-teal-400 font-bold tracking-[0.4em] text-xs uppercase mb-4 block">Information</span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 font-serif-jp leading-tight">
-                  全てのコンテンツを解放して、<br />ダイエットのプロを目指しましょう。
-                </h3>
-                <p className="text-stone-400 mb-8 font-medium leading-relaxed max-w-lg">
-                  正規受講生になると、全てのビデオ講義、教材PDF、プロ講師による無制限のチャットサポートが利用可能になります。
-                </p>
-                <Button variant="teal" size="lg" onClick={() => navigate('/pricing')}>
-                  受講プランを確認する
-                </Button>
-              </div>
-              
-              {/* Support Badge */}
-              <div className="w-40 h-40 md:w-56 md:h-56 bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] flex flex-col items-center justify-center text-center p-6">
-                <div className="text-4xl font-bold font-serif-jp mb-2">24h</div>
-                <div className="text-[10px] text-stone-400 font-bold tracking-widest uppercase">Support System</div>
-                <div className="mt-4 w-12 h-px bg-white/20"></div>
-                <div className="mt-4 text-[11px] text-stone-300 font-medium">いつでも質問可能</div>
-              </div>
-            </div>
+          <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-stone-100 shadow-sm flex flex-col md:flex-row items-center gap-8">
+             <div className="w-16 h-16 bg-[#5D9B9B]/10 rounded-full flex items-center justify-center text-[#5D9B9B]">
+                <Sparkles size={32} />
+             </div>
+             <div className="flex-1 text-center md:text-left">
+                <h4 className="text-lg font-bold text-stone-800 font-serif-jp mb-1">受講生コミュニティに参加する</h4>
+                <p className="text-sm text-stone-500 font-medium">同じ目標を持つ仲間と知識を共有し、モチベーションを高め合いましょう。</p>
+             </div>
+             <Button variant="outline" size="md">Discordに参加</Button>
           </div>
         </section>
       </main>
     </div>
   );
 };
+
+// Helper para simular progresso diferente
+function idxToMockProgress(id: string) {
+  if (id === 'regular') return 35;
+  if (id === 'senior') return 0;
+  return 0;
+}

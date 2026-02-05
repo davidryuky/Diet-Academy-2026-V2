@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { Lock, PlayCircle } from 'lucide-react';
 import { Button } from '../../../components/common/Button';
 import { CourseDetail } from '../../../data/coursesData';
 
@@ -13,10 +13,18 @@ interface MemberCourseCardProps {
 export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLocked, progress }) => {
   const navigate = useNavigate();
 
+  const handleAction = () => {
+    if (!isLocked) {
+      navigate(`/member-area/course/${course.id}`);
+    } else {
+      navigate('/pricing');
+    }
+  };
+
   return (
     <div 
       className={`group relative bg-white rounded-[2rem] border border-stone-200 overflow-hidden shadow-sm flex flex-col transition-all duration-500 ${
-        isLocked ? 'opacity-75 grayscale hover:grayscale-0' : ''
+        isLocked ? 'opacity-75 grayscale hover:grayscale-0' : 'hover:shadow-xl hover:-translate-y-1'
       }`}
     >
       {/* Locked Overlay */}
@@ -28,11 +36,6 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
           <div className="text-white font-bold text-sm mb-6 font-serif-jp leading-relaxed">
             このコンテンツは<br />未購入またはロックされています
           </div>
-          {/* 
-            Removido o override 'bg-white text-stone-900' que causava conflito.
-            Agora usa o padrão 'orange' (Coral com Texto Branco) que tem contraste 
-            perfeito sobre o fundo escuro do overlay.
-          */}
           <Button 
             size="sm" 
             variant="orange" 
@@ -45,8 +48,16 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
       )}
 
       {/* Course Header/Visual */}
-      <div className={`h-32 ${course.color} flex items-center justify-center`}>
+      <div 
+        className={`h-32 ${course.color} flex items-center justify-center relative cursor-pointer`}
+        onClick={handleAction}
+      >
         <course.icon size={48} className="text-white/80" />
+        {!isLocked && (
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <PlayCircle size={40} className="text-white" />
+          </div>
+        )}
       </div>
 
       {/* Course Content Info */}
@@ -61,7 +72,7 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
         <div className="space-y-2">
           <div className="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
             <div 
-              className="h-full bg-[#FF8C6B] transition-all duration-1000" 
+              className={`h-full ${isLocked ? 'bg-stone-300' : 'bg-[#FF8C6B]'} transition-all duration-1000`} 
               style={{ width: `${progress}%` }}
             ></div>
           </div>
@@ -75,14 +86,14 @@ export const MemberCourseCard: React.FC<MemberCourseCardProps> = ({ course, isLo
       {/* Footer Action */}
       <div className="p-6 bg-stone-50 border-t border-stone-100 mt-auto">
         <button 
-          disabled={isLocked}
+          onClick={handleAction}
           className={`w-full py-2.5 rounded-xl border font-bold text-xs font-serif-jp transition-all ${
             isLocked 
             ? 'border-stone-200 text-stone-500 bg-stone-100/50 cursor-not-allowed opacity-60' 
             : 'border-[#FF8C6B] text-[#FF8C6B] hover:bg-[#FF8C6B] hover:text-white bg-white shadow-sm'
           }`}
         >
-          {isLocked ? '学習を開始する' : '受講を継続する'}
+          {isLocked ? 'コースを有効化する' : '学習を開始する'}
         </button>
       </div>
     </div>
