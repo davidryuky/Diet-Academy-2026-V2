@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
 import { User, Lock, AlertCircle } from 'lucide-react';
@@ -14,6 +12,8 @@ export const Login: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (username === 'demo' && password === 'demo') {
+      // Ativa a sessão para o MemberGuard
+      sessionStorage.setItem('member_auth', 'true');
       navigate('/member-area');
     } else {
       setError('ユーザー名またはパスワードが正しくありません。 (demo/demo)');

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router';
 
 export const Footer: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const Footer: React.FC = () => {
           {/* Brand Column (Left) */}
           <div className="lg:col-span-4 space-y-6">
              <div className="flex items-end">
-                <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-14 md:h-16 w-auto grayscale opacity-80" />
+                <img src="https://i.postimg.cc/sDKQrDBb/logoremaster.png" alt="ダイエットマスター資格講座" className="h-14 md:h-16 w-auto object-contain grayscale opacity-80" />
                 <span className="text-sm font-bold text-[#FF8C6B] ml-2 tracking-widest font-serif-jp" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                   2026
                 </span>
@@ -49,9 +50,9 @@ export const Footer: React.FC = () => {
                 講座案内
               </h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />講座一覧</a></li>
-                <li><a href="#" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />人気ランキング</a></li>
-                <li><a href="#" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />新着講座</a></li>
+                <li><Link to="/courses" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />講座一覧</Link></li>
+                <li><Link to="/calculator" className="hover:text-[#FF8C6B] transition-colors flex items-center group font-bold text-[#FF8C6B]"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />ダイエット診断</Link></li>
+                <li><Link to="/pricing" className="hover:text-[#FF8C6B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />受講料</Link></li>
               </ul>
             </div>
 
@@ -62,9 +63,9 @@ export const Footer: React.FC = () => {
                 サポート
               </h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-[#5D9B9B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />受講生専用ページ</a></li>
+                <li><Link to="/member" className="hover:text-[#5D9B9B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />受講生専用ページ</Link></li>
                 <li><a href="#" className="hover:text-[#5D9B9B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />お問い合わせ</a></li>
-                <li><a href="#" className="hover:text-[#5D9B9B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />よくある質問</a></li>
+                <li><Link to="/pricing" className="hover:text-[#5D9B9B] transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />よくある質問</Link></li>
               </ul>
             </div>
 
@@ -88,7 +89,7 @@ export const Footer: React.FC = () => {
                 その他
               </h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-stone-900 transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />お友達紹介キャンペーン</a></li>
+                <li><Link to="/blog" className="hover:text-stone-900 transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />公式ブログ</Link></li>
                 <li><a href="#" className="hover:text-stone-900 transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />監修者一覧</a></li>
                 <li><a href="#" className="hover:text-stone-900 transition-colors flex items-center group"><ChevronRight size={12} className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity -ml-3 group-hover:ml-0 duration-300" />サイトマップ</a></li>
               </ul>

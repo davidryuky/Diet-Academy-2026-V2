@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// Fix: Import HashRouter, Routes, Route, useLocation, useNavigate from 'react-router'
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -30,8 +29,7 @@ const ScrollToTop = () => {
   return null;
 }
 
-// Componente de proteção de rota para Admin
-// Fix: Make children optional to resolve "Property 'children' is missing in type '{}' but required" errors
+// Proteção para Área Admin
 const AdminGuard = ({ children }: { children?: React.ReactNode }) => {
   const navigate = useNavigate();
   const isAuthenticated = sessionStorage.getItem('admin_auth') === 'true';
@@ -46,22 +44,34 @@ const AdminGuard = ({ children }: { children?: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-// Componente de Layout principal
+// Proteção para Área de Membros
+const MemberGuard = ({ children }: { children?: React.ReactNode }) => {
+  const navigate = useNavigate();
+  // Simulação de auth para o demo (pode ser expandido conforme necessário)
+  const isMemberAuthenticated = sessionStorage.getItem('member_auth') === 'true' || localStorage.getItem('member_auth') === 'true';
+
+  useEffect(() => {
+    if (!isMemberAuthenticated) {
+      navigate('/member');
+    }
+  }, [isMemberAuthenticated, navigate]);
+
+  if (!isMemberAuthenticated) return null;
+  return <>{children}</>;
+};
+
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const isMemberArea = location.pathname.startsWith('/member-area');
   const isAdminArea = location.pathname.startsWith('/admin') && location.pathname !== '/admin/login';
-  // Atualizado: /login agora é /member
   const isLoginPage = location.pathname === '/member' || location.pathname === '/admin/login';
 
-  // Se for página de login, não mostra Header/Footer padrão
   if (isLoginPage) return <main className="flex-grow">{children}</main>;
 
   return (
     <div className="flex flex-col min-h-screen relative">
       {isMemberArea ? <MemberHeader /> : !isAdminArea && <Header />}
       
-      {/* Área Admin tem seu próprio estilo de Header interno para foco total no CMS */}
       <main className="flex-grow">
         {children}
       </main>
@@ -90,14 +100,27 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
-          {/* Rota de login alterada para /member */}
           <Route path="/member" element={<Login />} />
 
-          {/* Member Routes */}
-          <Route path="/member-area" element={<MemberDashboard />} />
-          <Route path="/member-area/course/:courseId" element={<CourseStudyView />} />
+          {/* Member Routes (Protected) */}
+          <Route 
+            path="/member-area" 
+            element={
+              <MemberGuard>
+                <MemberDashboard />
+              </MemberGuard>
+            } 
+          />
+          <Route 
+            path="/member-area/course/:courseId" 
+            element={
+              <MemberGuard>
+                <CourseStudyView />
+              </MemberGuard>
+            } 
+          />
 
-          {/* Admin Routes (Protegidas) */}
+          {/* Admin Routes (Protected) */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route 
             path="/admin" 

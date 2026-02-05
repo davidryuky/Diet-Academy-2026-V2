@@ -1,7 +1,5 @@
-
 import React from 'react';
-// Fix: Import useNavigate from 'react-router'
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { 
   LayoutDashboard, 
   CheckCircle2, 
@@ -11,7 +9,8 @@ import {
   Bell, 
   Settings, 
   LogOut, 
-  User 
+  User,
+  Calculator
 } from 'lucide-react';
 
 interface MemberSidebarProps {
@@ -19,12 +18,13 @@ interface MemberSidebarProps {
   memberStatus: string;
 }
 
-// Fix: Add MemberSidebarProps to React.FC and destructure props to fix type error
 export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberStatus }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
-    { label: 'ダッシュボード', icon: LayoutDashboard, active: true, path: '/member-area' },
+    { label: 'ダッシュボード', icon: LayoutDashboard, path: '/member-area' },
+    { label: 'ダイエット診断', icon: Calculator, path: '/calculator' },
     { label: '学習の進捗', icon: CheckCircle2, path: '#' },
     { label: '課題・テスト', icon: FileText, path: '#' },
     { label: 'マイ認定証', icon: Award, path: '/demo' },
@@ -32,6 +32,12 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
     { label: 'お知らせ', icon: Bell, path: '#' },
     { label: '設定', icon: Settings, path: '#' },
   ];
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('member_auth');
+    localStorage.removeItem('member_auth');
+    navigate('/member');
+  };
 
   return (
     <aside className="w-full md:w-64 bg-white border-r border-stone-100 p-6 space-y-8 flex-shrink-0">
@@ -48,26 +54,29 @@ export const MemberSidebar: React.FC<MemberSidebarProps> = ({ userName, memberSt
 
       {/* Navigation Menu */}
       <nav className="space-y-1">
-        {menuItems.map((item, idx) => (
-          <button 
-            key={idx}
-            onClick={() => item.path !== '#' && navigate(item.path)}
-            className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
-              item.active 
-              ? 'bg-[#FF8C6B] text-white shadow-md shadow-orange-100' 
-              : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
-            }`}
-          >
-            <item.icon size={18} />
-            <span className="font-serif-jp whitespace-nowrap">{item.label}</span>
-          </button>
-        ))}
+        {menuItems.map((item, idx) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <button 
+              key={idx}
+              onClick={() => item.path !== '#' && navigate(item.path)}
+              className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                isActive 
+                ? 'bg-[#FF8C6B] text-white shadow-md shadow-orange-100' 
+                : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
+              }`}
+            >
+              <item.icon size={18} />
+              <span className="font-serif-jp whitespace-nowrap">{item.label}</span>
+            </button>
+          );
+        })}
       </nav>
 
       {/* Logout Action */}
       <div className="pt-10">
         <button 
-          onClick={() => navigate('/member')}
+          onClick={handleLogout}
           className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-stone-400 hover:text-red-500 hover:bg-red-50 transition-all"
         >
           <LogOut size={18} />
