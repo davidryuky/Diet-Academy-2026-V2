@@ -8,7 +8,6 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Award, 
-  Building2, 
   LineChart,
   Layout,
   ClipboardCheck,
@@ -267,7 +266,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Curriculum Grid - SALES OPTIMIZED */}
+      {/* 5. Curriculum Grid - SALES OPTIMIZED & REFINED HOVER */}
       <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1600px] mx-auto">
           <div className="text-center mb-24">
@@ -291,18 +290,18 @@ export const ProfessionalCourse: React.FC = () => {
                 key={idx} 
                 className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full overflow-hidden"
               >
-                {/* Background Number Accent */}
-                <div className="absolute top-8 right-8 text-4xl font-black text-stone-50 group-hover:text-stone-100 transition-colors pointer-events-none select-none font-sans">
+                {/* Background Number Accent - Improved Legibility */}
+                <div className="absolute top-6 right-6 text-5xl font-black text-stone-200/40 group-hover:text-stone-200 transition-colors pointer-events-none select-none font-sans">
                   {chapter.num}
                 </div>
 
                 <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon with Subtle Hover Highlight */}
-                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} group-hover:${chapter.bgColor} mb-8 transition-all duration-300 shadow-inner group-hover:rotate-6`}>
+                  {/* Icon with Refined Hover (Soft highlight & Rotation) */}
+                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} group-hover:bg-white group-hover:shadow-sm transition-all duration-500 shadow-inner group-hover:rotate-6`}>
                     <chapter.icon size={32} strokeWidth={1.5} />
                   </div>
 
-                  <div className="flex-grow">
+                  <div className="flex-grow mt-8">
                     <div className="flex items-center gap-2 mb-3">
                        <span className={`w-2 h-2 rounded-full ${chapter.bgColor.replace('bg-', 'bg-')}`}></span>
                        <span className="text-stone-400 font-bold text-[11px] tracking-widest uppercase font-sans">Chapter {chapter.num}</span>
