@@ -85,7 +85,7 @@ export const Home: React.FC = () => {
 
                           <Button 
                             fullWidth 
-                            variant={course.id === 'regular' ? 'orange' : course.id === 'senior' ? 'teal' : 'teal'} 
+                            variant={course.id === 'regular' ? 'orange' : 'teal'} 
                             size="md"
                             onClick={() => {
                               if (course.id === 'professional') {
@@ -245,7 +245,7 @@ export const Home: React.FC = () => {
                             <span className="text-[#FF8C6B] font-bold text-xs tracking-[0.3em] uppercase block mb-4">Supervision</span>
                             <h3 className="text-3xl font-bold text-stone-800 mb-6 font-serif-jp">プロが監修する、妥協のない質。</h3>
                             <div className="flex items-center gap-4 mb-6">
-                                 <div className="font-bold text-2xl text-stone-800">山田 花子 先生</div>
+                                 <div className="font-bold text-2xl text-stone-800">小野 誠 監修</div>
                                  <span className="text-xs text-stone-500 bg-white border border-stone-200 px-4 py-1.5 rounded-full font-bold">管理栄養士</span>
                             </div>
                             <p className="text-stone-700 leading-loose text-base font-medium">
