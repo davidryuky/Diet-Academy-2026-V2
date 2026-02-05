@@ -51,7 +51,7 @@ export const ProfessionalCourse: React.FC = () => {
             <li>初回の「ダイエット診断」</li>
             <li>3 か月間のダイエットサポート</li>
           </ul>
-          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
+          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせtたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
         </div>
       )
     },
@@ -137,7 +137,7 @@ export const ProfessionalCourse: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
               個人の才能に依存しない。技術ではなく「システム」として<br className="hidden md:block" />
-              ダイエット指導を運用するためのプロフェッショナルコース.
+              ダイエット指導を運用するためのプロフェッショナルコース。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>
@@ -423,7 +423,7 @@ export const ProfessionalCourse: React.FC = () => {
 
                 <p className="mt-12 text-sm text-stone-500 italic">
                   Professional Courseは資格を取ることが目的ではありません。<br />
-                  あなたの施設に完成された指導メカニズムを導入し、育てることが真の目的です。
+                  あなたの施設に完成された指導メカニズムを導入し、育てることが真의目的です。
                 </p>
              </div>
           </div>
