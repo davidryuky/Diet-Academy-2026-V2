@@ -1,5 +1,7 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
+import React, { useEffect } from 'react';
+// Fix: Import HashRouter, Routes, Route, useLocation, useNavigate from 'react-router'
+import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { MemberHeader } from './components/layout/MemberHeader';
@@ -27,6 +29,21 @@ const ScrollToTop = () => {
   useScrollToTop();
   return null;
 }
+
+// Componente de proteção de rota para Admin
+const AdminGuard = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate();
+  const isAuthenticated = sessionStorage.getItem('admin_auth') === 'true';
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/admin/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated) return null;
+  return <>{children}</>;
+};
 
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
@@ -75,10 +92,24 @@ function App() {
           <Route path="/member-area" element={<MemberDashboard />} />
           <Route path="/member-area/course/:courseId" element={<CourseStudyView />} />
 
-          {/* Admin Routes */}
+          {/* Admin Routes (Protegidas) */}
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/course/:courseId" element={<AdminCurriculumEditor />} />
+          <Route 
+            path="/admin" 
+            element={
+              <AdminGuard>
+                <AdminDashboard />
+              </AdminGuard>
+            } 
+          />
+          <Route 
+            path="/admin/course/:courseId" 
+            element={
+              <AdminGuard>
+                <AdminCurriculumEditor />
+              </AdminGuard>
+            } 
+          />
         </Routes>
       </AppLayout>
     </Router>

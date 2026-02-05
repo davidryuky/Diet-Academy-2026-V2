@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+// Fix: Import NavLink and useNavigate from 'react-router' instead of 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router';
 import { Menu, X, Search } from 'lucide-react';
 import { Button } from './Button';
 

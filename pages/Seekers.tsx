@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { Heart, Scale, Smile, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { courses } from '../data/coursesData';
 
@@ -62,7 +64,7 @@ export const Seekers: React.FC = () => {
                 <span className="text-white/80 font-bold tracking-widest text-xs uppercase mb-4">Recommended For Beginners</span>
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif-jp leading-tight">Diet Master<br /><span className="text-2xl opacity-90 font-sans">レギュラーコース</span></h2>
                 <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
-                  まずはここから。ダイエットの基礎から応用まで、実践的な知識を網羅した人気No.1コース。
+                  まずはここから。ダイエットの基礎から応用まで、実践的な知識を網羅した人気 No.1 コース。
                 </p>
                 <ul className="space-y-4 mb-10">
                     {regularCourse.features.map((f, i) => (

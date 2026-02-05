@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// Fix: Import useParams, useNavigate from 'react-router'
+import { useParams, useNavigate } from 'react-router';
 import { blogPosts } from '../data/blogData';
 import { Button } from '../components/common/Button';
 import { ChevronLeft, Calendar, Tag } from 'lucide-react';

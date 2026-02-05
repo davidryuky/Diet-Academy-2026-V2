@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { MemberSidebar } from './components/MemberSidebar';
 import { MemberCourseCard } from './components/MemberCourseCard';
 import { courses } from '../../data/coursesData';

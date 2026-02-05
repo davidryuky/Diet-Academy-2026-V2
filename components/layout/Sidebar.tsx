@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { ChevronRight, Smartphone, BookOpen, FileText, ArrowRight, Gift } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 
 export const Sidebar: React.FC = () => {
   const navigate = useNavigate();

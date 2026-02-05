@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '../components/common/Button';
 import { 
@@ -14,7 +15,8 @@ import {
   Sparkles,
   Target
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 
 export const ProfessionalCourse: React.FC = () => {
   const navigate = useNavigate();

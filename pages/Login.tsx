@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
 import { User, Lock, AlertCircle } from 'lucide-react';
 
@@ -39,7 +41,7 @@ export const Login: React.FC = () => {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-stone-400 uppercase tracking-widest ml-1">ユーザーID / メールアドレス</label>
+              <label className="text-xs font-bold text-stone-400 uppercase tracking-widest ml-1">ユーザー ID / メールアドレス</label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-300 group-focus-within:text-[#FF8C6B] transition-colors">
                   <User size={18} />

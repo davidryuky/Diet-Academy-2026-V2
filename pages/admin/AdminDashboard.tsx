@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { 
   Users, 
   BookOpen, 
@@ -8,12 +10,18 @@ import {
   Settings, 
   ChevronRight,
   PlusCircle,
-  Video
+  Video,
+  LogOut
 } from 'lucide-react';
 import { courses } from '../../data/coursesData';
 
 export const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('admin_auth');
+    navigate('/admin/login');
+  };
 
   const stats = [
     { label: 'Total Students', value: '1,284', change: '+12%', icon: Users, color: 'text-blue-600' },
@@ -23,14 +31,18 @@ export const AdminDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
+    <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10 animate-in fade-in duration-700">
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-stone-800 font-serif-jp">管理者ダッシュボード</h1>
           <p className="text-stone-500 text-sm font-medium">コンテンツと受講生の管理を行います。</p>
         </div>
         <div className="flex gap-3">
-          <button className="flex items-center gap-2 px-5 py-2.5 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 transition-all">
+          <button className="flex items-center gap-2 px-5 py-2.5 bg-stone-100 text-stone-600 rounded-xl text-xs font-bold hover:bg-red-50 hover:text-red-500 transition-all border border-stone-200" onClick={handleLogout}>
+             <LogOut size={16} />
+             ログアウト
+          </button>
+          <button className="flex items-center gap-2 px-5 py-2.5 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 transition-all shadow-lg">
              <PlusCircle size={16} />
              新規コース作成
           </button>

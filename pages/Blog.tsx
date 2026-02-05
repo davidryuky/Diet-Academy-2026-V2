@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { blogPosts } from '../data/blogData';
 import { Button } from '../components/common/Button';
 

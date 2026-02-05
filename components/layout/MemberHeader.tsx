@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// Fix: Import useNavigate, Link from 'react-router'
+import { useNavigate, Link } from 'react-router';
 import { 
   LogOut, 
   Home, 

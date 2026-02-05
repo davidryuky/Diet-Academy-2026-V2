@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { BookOpen, Activity, Star, ChevronRight, CheckCircle2, Layers, Briefcase, Users, Monitor, Building } from 'lucide-react';
 import { courses } from '../data/coursesData';
 
@@ -36,7 +38,7 @@ export const Courses: React.FC = () => {
                 <span className="text-[#FF8C6B]">2つの資格</span>を同時に取得
               </h2>
               <p className="text-stone-600 text-lg mb-8 leading-relaxed font-medium">
-                当アカデミーでは、一回のコース受講で、役割の異なる2つの認定資格を取得できる「ダブルライセンス制度」を採用しています。これにより、知識の幅を広げ、市場での信頼性を圧倒的に高めることが可能です。
+                当アカデミーでは、一回のコース受講で、役割の異なる 2 つの認定資格を取得できる「ダブルライセンス制度」を採用しています。これにより、知識の幅を広げ、市場での信頼性を圧倒的に高めることが可能です。
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div className="bg-white p-5 rounded-xl border border-stone-100 flex items-center gap-4">

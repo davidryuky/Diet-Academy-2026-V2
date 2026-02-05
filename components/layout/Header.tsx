@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+// Fix: Import NavLink, useNavigate, useLocation from 'react-router'
+import { NavLink, useNavigate, useLocation } from 'react-router';
 import { 
   Menu, X, FileText, Send, 
   Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight, User 

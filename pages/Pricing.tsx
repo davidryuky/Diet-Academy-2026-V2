@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { Check, X, ShieldCheck, HelpCircle, AlertCircle, Info } from 'lucide-react';
 import { courses } from '../data/coursesData';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 
 export const Pricing: React.FC = () => {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ export const Pricing: React.FC = () => {
             >
               {idx === 1 && (
                 <div className="bg-[#FF8C6B] text-white text-[10px] font-bold text-center py-2 tracking-[0.2em] uppercase">
-                  Most Popular - 人気No.1
+                  Most Popular - 人気 No.1
                 </div>
               )}
               

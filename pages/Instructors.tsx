@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router'
+import { useNavigate } from 'react-router';
 import { Award, Briefcase, TrendingUp, ShieldCheck, ChevronRight, CheckCircle2, Globe, Building2, Monitor, Users } from 'lucide-react';
 import { courses } from '../data/coursesData';
 
@@ -147,7 +149,7 @@ export const Instructors: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-8 font-serif-jp">最短で確かな信頼を築く、究極のロードマップ</h2>
             <p className="text-stone-500 leading-loose text-lg font-medium">
-                当アカデミーのプロフェッショナルプログラムは、受講生の92%が専門知識ゼロからスタート。体系化されたステップアップにより、短期間で「教えられるプロ」としての自信と資格を手にしています。
+                当アカデミーのプロフェッショナルプログラムは、受講生の 92% が専門知識ゼロからスタート。体系化されたステップアップにより、短期間で「教えられるプロ」としての自信と資格を手にしています。
             </p>
         </div>
       </section>
