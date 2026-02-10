@@ -99,16 +99,16 @@ export const ProfessionalCourse: React.FC = () => {
   ];
 
   const chapters = [
-    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
-    { icon: Layout, num: "02", title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造とフローの構築。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
-    { icon: ClipboardCheck, num: "03", title: "診断・初回面談デザイン", desc: "誰でも同じ技術的判断に到達するためのマニュアル化。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
-    { icon: Brain, num: "04", title: "行動変容療法の活用", desc: "62項目のチェックアップを用いた習慣のズレの特定と計画化。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
-    { icon: CalendarRange, num: "05", title: "3ヶ月運用モデル", desc: "成果と継続を安定させる、属人化しないサポート構造。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
-    { icon: ShieldCheck, num: "06", title: "施設認定と責任", desc: "技術責任者の役割と認定シールの意味・運用方法。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
-    { icon: Users, num: "07", title: "チーム運営と教育", desc: "品質を維持し、判断力のある人材を育成する方法。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
-    { icon: Scale, num: "08", title: "倫理と専門性の限界", desc: "顧客とビジネスを守るための境界線と禁止事項の定義。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
-    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との組み合わせ方。", textColor: "text-amber-600", bgColor: "bg-amber-50" },
-    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。", textColor: "text-teal-700", bgColor: "bg-teal-50" }
+    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット指導", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。個人依存から組織運営への転換。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
+    { icon: Layout, num: "02", title: "ガイダンスの全体設計", desc: "集客からサポートまでを「ダイエット診断」を核に統合。ビジネスのハブとしての構造構築。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: ClipboardCheck, num: "03", title: "初回面談の標準化", desc: "「聞く」と「判断する」を分離。誰が担当しても一貫した意思決定を可能にするマニュアル化。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
+    { icon: Brain, num: "04", title: "診断のデザイン", desc: "直感ではなく事実に基づいた分析。新人もベテランと同じ精度で分析できる独自の診断ブロック構造。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { icon: CalendarRange, num: "05", title: "3ヶ月サポートの構造", desc: "習慣化の科学に基づく90日間の運用モデル。監視ではなく「調整」による成功率の向上。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
+    { icon: ShieldCheck, num: "06", title: "施設認定と運営管理", desc: "個人ブランドから組織の信頼へ。運営責任者の配置と、施設全体の品質を保証する認定制度。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { icon: Users, num: "07", title: "チームとトレーニング", desc: "「自由」ではなく「安全な枠組み」での委譲。新人が即戦力化する段階的な教育ステップ。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
+    { icon: Scale, num: "08", title: "倫理と専門的限界", desc: "「NO」と言える力が権威を生む。プロとしての境界線とリスク管理。顧客と組織を守る倫理規定。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
+    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との高度な組み合わせ方。※準備中", textColor: "text-amber-600", bgColor: "bg-amber-50", isDraft: true },
+    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。※準備中", textColor: "text-teal-700", bgColor: "bg-teal-50", isDraft: true }
   ];
 
   return (
@@ -189,84 +189,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Three Features Section */}
-      <section className="py-24 bg-white">
-        <div className="w-[92%] max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-teal-600 font-bold tracking-widest text-xs uppercase mb-4 block">Core Resources</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp">3つの大きな差別化</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "施設認定による安全性の確立",
-                icon: ShieldCheck,
-                desc: "全スタッフが同じ理念と判断基準を共有する体制を構築。「担当者が変わってもサポートの質が落ちない」という価値を顧客に提供します。"
-              },
-              {
-                title: "即導入可能な運用モデル",
-                icon: BarChart3,
-                desc: "長年の実践から磨き上げられた「3ヶ月間のサポートモデル」と「行動変容療法に基づく診断」をそのまま導入可能。ゼロから考える必要はありません。"
-              },
-              {
-                title: "チーム体制と継続性のデザイン",
-                icon: Users2,
-                desc: "個人のスキルに依存しない、組織としての指導。話し方や地域に合わせたアレンジは自由。揺らがないのは「考え方の型」です。"
-              }
-            ].map((feature, idx) => (
-              <div key={idx} className="group p-10 rounded-[2.5rem] bg-stone-50 border border-stone-100 hover:border-teal-200 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-8 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
-                  <feature.icon size={32} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-xl font-bold text-stone-900 mb-4 font-serif-jp">{feature.title}</h3>
-                <p className="text-stone-500 text-sm leading-relaxed font-medium">
-                  {feature.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Comparison Table Section */}
-      <section className="py-24 bg-stone-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 blur-[120px] rounded-full -mr-48 -mt-48"></div>
-        <div className="w-[92%] max-w-[1200px] mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold font-serif-jp">決定的な比較</h2>
-            <p className="text-stone-400 mt-4">一般的な資格とProfessional Courseの違い</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] border-collapse">
-              <thead>
-                <tr className="border-b border-stone-800">
-                  <th className="py-6 px-8 text-left text-sm font-bold text-stone-500 uppercase tracking-widest">比較項目</th>
-                  <th className="py-6 px-8 text-left text-sm font-bold text-stone-500 uppercase tracking-widest">一般的な認定資格</th>
-                  <th className="py-6 px-8 text-left text-sm font-bold text-teal-400 bg-teal-500/5 rounded-t-2xl">Diet Master Professional</th>
-                </tr>
-              </thead>
-              <tbody className="text-sm md:text-base">
-                {[
-                  { label: "最終目的", common: "個人の理論学習がゴール", dm: "指導を安定した「事業」として運用する" },
-                  { label: "認定単位", common: "「個人」に紐付く（離職で消失）", dm: "「施設」と「チーム」に紐付く" },
-                  { label: "標準化", common: "指導内容は講師の裁量に依存", dm: "既製の運用モデルと基準を共有" },
-                  { label: "顧客価値", common: "資格保有者の数で差別化", dm: "「誰でも安全」という環境への信頼" }
-                ].map((row, idx) => (
-                  <tr key={idx} className="border-b border-stone-800 hover:bg-white/5 transition-colors">
-                    <td className="py-8 px-8 font-bold text-stone-400">{row.label}</td>
-                    <td className="py-8 px-8 text-stone-500">{row.common}</td>
-                    <td className="py-8 px-8 font-bold text-white bg-teal-500/5">{row.dm}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Curriculum Grid - SALES OPTIMIZED & REFINED HOVER */}
+      {/* 5. Curriculum Grid - REFINED WITH "READ MORE" BUTTONS */}
       <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1600px] mx-auto">
           <div className="text-center mb-24">
@@ -290,13 +213,13 @@ export const ProfessionalCourse: React.FC = () => {
                 key={idx} 
                 className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full overflow-hidden"
               >
-                {/* Background Number Accent - Improved Legibility */}
+                {/* Background Number Accent */}
                 <div className="absolute top-6 right-6 text-5xl font-black text-stone-200/40 group-hover:text-stone-200 transition-colors pointer-events-none select-none font-sans">
                   {chapter.num}
                 </div>
 
                 <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon with Refined Hover (Soft highlight & Rotation) */}
+                  {/* Icon with Refined Hover */}
                   <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} group-hover:bg-white group-hover:shadow-sm transition-all duration-500 shadow-inner group-hover:rotate-6`}>
                     <chapter.icon size={32} strokeWidth={1.5} />
                   </div>
@@ -309,9 +232,24 @@ export const ProfessionalCourse: React.FC = () => {
                     <h4 className="text-lg font-bold text-stone-900 mb-4 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">
                       {chapter.title}
                     </h4>
-                    <p className="text-sm text-stone-500 leading-relaxed font-medium">
+                    <p className="text-xs text-stone-500 leading-relaxed font-medium mb-6">
                       {chapter.desc}
                     </p>
+                  </div>
+
+                  <div className="mt-auto">
+                    {!chapter.isDraft ? (
+                      <button 
+                        onClick={() => navigate(`/courses/professional/chapter/${chapter.num}`)}
+                        className="w-full py-3 rounded-xl border border-stone-200 text-stone-400 group-hover:text-teal-600 group-hover:border-teal-100 group-hover:bg-teal-50 transition-all text-[11px] font-bold tracking-widest uppercase flex items-center justify-center gap-2"
+                      >
+                        詳しく見る <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    ) : (
+                      <div className="w-full py-3 rounded-xl bg-stone-50 text-stone-300 text-[11px] font-bold tracking-widest uppercase text-center border border-stone-100 italic">
+                        準備中
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
