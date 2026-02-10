@@ -13,6 +13,7 @@ import { SeniorCourse } from './pages/SeniorCourse';
 import { ProfessionalCourse } from './pages/ProfessionalCourse';
 import { ProfessionalChapterDetail } from './pages/ProfessionalChapterDetail';
 import { Pricing } from './pages/Pricing';
+import { Checkout } from './pages/Checkout';
 import { Methods } from './pages/Methods';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
@@ -32,7 +33,6 @@ const ScrollToTop = () => {
   return null;
 }
 
-// Proteção para Área Admin
 const AdminGuard = ({ children }: { children?: React.ReactNode }) => {
   const navigate = useNavigate();
   const isAuthenticated = sessionStorage.getItem('admin_auth') === 'true';
@@ -47,10 +47,8 @@ const AdminGuard = ({ children }: { children?: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-// Proteção para Área de Membros
 const MemberGuard = ({ children }: { children?: React.ReactNode }) => {
   const navigate = useNavigate();
-  // Simulação de auth para o demo (pode ser expandido conforme necessário)
   const isMemberAuthenticated = sessionStorage.getItem('member_auth') === 'true' || localStorage.getItem('member_auth') === 'true';
 
   useEffect(() => {
@@ -66,6 +64,7 @@ const MemberGuard = ({ children }: { children?: React.ReactNode }) => {
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const isMemberArea = location.pathname.startsWith('/member-area');
+  const isCheckoutPage = location.pathname === '/checkout';
   const isAdminArea = location.pathname.startsWith('/admin') && location.pathname !== '/admin/login';
   const isLoginPage = location.pathname === '/member' || location.pathname === '/admin/login';
 
@@ -73,13 +72,13 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
 
   return (
     <div className="flex flex-col min-h-screen relative">
-      {isMemberArea ? <MemberHeader /> : !isAdminArea && <Header />}
+      {isMemberArea ? <MemberHeader /> : (!isAdminArea && !isCheckoutPage) && <Header />}
       
       <main className="flex-grow">
         {children}
       </main>
 
-      {isMemberArea ? <MemberFooter /> : !isAdminArea && <Footer />}
+      {(isMemberArea) ? <MemberFooter /> : (!isAdminArea && !isCheckoutPage) && <Footer />}
       {!isAdminArea && <ScrollToTopButton />}
     </div>
   );
@@ -91,7 +90,6 @@ function App() {
       <ScrollToTop />
       <AppLayout>
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/seekers" element={<Seekers />} />
@@ -102,13 +100,13 @@ function App() {
           <Route path="/courses/professional" element={<ProfessionalCourse />} />
           <Route path="/courses/professional/chapter/:id" element={<ProfessionalChapterDetail />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/methods" element={<Methods />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
           <Route path="/member" element={<Login />} />
 
-          {/* Member Routes (Protected) */}
           <Route 
             path="/member-area" 
             element={
@@ -126,7 +124,6 @@ function App() {
             } 
           />
 
-          {/* Admin Routes (Protected) */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route 
             path="/admin" 

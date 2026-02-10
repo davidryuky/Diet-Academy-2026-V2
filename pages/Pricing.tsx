@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../components/common/Button';
-import { Check, X, ShieldCheck, HelpCircle, AlertCircle, Info } from 'lucide-react';
+import { Check, ShieldCheck, AlertCircle, Info } from 'lucide-react';
 import { courses } from '../data/coursesData';
 import { useNavigate } from 'react-router';
 
@@ -74,14 +74,13 @@ export const Pricing: React.FC = () => {
                     onClick={() => {
                       if (course.id === 'professional') {
                         navigate('/courses/professional');
-                      } else if (course.id === 'senior') {
-                        navigate('/courses/senior');
-                      } else if (course.id === 'regular') {
-                        navigate('/courses/regular');
+                      } else {
+                        // Direciona para o checkout com o ID do curso
+                        navigate(`/checkout?courseId=${course.id}`);
                       }
                     }}
                 >
-                  {course.id === 'professional' ? '詳細・導入相談' : '詳細・お申込み'}
+                  {course.id === 'professional' ? '詳細・導入相談' : '受講を申し込む'}
                 </Button>
                 <p className="text-center text-[10px] text-stone-400 mt-4 font-bold tracking-widest uppercase">
                   {course.id === 'professional' ? '法人・個人事業主様向け' : '8日間返品保証・分割払い対応'}
@@ -110,32 +109,6 @@ export const Pricing: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* FAQ */}
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-stone-800 font-serif-jp">よくあるご質問</h2>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              { q: "未経験でもプロフェッショナルコースから受講できますか？", a: "はい、可能です。プロフェッショナルコースの教材にはレギュラー、シニアの内容も含まれており、基礎から経営スキルまでを一貫して学ぶことができます。" },
-              { q: "取得した資格に有効期限はありますか？", a: "いいえ、更新料や年会費は一切かかりません。取得いただいた資格は一生涯有効なスキルとしてご活用いただけます。" },
-              { q: "海外からの受講は可能ですか？", a: "オンライン講座であれば、インターネット環境があれば世界中どこからでも受講・受験が可能です。" }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white border border-stone-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-stone-800 mb-4 flex items-start">
-                  <span className="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center text-stone-400 text-xs font-bold mr-4 flex-shrink-0 mt-0.5">Q</span>
-                  {item.q}
-                </h3>
-                <div className="pl-12 text-stone-500 text-sm leading-relaxed font-medium border-l-2 border-orange-100">
-                  {item.a}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </div>
   );
