@@ -55,7 +55,8 @@ export const Home: React.FC = () => {
                   {courses.map((course) => (
                       <div 
                         key={course.id}
-                        className="group relative bg-stone-50 rounded-3xl p-8 border border-stone-200 hover:border-orange-300 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
+                        className="group relative bg-stone-50 rounded-3xl p-8 border border-stone-200 hover:border-orange-300 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer"
+                        onClick={() => navigate(course.path)}
                       >
                           <div className={`absolute top-0 right-0 w-24 h-24 ${course.color} opacity-5 rounded-bl-full transition-all group-hover:scale-150`}></div>
                           
@@ -85,14 +86,9 @@ export const Home: React.FC = () => {
                             fullWidth 
                             variant={course.id === 'regular' ? 'orange' : 'teal'} 
                             size="md"
-                            onClick={() => {
-                              if (course.id === 'professional') {
-                                navigate('/courses/professional');
-                              } else if (course.id === 'regular') {
-                                navigate('/courses/regular');
-                              } else {
-                                navigate('/courses');
-                              }
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(course.path);
                             }}
                           >
                               詳細を見る

@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 import { BookOpen, Activity, Star, ChevronRight, CheckCircle2, Layers, Briefcase, Users, Monitor, Building } from 'lucide-react';
 import { courses } from '../data/coursesData';
@@ -33,7 +31,7 @@ export const Courses: React.FC = () => {
               <div className="inline-block px-4 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-full mb-6 tracking-widest uppercase">
                 Special System
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 font-serif-jp leading-tight">
                 Double License<br />
                 <span className="text-[#FF8C6B]">2つの資格</span>を同時に取得
               </h2>
@@ -75,10 +73,10 @@ export const Courses: React.FC = () => {
             className={`flex flex-col lg:flex-row bg-white rounded-[2rem] overflow-hidden shadow-sm border border-stone-200 hover:shadow-xl transition-all duration-500 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
           >
             {/* Visual Part */}
-            <div className={`lg:w-1/2 relative min-h-[350px] ${course.color} flex items-center justify-center`}>
+            <div className={`lg:w-1/2 relative min-h-[350px] ${course.color} flex items-center justify-center cursor-pointer group`} onClick={() => navigate(course.path)}>
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_0%,_transparent_100%)]"></div>
                 <div className="text-white text-center p-12 relative z-10">
-                    <course.icon size={120} strokeWidth={1} className="mx-auto mb-8 opacity-90" />
+                    <course.icon size={120} strokeWidth={1} className="mx-auto mb-8 opacity-90 group-hover:scale-110 transition-transform duration-500" />
                     <span className="inline-block px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold tracking-widest uppercase mb-4">
                       LEVEL 0{idx + 1}
                     </span>
@@ -121,25 +119,18 @@ export const Courses: React.FC = () => {
                         </div>
                     </div>
                     <Button 
-                      variant={course.id === 'regular' ? 'orange' : 'teal'} 
+                      variant={course.id === 'regular' ? 'orange' : course.id === 'senior' ? 'teal' : 'primary'} 
                       size="lg" 
                       className="w-full sm:w-auto" 
-                      onClick={() => {
-                        if (course.id === 'professional') {
-                          navigate('/courses/professional');
-                        } else {
-                          navigate('/pricing');
-                        }
-                      }}
+                      onClick={() => navigate(course.path)}
                     >
-                        詳細・{course.id === 'professional' ? '導入相談' : 'お申込み'} <ChevronRight className="ml-2" size={18} />
+                        詳細・{course.id === 'professional' ? '導入相談' : 'カリキュラム'} <ChevronRight className="ml-2" size={18} />
                     </Button>
                 </div>
             </div>
           </div>
         ))}
-        {/* ... rest of component */}
-        </div>
+      </div>
     </div>
   );
 };
