@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { Check, X, ShieldCheck, HelpCircle, AlertCircle, Info } from 'lucide-react';
 import { courses } from '../data/coursesData';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 
 export const Pricing: React.FC = () => {
@@ -76,13 +74,15 @@ export const Pricing: React.FC = () => {
                     onClick={() => {
                       if (course.id === 'professional') {
                         navigate('/courses/professional');
+                      } else if (course.id === 'regular') {
+                        navigate('/courses/regular');
                       } else {
-                        // Regular enrollment logic placeholder
-                        alert(course.name + 'のお申込み手続きへ進みます。');
+                        // Logic for senior or direct purchase
+                        alert(course.name + 'の詳細ページへ進みます。');
                       }
                     }}
                 >
-                  {course.id === 'professional' ? '詳細・導入相談' : 'このコースを申込む'}
+                  {course.id === 'professional' ? '詳細・導入相談' : '詳細・お申込み'}
                 </Button>
                 <p className="text-center text-[10px] text-stone-400 mt-4 font-bold tracking-widest uppercase">
                   {course.id === 'professional' ? '法人・個人事業主様向け' : '8日間返品保証・分割払い対応'}

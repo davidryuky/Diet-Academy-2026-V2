@@ -37,7 +37,7 @@ export const courses: CourseDetail[] = [
     level: 'シニアコース',
     name: 'Diet Coaching Master',
     subtitle: 'ダイエット指導者認定',
-    description: 'カウンセリング技術や指導メソッドを習得。他者へのアドバイスやコーチングが可能になります。',
+    description: 'カウンセリング技術や指導メソッドを習得. 他者へのアドバイスやコーチングが可能になります。',
     target: '講師・トレーナー向け',
     price: '84,800',
     period: '標準3ヶ月 (最短1.5ヶ月)',

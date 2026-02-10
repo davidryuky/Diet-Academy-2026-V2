@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
 import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap, Briefcase } from 'lucide-react';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 import { courses } from '../data/coursesData';
 
@@ -90,6 +88,8 @@ export const Home: React.FC = () => {
                             onClick={() => {
                               if (course.id === 'professional') {
                                 navigate('/courses/professional');
+                              } else if (course.id === 'regular') {
+                                navigate('/courses/regular');
                               } else {
                                 navigate('/courses');
                               }
