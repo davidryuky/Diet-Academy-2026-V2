@@ -100,15 +100,15 @@ export const ProfessionalCourse: React.FC = () => {
 
   const chapters = [
     { icon: LineChart, num: "01", title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。「静かな逸脱」を防ぎ、事業を資産化するための基盤構築。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
-    { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合。ビジネスのハブを構築する。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合. ビジネスのハブを構築する。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
     { icon: ClipboardCheck, num: "03", title: "面談の標準化技術", desc: "「傾聴」と「判断」を時間軸で分離。誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
     { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感と推測を排除するブロック式診断ツール。運営の安全性を高め、チームの教育を加速させる。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
     { icon: CalendarRange, num: "05", title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。監視ではなく「ルート調整」による圧倒的な成功率。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
     { icon: ShieldCheck, num: "06", title: "施設認定と運営管理", desc: "「個人ブランド」を脱却し、組織の信頼へ。運営責任者の役割と、施設全体の品質保証体制。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
     { icon: Users, num: "07", title: "安全な権限委譲と教育", desc: "新人が即戦力化する「委譲のエスカレーター」。品質を落とさずにチームを拡大する人材育成術。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
     { icon: Scale, num: "08", title: "倫理と専門的限界", desc: "「NO」と言える力が権威を生む。プロの境界線と法的安全。顧客とブランドを守る倫理戦略。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
-    { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との高度な組み合わせ方。※準備中", textColor: "text-amber-600", bgColor: "bg-amber-50", isDraft: true },
-    { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。※準備中", textColor: "text-teal-700", bgColor: "bg-teal-50", isDraft: true }
+    { icon: Layers, num: "09", title: "第9章：コンテンツ準備中", desc: "このセクションの内容は現在構築中です。公開まで今しばらくお待ちください。", textColor: "text-stone-400", bgColor: "bg-stone-50", isDraft: true },
+    { icon: Rocket, num: "10", title: "第10章：コンテンツ準備中", desc: "このセクションの内容は現在構築中です。公開まで今しばらくお待ちください。", textColor: "text-stone-400", bgColor: "bg-stone-50", isDraft: true }
   ];
 
   return (
@@ -136,7 +136,7 @@ export const ProfessionalCourse: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
               個人の才能に依存しない。技術ではなく「システム」として<br className="hidden md:block" />
-              ダイエット指導を運用するためのプロフェッショナルコース.
+              ダイエット指導を運用するためのプロフェッショナルコース。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>
@@ -226,7 +226,7 @@ export const ProfessionalCourse: React.FC = () => {
 
                   <div className="flex-grow mt-8">
                     <div className="flex items-center gap-2 mb-3">
-                       <span className={`w-2 h-2 rounded-full ${chapter.bgColor.replace('bg-', 'bg-')}`}></span>
+                       <span className={`w-2 h-2 rounded-full ${chapter.isDraft ? 'bg-stone-300' : chapter.bgColor.replace('bg-', 'bg-')}`}></span>
                        <span className="text-stone-400 font-bold text-[11px] tracking-widest uppercase font-sans">Chapter {chapter.num}</span>
                     </div>
                     <h4 className="text-lg font-bold text-stone-900 mb-4 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">

@@ -202,7 +202,7 @@ export const professionalChapters: Record<string, ChapterData> = {
       {
         title: "1. 「完全な自由」という神話",
         content: [
-          "多くの経営者が、新人に完全な自由を与えることが「信頼」だと勘違いして失敗します。それは不安とエラーを招くだけです。本メソッドにおける「委譲」とは、安全に定義された枠組みの中での自律を意味します。エラーを犯すことが物理的に困難な環境を作ることが目標です。"
+          "多くの経営者が、新人に完全な自由を与えることが「信頼」だと勘違いして失敗します。実際には、それは不安とエラーを招だけです。本メソッドにおける「委譲」とは、安全に定義された枠組みの中での自律を意味します。エラーを犯すことが物理的に困難な環境を作ることが目標です。"
         ]
       },
       {
@@ -250,6 +250,6 @@ export const professionalChapters: Record<string, ChapterData> = {
       }
     ]
   },
-  "09": { id: "09", num: "09", title: "既存サービスとの融合", subtitle: "近日公開", sections: [], isDraft: true },
-  "10": { id: "10", num: "10", title: "今後の展開オプション", subtitle: "近日公開", sections: [], isDraft: true }
+  "09": { id: "09", num: "09", title: "第9章：コンテンツ準備中", subtitle: "近日公開予定", sections: [], isDraft: true },
+  "10": { id: "10", num: "10", title: "第10章：コンテンツ準備中", subtitle: "近日公開予定", sections: [], isDraft: true }
 };
