@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 import { Heart, Scale, Smile, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { courses } from '../data/coursesData';
@@ -27,7 +25,7 @@ export const Seekers: React.FC = () => {
               自分らしく、心地よく、理想の体型を維持するための科学的な知識。レギュラーコースで、一生モノの健康習慣を身につけませんか。
             </p>
             <div className="flex gap-4">
-                <Button size="xl" variant="orange" onClick={() => navigate('/pricing')}>コース詳細を見る</Button>
+                <Button size="xl" variant="orange" onClick={() => navigate('/courses/regular')}>レギュラーコース詳細</Button>
                 <Button size="xl" variant="outline" className="bg-white/50 backdrop-blur-sm">まずは資料請求</Button>
             </div>
           </div>
@@ -73,7 +71,7 @@ export const Seekers: React.FC = () => {
                         </li>
                     ))}
                 </ul>
-                <Button variant="outline" className="bg-white/20 border-white text-white hover:bg-white hover:text-[#FF8C6B]" onClick={() => navigate('/courses')}>
+                <Button variant="outline" className="bg-white/20 border-white text-white hover:bg-white hover:text-[#FF8C6B]" onClick={() => navigate('/courses/regular')}>
                     詳細を見る <ArrowRight className="ml-2" size={16} />
                 </Button>
             </div>
@@ -107,7 +105,7 @@ export const Seekers: React.FC = () => {
       <section className="py-24 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 font-serif-jp text-stone-800">新しい自分への第一歩、<br />今日から始めませんか？</h2>
         <div className="flex justify-center gap-4 px-4">
-            <Button size="xl" variant="orange" onClick={() => navigate('/pricing')}>受講プランをチェック</Button>
+            <Button size="xl" variant="orange" onClick={() => navigate('/courses/regular')}>受講詳細を見る</Button>
             <Button size="xl" variant="outline" onClick={() => navigate('/')}>ホームへ戻る</Button>
         </div>
       </section>

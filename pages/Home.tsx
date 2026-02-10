@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
-import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap, Briefcase } from 'lucide-react';
+import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap, Briefcase, Crown } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { courses } from '../data/coursesData';
 
@@ -84,7 +84,7 @@ export const Home: React.FC = () => {
 
                           <Button 
                             fullWidth 
-                            variant={course.id === 'regular' ? 'orange' : 'teal'} 
+                            variant={course.id === 'regular' ? 'orange' : course.id === 'senior' ? 'teal' : 'primary'} 
                             size="md"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
 
           <main className="flex-1 space-y-16">
 
-                {/* 1. Path Choice - Rectangular & Top-positioned */}
+                {/* 1. Path Choice - Rectangular & Top-positioned (Updated to 3 items) */}
                 <div className="space-y-8">
                     <div className="text-center">
                         <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-2 font-serif-jp leading-tight">
@@ -117,41 +117,60 @@ export const Home: React.FC = () => {
                         <div className="w-12 h-1 bg-[#FF8C6B] mx-auto rounded-full"></div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {/* Seeker Path - More horizontal/rectangular */}
+                    <div className="grid md:grid-cols-3 gap-6">
+                        {/* Seeker Path (Regular) */}
                         <div 
-                          onClick={() => navigate('/seekers')}
-                          className="group relative overflow-hidden bg-white rounded-3xl p-6 md:p-8 border border-stone-200 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex items-center gap-6"
+                          onClick={() => navigate('/courses/regular')}
+                          className="group relative overflow-hidden bg-white rounded-3xl p-6 border border-stone-200 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex flex-col gap-4"
                         >
-                            <div className="flex-shrink-0 p-4 bg-orange-50 text-[#FF8C6B] rounded-2xl group-hover:bg-[#FF8C6B] group-hover:text-white transition-colors duration-500">
-                                <Users size={32} strokeWidth={1.5} />
+                            <div className="w-12 h-12 flex-shrink-0 p-3 bg-orange-50 text-[#FF8C6B] rounded-xl group-hover:bg-[#FF8C6B] group-hover:text-white transition-colors duration-500">
+                                <Users size={24} strokeWidth={2} />
                             </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-stone-800 mb-2 font-serif-jp">「自分」を変える</h3>
-                                <p className="text-stone-500 text-xs leading-relaxed font-medium line-clamp-2">
-                                    一生モノの健康を手に入れたい個人の方はこちら
+                            <div>
+                                <h3 className="text-lg font-bold text-stone-800 mb-1 font-serif-jp">「自分」を変える</h3>
+                                <p className="text-stone-500 text-[10px] leading-relaxed font-medium">
+                                    一生モノの健康を手に入れたい<br/>個人・初心者の方
                                 </p>
                                 <div className="mt-3 flex items-center text-[#FF8C6B] text-[10px] font-bold group-hover:translate-x-1 transition-transform">
-                                    個人向けページへ <ArrowRight size={14} className="ml-2" />
+                                    レギュラーコースへ <ArrowRight size={12} className="ml-2" />
                                 </div>
                             </div>
                         </div>
 
-                        {/* Instructor Path - More horizontal/rectangular */}
+                        {/* Coach Path (Senior) */}
                         <div 
-                          onClick={() => navigate('/instructors')}
-                          className="group relative overflow-hidden bg-white rounded-3xl p-6 md:p-8 border border-stone-200 hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex items-center gap-6"
+                          onClick={() => navigate('/courses/senior')}
+                          className="group relative overflow-hidden bg-white rounded-3xl p-6 border border-stone-200 hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex flex-col gap-4"
                         >
-                            <div className="flex-shrink-0 p-4 bg-teal-50 text-[#5D9B9B] rounded-2xl group-hover:bg-[#5D9B9B] group-hover:text-white transition-colors duration-500">
-                                <Briefcase size={32} strokeWidth={1.5} />
+                            <div className="w-12 h-12 flex-shrink-0 p-3 bg-teal-50 text-[#5D9B9B] rounded-xl group-hover:bg-[#5D9B9B] group-hover:text-white transition-colors duration-500">
+                                <GraduationCap size={24} strokeWidth={2} />
                             </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-stone-800 mb-2 font-serif-jp">「仕事」にする</h3>
-                                <p className="text-stone-500 text-xs leading-relaxed font-medium line-clamp-2">
-                                    指導者として、信頼されるプロを目指す方はこちら
+                            <div>
+                                <h3 className="text-lg font-bold text-stone-800 mb-1 font-serif-jp">「誰か」を導く</h3>
+                                <p className="text-stone-500 text-[10px] leading-relaxed font-medium">
+                                    信頼される指導者・コーチを<br/>目指すプロの方
                                 </p>
                                 <div className="mt-3 flex items-center text-[#5D9B9B] text-[10px] font-bold group-hover:translate-x-1 transition-transform">
-                                    プロ向けページへ <ArrowRight size={14} className="ml-2" />
+                                    シニアコースへ <ArrowRight size={12} className="ml-2" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Business Path (Professional) */}
+                        <div 
+                          onClick={() => navigate('/courses/professional')}
+                          className="group relative overflow-hidden bg-white rounded-3xl p-6 border border-stone-200 hover:border-indigo-600 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex flex-col gap-4"
+                        >
+                            <div className="w-12 h-12 flex-shrink-0 p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-500">
+                                <Crown size={24} strokeWidth={2} />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-stone-800 mb-1 font-serif-jp">「仕組み」を創る</h3>
+                                <p className="text-stone-500 text-[10px] leading-relaxed font-medium">
+                                    事業運営・スクール開設を<br/>検討されている経営者の方
+                                </p>
+                                <div className="mt-3 flex items-center text-indigo-600 text-[10px] font-bold group-hover:translate-x-1 transition-transform">
+                                    プロコースへ <ArrowRight size={12} className="ml-2" />
                                 </div>
                             </div>
                         </div>

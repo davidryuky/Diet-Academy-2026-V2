@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
-// Fix: Import useNavigate from 'react-router'
 import { useNavigate } from 'react-router';
 import { Award, Briefcase, TrendingUp, ShieldCheck, ChevronRight, CheckCircle2, Globe, Building2, Monitor, Users } from 'lucide-react';
 import { courses } from '../data/coursesData';
@@ -29,7 +27,7 @@ export const Instructors: React.FC = () => {
               ダイエットのプロとして。指導者、そして経営者へ。W資格取得と高度なマネジメントスキルで、市場価値を最大化します。
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>プロ向けコースを見る</Button>
+                <Button size="xl" variant="teal" onClick={() => navigate('/courses/senior')}>シニアコース詳細</Button>
                 <Button size="xl" variant="outline" className="border-white text-white hover:bg-white/10">資料請求（法人/個人事業）</Button>
             </div>
           </div>
@@ -114,8 +112,8 @@ export const Instructors: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                    <Button variant="teal" fullWidth size="lg" onClick={() => navigate('/courses')}>
-                        指導者向け詳細を見る
+                    <Button variant="teal" fullWidth size="lg" onClick={() => navigate('/courses/senior')}>
+                        シニアコース詳細を見る
                     </Button>
                 </div>
 
@@ -136,8 +134,8 @@ export const Instructors: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                    <Button variant="teal" fullWidth size="lg" className="relative z-10" onClick={() => navigate('/courses')}>
-                        経営・責任者向け詳細を見る
+                    <Button variant="teal" fullWidth size="lg" className="relative z-10" onClick={() => navigate('/courses/professional')}>
+                        プロコース詳細を見る
                     </Button>
                 </div>
             </div>
