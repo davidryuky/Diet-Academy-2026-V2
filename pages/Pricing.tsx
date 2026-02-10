@@ -74,11 +74,10 @@ export const Pricing: React.FC = () => {
                     onClick={() => {
                       if (course.id === 'professional') {
                         navigate('/courses/professional');
+                      } else if (course.id === 'senior') {
+                        navigate('/courses/senior');
                       } else if (course.id === 'regular') {
                         navigate('/courses/regular');
-                      } else {
-                        // Logic for senior or direct purchase
-                        alert(course.name + 'の詳細ページへ進みます。');
                       }
                     }}
                 >

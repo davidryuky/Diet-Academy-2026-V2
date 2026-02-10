@@ -9,6 +9,7 @@ import { Seekers } from './pages/Seekers';
 import { Instructors } from './pages/Instructors';
 import { Courses } from './pages/Courses';
 import { RegularCourse } from './pages/RegularCourse';
+import { SeniorCourse } from './pages/SeniorCourse';
 import { ProfessionalCourse } from './pages/ProfessionalCourse';
 import { ProfessionalChapterDetail } from './pages/ProfessionalChapterDetail';
 import { Pricing } from './pages/Pricing';
@@ -97,6 +98,7 @@ function App() {
           <Route path="/instructors" element={<Instructors />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/regular" element={<RegularCourse />} />
+          <Route path="/courses/senior" element={<SeniorCourse />} />
           <Route path="/courses/professional" element={<ProfessionalCourse />} />
           <Route path="/courses/professional/chapter/:id" element={<ProfessionalChapterDetail />} />
           <Route path="/pricing" element={<Pricing />} />
