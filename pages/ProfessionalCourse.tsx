@@ -99,14 +99,14 @@ export const ProfessionalCourse: React.FC = () => {
   ];
 
   const chapters = [
-    { icon: LineChart, num: "01", title: "ビジネスとしてのダイエット指導", desc: "才能に依存せず、継続的な事業として指導を成立させる視点の整理。個人依存から組織運営への転換。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
-    { icon: Layout, num: "02", title: "ガイダンスの全体設計", desc: "集客からサポートまでを「ダイエット診断」を核に統合。ビジネスのハブとしての構造構築。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
-    { icon: ClipboardCheck, num: "03", title: "初回面談の標準化", desc: "「聞く」と「判断する」を分離。誰が担当しても一貫した意思決定を可能にするマニュアル化。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
-    { icon: Brain, num: "04", title: "診断のデザイン", desc: "直感ではなく事実に基づいた分析。新人もベテランと同じ精度で分析できる独自の診断ブロック構造。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
-    { icon: CalendarRange, num: "05", title: "3ヶ月サポートの構造", desc: "習慣化の科学に基づく90日間の運用モデル。監視ではなく「調整」による成功率の向上。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
-    { icon: ShieldCheck, num: "06", title: "施設認定と運営管理", desc: "個人ブランドから組織の信頼へ。運営責任者の配置と、施設全体の品質を保証する認定制度。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
-    { icon: Users, num: "07", title: "チームとトレーニング", desc: "「自由」ではなく「安全な枠組み」での委譲。新人が即戦力化する段階的な教育ステップ。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
-    { icon: Scale, num: "08", title: "倫理と専門的限界", desc: "「NO」と言える力が権威を生む。プロとしての境界線とリスク管理。顧客と組織を守る倫理規定。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
+    { icon: LineChart, num: "01", title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。「静かな逸脱」を防ぎ、事業を資産化するための基盤構築。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
+    { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合。ビジネスのハブを構築する。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: ClipboardCheck, num: "03", title: "面談の標準化技術", desc: "「傾聴」と「判断」を時間軸で分離。誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
+    { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感と推測を排除するブロック式診断ツール。運営の安全性を高め、チームの教育を加速させる。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { icon: CalendarRange, num: "05", title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。監視ではなく「ルート調整」による圧倒的な成功率。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
+    { icon: ShieldCheck, num: "06", title: "施設認定と運営管理", desc: "「個人ブランド」を脱却し、組織の信頼へ。運営責任者の役割と、施設全体の品質保証体制。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { icon: Users, num: "07", title: "安全な権限委譲と教育", desc: "新人が即戦力化する「委譲のエスカレーター」。品質を落とさずにチームを拡大する人材育成術。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
+    { icon: Scale, num: "08", title: "倫理と専門的限界", desc: "「NO」と言える力が権威を生む。プロの境界線と法的安全。顧客とブランドを守る倫理戦略。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
     { icon: Layers, num: "09", title: "既存サービスとの融合", desc: "サプリメント、エステ、トレーニング等との高度な組み合わせ方。※準備中", textColor: "text-amber-600", bgColor: "bg-amber-50", isDraft: true },
     { icon: Rocket, num: "10", title: "今後の展開オプション", desc: "修了後の拡張と、メカニズムを進化させるための選択肢。※準備中", textColor: "text-teal-700", bgColor: "bg-teal-50", isDraft: true }
   ];
@@ -136,7 +136,7 @@ export const ProfessionalCourse: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
               個人の才能に依存しない。技術ではなく「システム」として<br className="hidden md:block" />
-              ダイエット指導を運用するためのプロフェッショナルコース。
+              ダイエット指導を運用するためのプロフェッショナルコース.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>
@@ -189,7 +189,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Curriculum Grid - REFINED WITH "READ MORE" BUTTONS */}
+      {/* 5. Curriculum Grid - SALES OPTIMIZED */}
       <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1600px] mx-auto">
           <div className="text-center mb-24">
