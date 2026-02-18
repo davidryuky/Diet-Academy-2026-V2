@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { useNavigate } from 'react-router';
@@ -8,20 +7,15 @@ import {
   HeartPulse, 
   Target, 
   LineChart, 
-  AlertCircle, 
   ArrowRight, 
   Brain, 
-  Users,
-  ShieldAlert,
-  Stethoscope,
-  BookOpenCheck,
-  CalendarDays,
   Smartphone,
   Info,
   Check,
   X,
   Sparkles,
-  GraduationCap
+  GraduationCap,
+  Scale
 } from 'lucide-react';
 
 export const RegularCourse: React.FC = () => {
@@ -54,10 +48,7 @@ export const RegularCourse: React.FC = () => {
                 const element = document.getElementById('offer-comparison');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }} className="shadow-2xl shadow-emerald-500/20">
-                コース内容を比較する
-              </Button>
-              <Button size="xl" variant="outline" className="text-white border-white/20 hover:bg-white/10" onClick={() => navigate('/calculator')}>
-                無料ダイエット診断
+                プランを比較して選ぶ
               </Button>
             </div>
           </div>
@@ -68,8 +59,8 @@ export const RegularCourse: React.FC = () => {
       <section id="offer-comparison" className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-serif-jp">あなたはどちらを求めますか？</h2>
-            <p className="text-stone-500 text-lg font-medium">知識のみを得る「学習」か、結果までコミットする「実践」か。</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-serif-jp">受講スタイルを選択してください</h2>
+            <p className="text-stone-500 text-lg font-medium">知識を武器にする「学習」か、結果までコミットする「実践」か。</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
@@ -77,10 +68,10 @@ export const RegularCourse: React.FC = () => {
             <div className="bg-white rounded-[3rem] p-10 md:p-14 border border-stone-200 shadow-sm flex flex-col hover:border-emerald-100 transition-colors">
                <div className="mb-10">
                   <div className="w-16 h-16 bg-stone-100 rounded-2xl flex items-center justify-center text-stone-400 mb-6">
-                     <BookOpenCheck size={32} />
+                     <GraduationCap size={32} />
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900 font-serif-jp mb-2">認定レギュラーコース</h3>
-                  <p className="text-stone-500 font-bold tracking-widest text-xs uppercase">Self-Study & Certification</p>
+                  <h3 className="text-3xl font-bold text-slate-900 font-serif-jp mb-2">レギュラーコース（学習版）</h3>
+                  <p className="text-stone-500 font-bold tracking-widest text-xs uppercase">Certification Only</p>
                </div>
                
                <p className="text-slate-600 leading-loose mb-10 font-medium">
@@ -91,10 +82,10 @@ export const RegularCourse: React.FC = () => {
                   {[
                     { text: "全14章の講義アクセス", included: true },
                     { text: "デジタルテキスト教材", included: true },
-                    { text: "ダイエットマスター認定資格", included: true },
+                    { text: "ダイエットマスター認定資格（1種類）", included: true },
                     { text: "無制限の質問対応(1年間)", included: true },
                     { text: "3ヶ月の減量実践サポート", included: false },
-                    { text: "専任講師による個別メンタリング", included: false }
+                    { text: "初回ダイエット診断", included: false }
                   ].map((item, i) => (
                     <div key={i} className={`flex items-center gap-3 text-sm font-bold ${item.included ? 'text-slate-700' : 'text-slate-300'}`}>
                        {item.included ? <Check className="text-emerald-500" size={18} /> : <X size={18} />}
@@ -117,17 +108,17 @@ export const RegularCourse: React.FC = () => {
                
                <div className="mb-10 relative z-10">
                   <div className="inline-block bg-emerald-500 text-slate-900 text-[10px] font-black px-4 py-1 rounded-full mb-6 uppercase tracking-widest">
-                     Recommended for results
+                     Results Committed
                   </div>
                   <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 mb-6 border border-emerald-500/20">
                      <Target size={32} />
                   </div>
                   <h3 className="text-3xl font-bold text-white font-serif-jp mb-2">ダイエットマスター<br />プログラム（実践版）</h3>
-                  <p className="text-emerald-400/60 font-bold tracking-widest text-xs uppercase">Full Results Support Program</p>
+                  <p className="text-emerald-400/60 font-bold tracking-widest text-xs uppercase">Cert + 3 Months Support</p>
                </div>
                
                <p className="text-slate-400 leading-loose mb-10 font-medium relative z-10">
-                  知識を得るだけでなく、実際に体を変えたい方向け。3ヶ月の専任サポートにより、停滞期を乗り越え、確実に理想の体へと導きます。
+                  知識を得るだけでなく、実際に体を変えたい方向け。3ヶ月の専任サポートにより、確実に理想の体へと導きます。<span className="text-emerald-400">※受講前に専門のダイエット診断が必要です。</span>
                </p>
 
                <div className="space-y-4 mb-12 flex-grow relative z-10">
@@ -136,8 +127,8 @@ export const RegularCourse: React.FC = () => {
                     { text: "認定資格(レギュラーレベル)", included: true },
                     { text: "3ヶ月の専任講師サポート", included: true },
                     { text: "週次の個別フィードバック", included: true },
-                    { text: "ライフスタイル個別設計図", included: true },
-                    { text: "リバウンド防止永久サポート", included: true }
+                    { text: "初回ダイエット診断による目標設計", included: true },
+                    { text: "ライフスタイル個別設計図", included: true }
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm font-bold text-emerald-100/90">
                        <CheckCircle2 className="text-emerald-500" size={18} />
@@ -148,15 +139,30 @@ export const RegularCourse: React.FC = () => {
 
                <div className="pt-8 border-t border-white/10 relative z-10">
                   <div className="text-3xl font-bold text-white mb-6 font-serif-jp">¥79,800 <span className="text-sm font-normal text-slate-500">円(税込)</span></div>
-                  <Button fullWidth size="lg" variant="orange" className="bg-emerald-500 text-slate-900 hover:bg-emerald-400 border-none h-14" onClick={() => navigate('/checkout?courseId=regular-master')}>サポート付きで開始する</Button>
+                  <Button fullWidth size="lg" variant="orange" className="bg-emerald-500 text-slate-900 hover:bg-emerald-400 border-none h-14" onClick={() => navigate('/calculator')}>診断を受けて開始する</Button>
                </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Info Section about Diagnosis */}
+      <section className="py-20 bg-white">
+          <div className="w-[92%] max-w-[800px] mx-auto text-center">
+              <div className="bg-orange-50 p-10 rounded-[2.5rem] border border-orange-100">
+                  <div className="flex justify-center mb-6">
+                      <Scale className="text-[#FF8C6B]" size={48} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-stone-800 font-serif-jp mb-4">なぜ実践版には「診断」が必要なのか？</h3>
+                  <p className="text-stone-600 leading-loose text-sm font-medium">
+                      私たちの目標は、あなたに無理な減量をさせることではありません。あなたの現在のBMI、基礎代謝、目標期間を科学的に分析し、「リバウンドしない、健康的な減量幅」を事前に確定させるためです。診断結果に基づいた個別プランのみが、本物の成功を生み出します。
+                  </p>
+              </div>
+          </div>
+      </section>
+
       {/* Philosophy Section */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
              <span className="text-blue-600 font-bold tracking-[0.4em] text-xs uppercase mb-6 block">Foundation & Science</span>
@@ -169,9 +175,6 @@ export const RegularCourse: React.FC = () => {
                   世の中には溢れるほどの「手法」があります。しかし、なぜその手法が必要なのか、あなたの体に何が起きているのかを理解せずに始めれば、それは単なるギャンブルです。
                 </p>
                 <div className="p-10 bg-slate-900 rounded-[3rem] text-white shadow-xl relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-8 opacity-5">
-                      <Brain size={120} />
-                   </div>
                    <p className="text-lg font-bold font-serif-jp italic leading-relaxed relative z-10">
                      「レギュラーコースは、あなたの体という高度な精密機器の、正しい操作マニュアル（説明書）を手に入れる場所です。」
                    </p>
@@ -180,54 +183,25 @@ export const RegularCourse: React.FC = () => {
           </div>
           <div className="lg:w-1/2 w-full grid grid-cols-2 gap-4">
              <div className="space-y-4 pt-12">
-                <div className="bg-stone-50 p-8 rounded-3xl border border-stone-100 text-center">
+                <div className="bg-white p-8 rounded-3xl border border-stone-200 text-center">
                    <Dna size={40} className="text-blue-500 mx-auto mb-4" />
                    <h4 className="font-bold text-slate-800 mb-2">生理学</h4>
-                   <p className="text-[10px] text-slate-400 font-bold uppercase">Metabolism logic</p>
                 </div>
                 <div className="bg-emerald-50 p-8 rounded-3xl border border-emerald-100 text-center">
                    <Target size={40} className="text-emerald-500 mx-auto mb-4" />
                    <h4 className="font-bold text-slate-800 mb-2">心理学</h4>
-                   <p className="text-[10px] text-slate-400 font-bold uppercase">Behavior Change</p>
                 </div>
              </div>
              <div className="space-y-4">
                 <div className="bg-orange-50 p-8 rounded-3xl border border-orange-100 text-center">
                    <HeartPulse size={40} className="text-[#FF8C6B] mx-auto mb-4" />
                    <h4 className="font-bold text-slate-800 mb-2">栄養学</h4>
-                   <p className="text-[10px] text-slate-400 font-bold uppercase">Nutritional Path</p>
                 </div>
                 <div className="bg-indigo-50 p-8 rounded-3xl border border-indigo-100 text-center">
                    <LineChart size={40} className="text-indigo-500 mx-auto mb-4" />
                    <h4 className="font-bold text-slate-800 mb-2">評価学</h4>
-                   <p className="text-[10px] text-slate-400 font-bold uppercase">Progress Data</p>
                 </div>
              </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Curriculum & Practical Info */}
-      <section className="py-32 bg-stone-900 text-white">
-        <div className="w-[92%] max-w-[1200px] mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold font-serif-jp mb-6">全14章の学び、3ヶ月の変革。</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">理論的な裏付けがあるからこそ、迷いなく進めます。</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Brain, title: "エネルギーと代謝", text: "摂取と消費の真実。なぜ運動だけでは痩せないのか？" },
-              { icon: Target, title: "行動修正の技術", text: "意志の力に頼らず、無意識に継続できる環境の作り方。" },
-              { icon: ShieldAlert, title: "リスクと回避", text: "リバウンドの科学と、代謝を破壊しない減量ペース。" },
-              { icon: GraduationCap, title: "一生モノの資格", text: "自分を変えたその知識が、社会的な信頼（資格）になります。" }
-            ].map((item, i) => (
-              <div key={i} className="p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                <item.icon className="text-emerald-400 mb-6" size={32} strokeWidth={1.5} />
-                <h4 className="text-lg font-bold mb-4 font-serif-jp">{item.title}</h4>
-                <p className="text-sm text-slate-400 leading-relaxed">{item.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -246,9 +220,6 @@ export const RegularCourse: React.FC = () => {
           >
             自分に最適なプランを選ぶ
           </Button>
-          <p className="mt-8 text-stone-400 text-sm font-bold tracking-widest flex items-center justify-center gap-2">
-            <Info size={16} /> Webで完結。8日間返品保証あり。
-          </p>
         </div>
       </section>
 

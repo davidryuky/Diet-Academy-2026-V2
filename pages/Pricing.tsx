@@ -1,8 +1,20 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
-import { Check, ShieldCheck, AlertCircle, Info, ArrowDown, Star, Rocket, ChevronRight, Zap } from 'lucide-react';
-import { courses, bundles } from '../data/coursesData';
+import { 
+  Check, 
+  ShieldCheck, 
+  ArrowDown, 
+  Star, 
+  Rocket, 
+  ChevronRight, 
+  Zap, 
+  CreditCard, 
+  Info,
+  Clock,
+  CheckCircle2,
+  TrendingDown
+} from 'lucide-react';
+import { courses } from '../data/coursesData';
 import { useNavigate } from 'react-router';
 
 export const Pricing: React.FC = () => {
@@ -12,9 +24,11 @@ export const Pricing: React.FC = () => {
     <div className="min-h-screen bg-stone-50 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Header with Urgency - NEW */}
         <div className="text-center mb-20">
-          <span className="text-[#FF8C6B] font-bold tracking-[0.3em] text-xs uppercase mb-6 block">Plan & Roadmap</span>
+          <div className="inline-flex items-center gap-2 bg-orange-50 text-[#FF8C6B] px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 border border-orange-100 animate-bounce">
+            <Clock size={14} /> 2026年 春の受講応援キャンペーン実施中
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold text-stone-800 font-serif-jp tracking-tight">
             目標に合わせた3つのステップ
           </h1>
@@ -131,7 +145,13 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* THE BUNDLE - Strategic Offer for Business Owners / Career High-Performers */}
-        <div className="max-w-5xl mx-auto mb-20">
+        <div className="max-w-5xl mx-auto mb-20 relative">
+           {/* Saving Label */}
+           <div className="absolute -top-6 -right-6 z-20 bg-red-600 text-white p-6 rounded-full shadow-2xl rotate-12 flex flex-col items-center justify-center border-4 border-white animate-pulse">
+              <span className="text-[10px] font-black uppercase">Savings</span>
+              <span className="text-2xl font-black">¥16,600</span>
+           </div>
+
            <div className="relative group overflow-hidden bg-stone-900 rounded-[3.5rem] p-1 shadow-2xl transition-transform hover:-translate-y-2 duration-500">
               {/* Animated Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-transparent to-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -153,7 +173,7 @@ export const Pricing: React.FC = () => {
                        レギュラーからプロフェッショナルまで。全3段階を最短で駆け抜け、ダイエットビジネスの運営権と指導者ライセンスを一括で手に入れる最高峰のプランです。
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                       {["全ライセンスの一括付与", "特別受講料優待（11,400円引）", "代表理事への直接質問権", "施設運営スターターキット付属"].map((item, i) => (
+                       {["全ライセンスの一括付与", "特別受講料優待（16,600円引）", "代表理事への直接質問権", "施設運営スターターキット付属"].map((item, i) => (
                          <div key={i} className="flex items-center gap-3 text-stone-200 font-bold text-sm">
                             <Star className="text-amber-500" size={16} fill="currentColor" /> {item}
                          </div>
@@ -179,6 +199,41 @@ export const Pricing: React.FC = () => {
                     </button>
                  </div>
               </div>
+           </div>
+        </div>
+
+        {/* Value Comparison Table - NEW FOR SALES */}
+        <div className="max-w-4xl mx-auto mb-20 bg-white rounded-[2.5rem] border border-stone-200 overflow-hidden shadow-sm">
+           <div className="p-8 border-b border-stone-100 bg-stone-50/50">
+              <h3 className="text-xl font-bold text-stone-800 font-serif-jp">コース機能比較表</h3>
+           </div>
+           <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                 <thead>
+                    <tr className="bg-stone-50 text-stone-400 text-[10px] font-black uppercase tracking-widest">
+                       <th className="p-6">機能・サポート</th>
+                       <th className="p-6 text-center">Regular</th>
+                       <th className="p-6 text-center">Senior</th>
+                       <th className="p-6 text-center text-amber-600 bg-amber-50/30">Career Pack</th>
+                    </tr>
+                 </thead>
+                 <tbody className="divide-y divide-stone-100">
+                    {[
+                       { f: "100%資格取得保証", r: true, s: true, b: true },
+                       { f: "24時間質問サポート", r: "1年間", s: "無期限", b: "優先対応" },
+                       { f: "指導者ライセンス", r: false, s: true, b: true },
+                       { f: "施設運営システム", r: false, s: false, b: true },
+                       { f: "経営個別コンサル", r: false, s: false, b: "特別優待" }
+                    ].map((row, i) => (
+                       <tr key={i} className="hover:bg-stone-50 transition-colors">
+                          <td className="p-6 font-bold text-stone-700">{row.f}</td>
+                          <td className="p-6 text-center">{typeof row.r === 'boolean' ? (row.r ? <CheckCircle2 className="mx-auto text-stone-300" size={18} /> : <span className="text-stone-200">ー</span>) : row.r}</td>
+                          <td className="p-6 text-center">{typeof row.s === 'boolean' ? (row.s ? <CheckCircle2 className="mx-auto text-stone-300" size={18} /> : <span className="text-stone-200">ー</span>) : row.s}</td>
+                          <td className="p-6 text-center bg-amber-50/10 font-black text-amber-600">{typeof row.b === 'boolean' ? (row.b ? <CheckCircle2 className="mx-auto" size={18} /> : row.b) : row.b}</td>
+                       </tr>
+                    ))}
+                 </tbody>
+              </table>
            </div>
         </div>
 
@@ -213,6 +268,3 @@ export const Pricing: React.FC = () => {
     </div>
   );
 };
-
-// Precisamos importar o ícone CreditCard que faltou no Pricing
-import { CreditCard } from 'lucide-react';
