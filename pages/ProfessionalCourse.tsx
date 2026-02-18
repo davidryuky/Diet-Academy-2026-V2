@@ -22,9 +22,12 @@ import {
   Clock,
   ChevronRight,
   Layout,
-  BarChart3,
   Search,
   Check,
+  Lock,
+  Target,
+  UserCheck,
+  ArrowDownCircle,
   Stethoscope,
   Dumbbell,
   Sparkle
@@ -43,7 +46,7 @@ export const ProfessionalCourse: React.FC = () => {
     { id: "01", icon: Layout, title: "ビジネスとしてのダイエット", desc: "才能依存からの脱却と持続可能なビジョンの構築。指導を「技術」から「事業」へ変える。" },
     { id: "02", icon: Settings2, title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造の設計。収益性と顧客満足を両立させるフロー。" },
     { id: "03", icon: ClipboardCheck, title: "診断・初回カウンセリング設計", desc: "誰が担当しても同じ結論に達するマニュアル化。直感を排除した客観的判断基準。" },
-    { id: "04", icon: Brain, title: "行動変容療法のデザイン", desc: "62項目のチェックアップによる習慣のズレ特定。心理学的にプランを構築する技術。" },
+    { id: "04", icon: Brain, title: "行動変容療法的デザイン", desc: "62項目のチェックアップによる習慣のズレ特定。心理学的にプランを構築する技術。" },
     { id: "05", icon: CalendarRange, title: "3ヶ月サポート運用モデル", desc: "属人性を排除し、成果と継続を安定させる仕組み。90日間のルーチン管理。" },
     { id: "06", icon: Building, title: "ユニット認定と責任", desc: "技術責任者の役割と認定シールの真の意味。施設全体の信頼性を担保する管理体制。" },
     { id: "07", icon: Users, title: "チーム運営とトレーニング設計", desc: "品質を維持しながら自律的に動くチームの育て方。安全な権限委譲のプロセス。" },
@@ -52,29 +55,10 @@ export const ProfessionalCourse: React.FC = () => {
     { id: "10", icon: Clock, title: "次のステップと拡張", desc: "受講後の事業拡大と進化の選択肢。コミュニティを活用した継続的な事業成長。" }
   ];
 
-  const faqs = [
-    { 
-      q: "どのような指導内容を教えますか？", 
-      a: "単なるアドバイスではなく、行動変容療法を用いて「なぜ今の体型になっているのか」の習慣のズレを特定し、自然に体が変わるようルーチンを調整する構造的なサポートを伝授します。" 
-    },
-    { 
-      q: "サプリメントや自社のサービスと組み合わせられますか？", 
-      a: "はい。ダイエットマスターはサプリやトレーニングを「サポート要素」と捉えます。システムがそれらの必要性を論理的に裏付けるため、顧客への提案力と納得感が高まります。" 
-    },
-    { 
-      q: "全スタッフの資格取得が必要ですか？", 
-      a: "いいえ。本コースは「施設認定」です。運営責任者が基準を管理する体制を構築するため、全スタッフの個別取得は必須ではありません。" 
-    },
-    { 
-      q: "オーナーが必ず受講する必要がありますか？", 
-      a: "はい。または事業の運営責任者の受講が必要です。個人の技術ではなく「経営・サービスデザイン」が焦点となるためです。" 
-    }
-  ];
-
   return (
     <div className="bg-white text-stone-800 font-sans selection:bg-teal-100 selection:text-teal-900 overflow-x-hidden">
       
-      {/* 1. Hero Section - Strategic B2B Filtering */}
+      {/* 1. Hero Section - Strategic Filtering & Prerequisites */}
       <section className="relative min-h-screen flex items-center pt-20 bg-stone-950">
         <div className="absolute inset-0 z-0 opacity-40">
           <img 
@@ -87,10 +71,17 @@ export const ProfessionalCourse: React.FC = () => {
         
         <div className="w-[90%] max-w-[1400px] mx-auto relative z-10 py-20">
           <div className="max-w-4xl animate-in fade-in slide-in-from-left-10 duration-1000">
-            <div className="inline-flex items-center gap-2 text-teal-400 font-bold tracking-[0.4em] text-xs uppercase mb-8 py-2 px-4 bg-teal-500/10 rounded-full border border-teal-500/20">
-              <ShieldCheck size={14} />
-              Elite Management Program
+            <div className="flex flex-wrap gap-3 mb-8">
+              <div className="inline-flex items-center gap-2 text-teal-400 font-bold tracking-[0.4em] text-[10px] uppercase py-2 px-4 bg-teal-500/10 rounded-full border border-teal-500/20">
+                <ShieldCheck size={14} />
+                L03: Professional Master
+              </div>
+              <div className="inline-flex items-center gap-2 text-amber-400 font-bold tracking-[0.2em] text-[10px] uppercase py-2 px-4 bg-amber-500/10 rounded-full border border-amber-500/20">
+                <Lock size={14} />
+                L01・L02 修了者限定
+              </div>
             </div>
+            
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-10 font-serif-jp text-white">
               ダイエットマスター<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-teal-500">
@@ -98,14 +89,13 @@ export const ProfessionalCourse: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-stone-300 mb-12 leading-relaxed font-medium max-w-2xl">
-              個人の才能に依存しない。ダイエット指導を「個人技」ではなく<br className="hidden md:block" />
-              「システム」として運用するためのプロフェッショナル向けコース。
+              個人の技術を「事業システム」へ。属人性を排除し、誰が担当しても最高の結果が出る運営デザインをあなたの施設へ導入します。
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 items-center">
               <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="h-20 px-12 group text-xl shadow-2xl shadow-teal-500/20">
                 <span className="flex items-center gap-3">
-                  無料個別相談を予約する
+                  無料導入相談を予約する
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
                 </span>
               </Button>
@@ -114,66 +104,127 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Introduction - Concept of Business vs Individual */}
-      <section className="py-40 relative overflow-hidden bg-white">
-        <div className="w-[90%] max-w-[1000px] mx-auto text-center">
-          <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-6">The Definition</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight mb-12">
-            これは単なる「資格」ではありません。<br />
-            <span className="text-teal-600">事業の安定</span>を設計するプログラムです。
-          </h2>
-          <div className="text-stone-600 text-lg md:text-xl leading-[2.2] font-medium space-y-8">
-            <p>
-              本コースは、個人の知識習得に留まらず、その施設（ビジネス）自体を認定することを目指します。
-              これは、特定の「エース」に頼ることなく、チーム全体が統一された高い基準でサービスを提供するためのデザインを共有する場です。
-            </p>
-            <p>
-              誰が担当しても安全に、一定の基準で提供できる運営フローを導入することで、
-              顧客に「この施設なら誰が担当しても安心だ」という圧倒的な信頼を約束します。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. The 3 Differentials */}
-      <section className="py-40 bg-stone-50">
+      {/* 2. Double Certification Notice */}
+      <section className="py-24 bg-white relative">
         <div className="w-[90%] max-w-[1200px] mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { 
-                title: "施設認定による圧倒的信頼", 
-                icon: Award, 
-                desc: "個人ではなく施設を認定。担当者が変わっても品質が変わらない保証は、顧客にとって最強の安心材料となり、ブランド価値を定着させます。" 
-              },
-              { 
-                title: "即戦力の運用モデル提供", 
-                icon: Layers, 
-                desc: "行動変容療法に基づく62項目の診断から3ヶ月のサポートフローまで、実証済みのシステムをそのまま自社の新メニューとして導入可能です。" 
-              },
-              { 
-                title: "揺るぎないチームデザイン", 
-                icon: Users, 
-                desc: "スタッフ間の「思考の軸」を統一。個人の感性に頼りすぎない判断基準を共有することで、組織全体のサービス品質を劇的に安定させます。" 
-              }
-            ].map((item, i) => (
-              <div key={i} className="group bg-white p-12 rounded-[3rem] border border-stone-200 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-inner group-hover:scale-110 transition-transform">
-                  <item.icon size={32} />
+          <div className="bg-stone-50 rounded-[3rem] p-10 md:p-16 border border-teal-100 flex flex-col md:flex-row items-center gap-12 shadow-sm">
+             <div className="flex-shrink-0 flex -space-x-4">
+                <div className="w-24 h-24 md:w-32 md:h-32 bg-teal-600 rounded-[2rem] shadow-xl flex items-center justify-center text-white border-4 border-white transform -rotate-6">
+                   <Award size={48} />
                 </div>
-                <h4 className="text-xl font-bold text-stone-900 mb-6 font-serif-jp leading-tight">{item.title}</h4>
-                <p className="text-stone-500 text-sm leading-relaxed font-medium">{item.desc}</p>
-              </div>
-            ))}
+                <div className="w-24 h-24 md:w-32 md:h-32 bg-stone-900 rounded-[2rem] shadow-xl flex items-center justify-center text-teal-400 border-4 border-white transform rotate-6">
+                   <Building size={48} />
+                </div>
+             </div>
+             <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-bold text-stone-900 font-serif-jp mb-4 leading-tight">
+                  「個人」と「施設」の<br className="md:hidden" />
+                  <span className="text-teal-600">2つの認定</span>を同時に取得。
+                </h3>
+                <p className="text-stone-500 font-medium leading-relaxed">
+                  本コース修了者には、最高峰の個人資格である「ダイエットプロフェッショナルマスター」の認定に加え、その施設がダイエットマスターの基準をクリアしていることを証明する「認定施設」としてのライセンスが授与されます。
+                </p>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Comparison Table - Why We Are Different */}
-      <section className="py-40 bg-white">
+      {/* 3. The Roadmap / Pathfinder Section - IMPORTANT STAGE */}
+      <section className="py-32 bg-white overflow-hidden">
+        <div className="w-[90%] max-w-[1200px] mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase block mb-6">Learning Roadmap</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 font-serif-jp mb-6">
+              あなたの目的に合わせた、<br />最適な学習経路
+            </h2>
+            <p className="text-stone-500 font-medium max-w-2xl mx-auto">
+              ダイエットマスターは、単なる知識の提供ではなく、あなたのキャリアやビジネスのステージに応じた明確なステップを用意しています。
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Persona A: Personal Weight Loss */}
+            <div className="group bg-orange-50/50 rounded-[3rem] p-10 border border-orange-100 flex flex-col hover:shadow-xl transition-all duration-500">
+               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-orange-500 mb-8 shadow-sm group-hover:bg-orange-500 group-hover:text-white transition-all">
+                  <Target size={28} />
+               </div>
+               <h4 className="text-xl font-bold text-stone-800 mb-6 font-serif-jp">
+                  自分自身が痩せて、<br />人生を変えたい方
+               </h4>
+               <p className="text-stone-500 text-sm leading-relaxed mb-8 font-medium">
+                  一過性の減量ではなく、一生モノの健康習慣を手に入れることが目的。リバウンドから卒業したい方のためのルート。
+               </p>
+               <div className="mt-auto space-y-4">
+                  <div className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-orange-100/50 shadow-sm">
+                     <CheckCircle2 size={18} className="text-orange-500" />
+                     <span className="text-xs font-bold">レギュラーコース (L01)</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-emerald-500 text-white rounded-2xl shadow-lg">
+                     <Sparkles size={18} />
+                     <span className="text-xs font-bold">マスター減量プログラム</span>
+                  </div>
+               </div>
+            </div>
+
+            {/* Persona B: Career Independence */}
+            <div className="group bg-teal-50/50 rounded-[3rem] p-10 border border-teal-100 flex flex-col hover:shadow-xl transition-all duration-500 scale-105 z-10 bg-white">
+               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-sm group-hover:bg-teal-600 group-hover:text-white transition-all">
+                  <UserCheck size={28} />
+               </div>
+               <h4 className="text-xl font-bold text-stone-800 mb-6 font-serif-jp">
+                  プロとして独立し、<br />メニューを確立したい方
+               </h4>
+               <p className="text-stone-500 text-sm leading-relaxed mb-8 font-medium">
+                  エステやサロン勤務から独立を考えている方や、自身の指導に強力な付加価値（食事指導メニュー）を加えたいプロのルート。
+               </p>
+               <div className="mt-auto space-y-4">
+                  <div className="flex items-center gap-3 p-4 bg-stone-100 text-stone-400 rounded-2xl opacity-60">
+                     <Check size={18} />
+                     <span className="text-xs font-bold">レギュラー修了済 (L01)</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-teal-600 text-white rounded-2xl shadow-lg">
+                     <ChevronRight size={18} />
+                     <span className="text-xs font-bold">シニアコース (L02)</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-stone-900 text-white rounded-2xl shadow-xl">
+                     <TrendingUp size={18} className="text-teal-400" />
+                     <span className="text-xs font-bold">プロフェッショナル (L03)</span>
+                  </div>
+               </div>
+            </div>
+
+            {/* Persona C: Business Owner */}
+            <div className="group bg-stone-900 rounded-[3rem] p-10 flex flex-col hover:shadow-xl transition-all duration-500 text-white">
+               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-teal-400 mb-8 shadow-sm group-hover:bg-teal-400 group-hover:text-stone-900 transition-all">
+                  <Building2 size={28} />
+               </div>
+               <h4 className="text-xl font-bold mb-6 font-serif-jp">
+                  既に経営者であり、<br />売上をシステム化したい方
+               </h4>
+               <p className="text-stone-400 text-sm leading-relaxed mb-8 font-medium">
+                  既存のダイエットメニューの成約率を高めたい、または属人性を排除して組織で運営したい経営者・オーナーのルート。
+               </p>
+               <div className="mt-auto space-y-4">
+                  <div className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-2xl text-stone-500">
+                     <Lock size={18} />
+                     <span className="text-xs font-bold">L01・L02 セット受講</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-teal-600 text-white rounded-2xl shadow-lg">
+                     <Sparkles size={18} />
+                     <span className="text-xs font-bold">プロフェッショナル (L03) 導入</span>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Comparison Table - Why Professional Course? */}
+      <section className="py-40 bg-stone-50">
         <div className="w-[90%] max-w-[1000px] mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">比較でわかる圧倒的優位性</h2>
-            <p className="text-stone-500 mt-6 font-medium text-lg">「資格」の枠を超え、「事業システム」としての価値を追求します。</p>
+            <p className="text-stone-500 mt-6 font-medium text-lg">「個人の学び」を「事業の成功」へ繋げる唯一の選択肢。</p>
           </div>
 
           <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-stone-200">
@@ -205,12 +256,12 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Curriculum - 10 Chapters */}
-      <section className="py-40 bg-stone-50">
+      {/* 5. Curriculum - Interactive Journey (Existing 10 chapters) */}
+      <section className="py-40 bg-white">
         <div className="w-[90%] max-w-[1200px] mx-auto">
-          <div className="text-center mb-24">
-            <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase block mb-6">The Curriculum</span>
-            <h2 className="text-3xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight">
+          <div className="text-center mb-32">
+            <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase block mb-6">Master Curriculum</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight">
               プロフェッショナル・マスター全10章
             </h2>
           </div>
@@ -220,7 +271,7 @@ export const ProfessionalCourse: React.FC = () => {
               <div 
                 key={chapter.id}
                 onClick={() => navigate(`/courses/professional/chapter/${chapter.id}`)}
-                className="group relative h-[380px] bg-white rounded-[2.5rem] border border-stone-100 p-8 flex flex-col justify-between hover:bg-stone-900 transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl"
+                className="group relative h-[360px] bg-white rounded-[2.5rem] border border-stone-100 p-8 flex flex-col justify-between hover:bg-stone-900 transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl"
               >
                 <div className="absolute top-4 right-6 text-7xl font-black text-stone-50 group-hover:text-white/5 transition-colors duration-500">
                   {chapter.id}
@@ -251,38 +302,52 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Implementation Flow */}
+      {/* 6. Implementation Roadmap */}
       <section className="py-40 bg-stone-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(20,184,166,0.1),transparent)]"></div>
         <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-24">
             <h2 className="text-3xl md:text-5xl font-bold font-serif-jp mb-6">導入までの3ステップ</h2>
-            <p className="text-stone-400 font-medium text-lg">確実な運用開始までを徹底サポートします。</p>
+            <p className="text-stone-400 font-medium text-lg leading-relaxed max-w-xl mx-auto">
+              プロフェッショナルコースは、L01・L02の修了を前提とした最高峰のステップです。
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { step: "01", title: "プロコースの受講", desc: "経営者または技術責任者が全10章を受講。システムの根幹と運営デザインを深く理解します。" },
-              { step: "02", title: "認定証・シールの発行", desc: "理解度確認を経て、公式な「認定施設シール」および「Professional Master」認定証を発行します。" },
-              { step: "03", title: "導入・チーム共有", desc: "実店舗へのメニュー導入。基準をチームで共有し、認定施設としての運営をスタートします。" }
-            ].map((item, i) => (
-              <div key={i} className="relative p-12 bg-white/5 border border-white/10 rounded-[3rem] group hover:bg-white/10 transition-all duration-500">
-                <div className="text-8xl font-black text-teal-500/10 absolute -top-4 -left-4 pointer-events-none group-hover:text-teal-500/20 transition-colors">{item.step}</div>
-                <h4 className="text-2xl font-bold mb-8 font-serif-jp text-teal-400">STEP {item.step}</h4>
-                <h5 className="text-xl font-bold mb-6">{item.title}</h5>
-                <p className="text-stone-400 text-sm leading-relaxed font-medium">{item.desc}</p>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {/* Step 1 */}
+            <div className="relative p-10 bg-white/5 border border-white/10 rounded-[3rem] group hover:bg-white/10 transition-all duration-500">
+               <div className="text-sm font-black text-teal-500 mb-6 uppercase tracking-widest">Step 01</div>
+               <h4 className="text-2xl font-bold font-serif-jp mb-6">基礎・指導者養成の修了</h4>
+               <p className="text-stone-400 text-sm leading-relaxed font-medium">
+                  レギュラー(L01)およびシニア(L02)を受講。ダイエット指導の理論とコーチングスキルの土台を完成させます。
+               </p>
+            </div>
+            {/* Step 2 */}
+            <div className="relative p-10 bg-white/5 border border-white/10 rounded-[3rem] group hover:bg-white/10 transition-all duration-500">
+               <div className="text-sm font-black text-teal-500 mb-6 uppercase tracking-widest">Step 02</div>
+               <h4 className="text-2xl font-bold font-serif-jp mb-6">プロコース受講・認定</h4>
+               <p className="text-stone-400 text-sm leading-relaxed font-medium">
+                  ビジネスデザインから運営システムまで全10章を習得。理解度確認を経て、個人マスターと施設のダブル認定を行います。
+               </p>
+            </div>
+            {/* Step 3 */}
+            <div className="relative p-10 bg-white/5 border border-white/10 rounded-[3rem] group hover:bg-white/10 transition-all duration-500">
+               <div className="text-sm font-black text-teal-500 mb-6 uppercase tracking-widest">Step 03</div>
+               <h4 className="text-2xl font-bold font-serif-jp mb-6">施設のプロ運用開始</h4>
+               <p className="text-stone-400 text-sm leading-relaxed font-medium">
+                  認定施設シールを掲げ、標準化されたメソッドでメニューを開始。属人性を排した安定経営をスタートします。
+               </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. Success Examples */}
+      {/* 7. Practice Areas (Aesthetics, Gym, etc) */}
       <section className="py-40 bg-white">
         <div className="w-[90%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
-            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp">導入イメージ</h2>
-            <p className="text-stone-500 mt-6 font-medium text-lg">様々な業態のサービスと融合し、新しい価値を創造します。</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp">導入事例</h2>
+            <p className="text-stone-500 mt-6 font-medium text-lg">専門的な技術を、収益性の高いビジネスへ統合します。</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -290,21 +355,21 @@ export const ProfessionalCourse: React.FC = () => {
               { 
                 title: "エステサロン", 
                 icon: Sparkle,
-                desc: "施術の効果を最大化する「生活習慣改善サポート」をメニュー化。内面からの美しさを提供。" 
+                desc: "施術の効果を最大化する「生活習慣改善サポート」をメニュー化。内面美へのアプローチで差別化を。独立時の強力な武器となります。" 
               },
               { 
                 title: "パーソナルジム", 
                 icon: Dumbbell,
-                desc: "トレーニングだけでなく、科学的根拠に基づいた3ヶ月の食事指導を付加。成約率を飛躍的に向上。" 
+                desc: "トレーニングだけでなく、科学的根拠に基づいた3ヶ月の食事指導を付加。成約率と継続率を飛躍的に向上させます。" 
               },
               { 
                 title: "整体・治療院", 
                 icon: Stethoscope,
-                desc: "身体の不調の根本原因に多い「食」と「体重」をアプローチ。健康的な体づくりをトータルで支援。" 
+                desc: "身体の不調の根本原因に多い「食」と「体重」をアプローチ。健康的な体づくりをトータルで支援し、信頼性を高めます。" 
               }
             ].map((item, i) => (
               <div key={i} className="group bg-stone-50 rounded-[3rem] p-12 border border-stone-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-sm">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-sm group-hover:bg-teal-600 group-hover:text-white transition-all">
                   <item.icon size={32} />
                 </div>
                 <h4 className="text-2xl font-bold mb-6 font-serif-jp text-stone-800">{item.title}</h4>
@@ -318,12 +383,29 @@ export const ProfessionalCourse: React.FC = () => {
       {/* 8. FAQ */}
       <section className="py-40 bg-stone-50">
         <div className="w-[90%] max-w-[800px] mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-20">
             <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">よくあるご質問</h2>
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, idx) => (
+            {[
+              { 
+                q: "どのような指導内容を教えますか？", 
+                a: "単なるアドバイスではなく、行動変容療法を用いて「なぜ今の体型になっているのか」の習慣のズレを特定し、自然に体が変わるようルーチンを調整する構造的なサポートを伝授します。" 
+              },
+              { 
+                q: "既存の自社サービスと組み合わせられますか？", 
+                a: "はい。本メソッドは「判断の軸」となります。サプリやトレーニング、施術の必要性を論理的に裏付けるため、提案力と納得感が飛躍的に高まります。" 
+              },
+              { 
+                q: "全スタッフの資格取得が必要ですか？", 
+                a: "いいえ。本コースは「施設認定」を主眼としています。運営責任者が基準を管理する体制を構築するため、全スタッフの個別取得は必須ではありません。" 
+              },
+              { 
+                q: "未経験でもプロコースから始められますか？", 
+                a: "本コースはL03に位置づけられており、L01・L02の内容を理解していることが前提です。未経験の方は、一括取得パック等でL01からステップアップすることをお勧めします。" 
+              }
+            ].map((faq, idx) => (
               <div key={idx} className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm">
                 <button 
                   onClick={() => toggleFaq(idx)}
@@ -375,11 +457,10 @@ export const ProfessionalCourse: React.FC = () => {
                     不変のダイエット・オペレーション。
                  </h3>
                  <p className="text-stone-400 text-lg leading-relaxed font-medium">
-                    ダイエットマスター・プロコースは、単なる知識の寄せ集めではありません。数千件の成功事例と、行動変容療法の最新知見を統合した「事業としての正解」です。小野誠氏の監修による本物の基準を。
+                    プロフェッショナルコースは、数千件の成功事例と最新の知見を統合した「事業の正解」です。小野誠氏の監修による本物の基準を。
                  </p>
                  <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-xs text-stone-500 leading-relaxed">
-                   注意：本コースは短期的な売上を目的とした「販売テクニック」の講習ではありません。
-                   長期的な信頼を築くための「運営システムの構築」を目的としています。
+                   注意：本コースは売上のための「テクニック」ではなく、信頼を築くための「システム構築」を目的としています。
                  </div>
               </div>
            </div>
@@ -390,7 +471,7 @@ export const ProfessionalCourse: React.FC = () => {
       <section className="py-40 bg-white text-center">
         <div className="w-[90%] max-w-4xl mx-auto">
           <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase mb-12 block">Final Call</span>
-          <h2 className="text-5xl md:text-7xl font-bold text-stone-900 mb-16 font-serif-jp leading-tight">
+          <h2 className="text-5xl md:text-7xl font-bold text-stone-800 mb-16 font-serif-jp leading-tight tracking-tighter">
             あなたの施設を、<br />
             <span className="text-teal-600">プロの舞台へ。</span>
           </h2>
@@ -399,10 +480,14 @@ export const ProfessionalCourse: React.FC = () => {
             <Button size="xl" variant="teal" className="h-24 px-20 text-2xl shadow-3xl shadow-teal-500/30 group relative overflow-hidden" onClick={() => navigate('/contact')}>
                <span className="relative z-10 flex items-center gap-4">
                   <Sparkles size={28} className="animate-pulse" />
-                  施設のプロフェッショナル化を相談する
+                  導入相談を予約する（L01・L02未受講の方も可）
                </span>
                <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
             </Button>
+            
+            <p className="text-stone-400 font-bold text-xs tracking-widest uppercase">
+              最短で確実なビジネスの成長を共に設計しましょう
+            </p>
           </div>
         </div>
       </section>
