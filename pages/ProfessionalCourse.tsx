@@ -37,17 +37,20 @@ export const ProfessionalCourse: React.FC = () => {
   };
 
   const chapters = [
-    { id: "01", icon: Layout, title: "ビジネスモデル構築", desc: "才能依存からの脱却と持続可能なビジョンの構築。指導を「技術」から「事業」へ転換する戦略。" },
-    { id: "02", icon: Settings2, title: "システムデザイン", desc: "集客からサポート開始までの全体構造の設計。収益性と顧客満足を両立させるプロセスの構築。" },
-    { id: "03", icon: ClipboardCheck, title: "標準化カウンセリング", desc: "誰が担当しても同じ結論に達するマニュアル化。直感を排除した客観的判断基準の導入。" },
-    { id: "04", icon: Brain, title: "行動変容プログラム", desc: "62項目のチェックアップによる習慣のズレ特定。心理学的に個別のプランを構築する技術。" },
-    { id: "05", icon: CalendarRange, title: "90日間運用モデル", desc: "属人性を排除し、成果と継続を安定させる仕組み。3ヶ月間の徹底したルーチン管理法。" },
-    { id: "06", icon: Building, title: "施設認定マネジメント", desc: "技術責任者の役割と認定シールの真の意味。施設全体の信頼性を担保する管理体制。" },
-    { id: "07", icon: Users, title: "チームビルディング", desc: "品質を維持しながら自律的に動くチームの育て方。安全な権限委譲と教育プロセス。" },
-    { id: "08", icon: ShieldCheck, title: "プロ倫理とリスク管理", desc: "守るべき一線と、変えて良いものの定義。ブランドを保護しリスクを最小化する法務。" },
-    { id: "09", icon: Settings, title: "既存サービスとの統合", desc: "サプリ、エステ、トレーニング等、既存メニューとの相乗効果。付加価値の最大化と成約率向上。" },
-    { id: "10", icon: Clock, title: "事業拡張ロードマップ", desc: "受講後の事業拡大と進化の選択肢。多店舗展開や資産化された事業への未来予想図。" }
+    { id: "01", icon: Layout, title: "ビジネスモデル構築", desc: "才能依存からの脱却と持続可能なビジョンの構築。" },
+    { id: "02", icon: Settings2, title: "システムデザイン", desc: "集客からサポート開始までの全体構造の設計。" },
+    { id: "03", icon: ClipboardCheck, title: "標準化カウンセリング", desc: "誰が担当しても同じ結論に達するマニュアル化。" },
+    { id: "04", icon: Brain, title: "行動変容プログラム", desc: "62項目のチェックアップによる習慣のズレ特定。" },
+    { id: "05", icon: CalendarRange, title: "90日間運用モデル", desc: "属人性を排除し、成果と継続を安定させる仕組み。" },
+    { id: "06", icon: Building, title: "施設認定マネジメント", desc: "技術責任者の役割と認定シールの真の意味。" },
+    { id: "07", icon: Users, title: "チームビルディング", desc: "品質を維持しながら自律的に動くチームの育て方。" },
+    { id: "08", icon: ShieldCheck, title: "プロ倫理とリスク管理", desc: "守るべき一線と、変えて良いものの定義。" },
+    { id: "09", icon: Settings, title: "既存サービスとの統合", desc: "サプリ、エステ等、既存メニューとの相乗効果。" },
+    { id: "10", icon: Clock, title: "事業拡張ロードマップ", desc: "受講後の事業拡大と資産化された事業への未来。" }
   ];
+
+  const firstHalf = chapters.slice(0, 5);
+  const secondHalf = chapters.slice(5, 10);
 
   const targetProfiles = [
     {
@@ -164,46 +167,71 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Professional Curriculum - Learning Roadmap */}
+      {/* 4. Professional Curriculum - COMPACT 2-LIST LAYOUT */}
       <section className="py-40 bg-white">
-        <div className="w-[90%] max-w-[1200px] mx-auto">
-          <div className="text-center mb-32">
+        <div className="w-[90%] max-w-[1100px] mx-auto">
+          <div className="text-center mb-24">
             <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase block mb-6">Learning Roadmap</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">
               プロフェッショナル・マスター全10章
             </h2>
             <p className="text-stone-400 mt-6 font-medium">個人の技術を「事業システム」へ昇華させるための10ステップ。</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {chapters.map((chapter) => (
-              <div 
-                key={chapter.id}
-                onClick={() => navigate('/contact')}
-                className="group relative h-[380px] bg-white rounded-[2.5rem] border border-stone-100 p-8 flex flex-col justify-between hover:bg-stone-900 transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl"
-              >
-                <div className="absolute top-4 right-6 text-7xl font-black text-stone-50 group-hover:text-white/5 transition-colors duration-500">
-                  {chapter.id}
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+            {/* First List (Chapters 1-5) */}
+            <div className="space-y-4">
+              {firstHalf.map((chapter) => (
+                <div 
+                  key={chapter.id}
+                  onClick={() => navigate('/contact')}
+                  className="group flex items-center gap-6 p-6 bg-stone-50 rounded-[2rem] border border-stone-100 hover:bg-stone-900 hover:border-stone-800 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-all shadow-sm">
+                    <chapter.icon size={22} />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] font-black text-teal-600 group-hover:text-teal-400 tracking-widest uppercase">Chapter {chapter.id}</span>
+                      <ChevronRight size={14} className="text-stone-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
+                    </div>
+                    <h3 className="text-base font-bold text-stone-900 group-hover:text-white font-serif-jp transition-colors">
+                      {chapter.title}
+                    </h3>
+                    <p className="text-[11px] text-stone-400 leading-relaxed group-hover:text-stone-500 transition-colors">
+                      {chapter.desc}
+                    </p>
+                  </div>
                 </div>
-                <div className="relative z-10 w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-all duration-500">
-                  <chapter.icon size={24} />
+              ))}
+            </div>
+
+            {/* Second List (Chapters 6-10) */}
+            <div className="space-y-4">
+              {secondHalf.map((chapter) => (
+                <div 
+                  key={chapter.id}
+                  onClick={() => navigate('/contact')}
+                  className="group flex items-center gap-6 p-6 bg-stone-50 rounded-[2rem] border border-stone-100 hover:bg-stone-900 hover:border-stone-800 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-all shadow-sm">
+                    <chapter.icon size={22} />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] font-black text-teal-600 group-hover:text-teal-400 tracking-widest uppercase">Chapter {chapter.id}</span>
+                      <ChevronRight size={14} className="text-stone-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
+                    </div>
+                    <h3 className="text-base font-bold text-stone-900 group-hover:text-white font-serif-jp transition-colors">
+                      {chapter.title}
+                    </h3>
+                    <p className="text-[11px] text-stone-400 leading-relaxed group-hover:text-stone-500 transition-colors">
+                      {chapter.desc}
+                    </p>
+                  </div>
                 </div>
-                <div className="relative z-10">
-                  <h3 className="text-lg font-bold text-stone-900 font-serif-jp mb-4 leading-tight group-hover:text-white transition-colors">
-                    {chapter.title}
-                  </h3>
-                  <p className="text-xs text-stone-400 leading-relaxed font-medium group-hover:text-stone-500 transition-colors">
-                    {chapter.desc}
-                  </p>
-                </div>
-                <div className="relative z-10 flex items-center justify-between">
-                   <span className="text-[10px] font-black tracking-widest uppercase text-stone-300 group-hover:text-teal-500">Details</span>
-                   <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center text-stone-300 group-hover:bg-teal-500 group-hover:text-white group-hover:translate-x-1 transition-all">
-                      <ChevronRight size={14} />
-                   </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -249,7 +277,7 @@ export const ProfessionalCourse: React.FC = () => {
               },
               { 
                 q: "サプリメントや既存のサービスと組み合わせることはできますか？", 
-                a: "はい。ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
+                a: "はい. ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
               },
               { 
                 q: "スタッフ全員が資格を取得する必要がありますか？", 
