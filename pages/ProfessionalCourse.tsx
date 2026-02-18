@@ -29,7 +29,9 @@ import {
   CheckCircle2,
   XCircle,
   BarChart3,
-  SearchCheck
+  Flower2,
+  HeartPulse,
+  UtensilsCrossed
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
@@ -56,6 +58,39 @@ export const ProfessionalCourse: React.FC = () => {
 
   const firstHalf = chapters.slice(0, 5);
   const secondHalf = chapters.slice(5, 10);
+
+  const useCases = [
+    { 
+      title: "エステサロン", 
+      icon: Sparkle, 
+      desc: "施術の効果を最大化する「食事サポート」をメニュー化。内面からのアプローチを論理的に提供し、顧客単価と満足度を劇的に向上。" 
+    },
+    { 
+      title: "パーソナルジム", 
+      icon: Dumbbell, 
+      desc: "トレーニングに加え、科学的根拠に基づいたシステム的な食事指導を付加。成約率を飛躍的に高め、リバウンド防止を強みに。" 
+    },
+    { 
+      title: "治療院・クリニック", 
+      icon: Stethoscope, 
+      desc: "不調の根本原因である「食」と「体重」をシステム的に管理。健康的な体づくりをトータルで支援し、地域で唯一無二の専門院へ。" 
+    },
+    { 
+      title: "ヨガ・ピラティススタジオ", 
+      icon: Flower2, 
+      desc: "「美しくしなやかな体」を内側から作る食事メソッドを導入。既存のレッスンと組み合わせた『3ヶ月集中パッケージ』の展開が可能に。" 
+    },
+    { 
+      title: "法人向けウェルネス", 
+      icon: HeartPulse, 
+      desc: "企業の福利厚生として、社員の健康管理システムを提供。メタボ対策やメンタルヘルスを「食事の仕組み」からアプローチするB2B事業。" 
+    },
+    { 
+      title: "健康食・宅食サービス", 
+      icon: UtensilsCrossed, 
+      desc: "単なる食事提供ではなく、認定に基づく「行動変容プログラム」を付随。科学的根拠を強みに、競合他社との圧倒的な差別化を図る。" 
+    }
+  ];
 
   const targetProfiles = [
     {
@@ -302,26 +337,23 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Case Studies / Segments */}
+      {/* 6. Use Cases - EXAMPLES OF IMPLEMENTATION */}
       <section className="py-40 bg-stone-50">
         <div className="w-[90%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
-            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp">導入による変化</h2>
+            <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase block mb-6">Implementation Examples</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp">認定システムの導入・活用シーン</h2>
             <p className="text-stone-500 mt-6 font-medium text-lg">あらゆる健康・美容ビジネスに「確信」という軸を導入します。</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "エステサロン", icon: Sparkle, desc: "施術の効果を最大化する「食事サポート」をメニュー化。内面からのアプローチを論理的に提供し、顧客単価と満足度を劇的に向上。" },
-              { title: "パーソナルジム", icon: Dumbbell, desc: "トレーニングに加え、科学的根拠に基づいたシステム的な食事指導を付加。成約率を飛躍的に高め、リバウンド防止を強みに。" },
-              { title: "治療院・クリニック", icon: Stethoscope, desc: "不調の根本原因である「食」と「体重」をシステム的に管理。健康的な体づくりをトータルで支援し、地域で唯一無二の専門院へ。" }
-            ].map((item, i) => (
-              <div key={i} className="group bg-white rounded-[3rem] p-12 border border-stone-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-sm">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {useCases.map((item, i) => (
+              <div key={i} className="group bg-white rounded-[3rem] p-12 border border-stone-100 shadow-sm hover:shadow-xl transition-all flex flex-col h-full">
+                <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-8 shadow-sm group-hover:bg-teal-600 group-hover:text-white transition-all">
                   <item.icon size={32} />
                 </div>
                 <h4 className="text-2xl font-bold mb-6 font-serif-jp text-stone-800">{item.title}</h4>
-                <p className="text-stone-500 text-sm leading-relaxed font-medium">{item.desc}</p>
+                <p className="text-stone-500 text-sm leading-relaxed font-medium flex-grow">{item.desc}</p>
               </div>
             ))}
           </div>
