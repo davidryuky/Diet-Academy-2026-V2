@@ -1,255 +1,387 @@
-export interface ChapterSection {
-  title: string;
-  content: string[];
-}
+import React, { useState } from 'react';
+import { Button } from '../components/common/Button';
+import { 
+  ShieldCheck, 
+  BarChart3, 
+  Users2, 
+  ChevronDown, 
+  CheckCircle2, 
+  ArrowRight, 
+  Award, 
+  LineChart,
+  Layout,
+  ClipboardCheck,
+  Brain,
+  CalendarRange,
+  Users,
+  Scale,
+  Layers,
+  Rocket,
+  Sparkles,
+  Zap
+} from 'lucide-react';
+import { useNavigate } from 'react-router';
 
-export interface ChapterData {
-  id: string;
-  num: string;
-  title: string;
-  subtitle: string;
-  sections: ChapterSection[];
-  isDraft?: boolean;
-}
+export const ProfessionalCourse: React.FC = () => {
+  const navigate = useNavigate();
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-export const professionalChapters: Record<string, ChapterData> = {
-  "01": {
-    id: "01",
-    num: "01",
-    title: "ビジネスモデルとしてのダイエット指導",
-    subtitle: "個人の才能に依存しない事業の安定化：「サイレント・ディビエーション」の終焉",
-    sections: [
-      {
-        title: "1. 現在のビジネスの診断",
-        content: [
-          "多くの健康・美容のプロフェッショナルは、危険なパラドックスの中に生きています。予約は埋まり、顧客も満足し、売上も安定している。しかし、自分が立ち止まれば、すべてが止まってしまうという脆弱性を感じています。",
-          "これは「サイレント・ディビエーション（静かな逸脱）」と呼ばれる現象が原因です。指導が専門家の直感、記憶、エネルギーにのみ依存している場合、サービスの質はその日の疲労度によって変動します。努力は新しい顧客ごとにリセットされ、経験が会社の資産として蓄積されることはありません。"
-        ]
-      },
-      {
-        title: "2. パラダイムシフト：「教える」から「運営する」へ",
-        content: [
-          "本コースでは、根本的な視点の転換を提案します。ダイエットを単なる教育的行為（食事法を教える）ではなく、一つのオペレーティングシステム（変化のプロセスを管理する）として捉え直すことです。",
-          "・「キーマン」依存の危険性：従来のモデルでは、プロフェッショナルが有能であればあるほど、ビジネスは個人に縛り付けられます。これは停滞と燃え尽き症候群（バーンアウト）の引き金となります。",
-          "・構造的解決策：判断と決定が個人の英雄的な行為ではなく、標準化され再現可能なプロセスとなる環境を構築します。"
-        ]
-      },
-      {
-        title: "3. 最終目標：真の資産構築",
-        content: [
-          "このシステムを導入することで、指導の質が「人」ではなく「プロセス」によって保証される構造が完成します。これにより、あなたがその場にいなくても、サービスの質を落とすことなく、ビジネスを拡大し、スタッフを雇用し、スケールさせることが可能になります。"
-        ]
-      }
-    ]
-  },
-  "02": {
-    id: "02",
-    num: "02",
-    title: "システムの全体設計",
-    subtitle: "ビジネスのハブ（軸）としての「ダイエット診断」",
-    sections: [
-      {
-        title: "1. テクノロジーへの依存からの脱却",
-        content: [
-          "市場には「高価な機器や独占的なサプリメントがなければ、高単価な指導はできない」という神話が存在します。しかし、本メソッドは逆を証明します。ダイエット指導はそれ自体で完結した価値を持ちます。",
-          "顧客が感じる真の価値は、機械ではなく、専門家が睡眠・ルーチン・栄養の「ズレ」を特定し、それらを組織化して解決する能力にあります。"
-        ]
-      },
-      {
-        title: "2. 統合されたフロー：「ハブ」の概念",
-        content: [
-          "マーケティング、販売、サポートをバラバラの部署として扱うのではなく、「ダイエット診断」を核とした一本のラインとして統合します。",
-          "・集客（マーケティング）：魔法の公式を売るのではなく、診断を通じた現状の整理へと顧客を招待します。",
-          "・初回面談（販売）：強引な説得の場から、現状認識の合意の場へと変わります。診断データが「客観的な事実」として機能し、専門家と顧客の間に信頼を構築します。",
-          "・サポート（提供）：診断の自然な延長となります。顧客は「強制されている」のではなく、あらかじめ合意された論理的な計画に従っていると実感します。"
-        ]
-      },
-      {
-        title: "3. 3つの機能的柱",
-        content: [
-          "診断は単なるデータ収集ではありません。ビジネスにおける3つの不可欠な役割を果たします：",
-          "・整理：顧客の混沌とした日常を、客観的で実行可能なデータに翻訳します。",
-          "・判断：顧客がプログラムに適しているかを明確な基準で決定し、施設の成功率を守ります。",
-          "・信頼：顧客自身よりも深く問題を言語化して説明することで、解決策の提案以前に圧倒的な権威性が生まれます。"
-        ]
-      }
-    ]
-  },
-  "03": {
-    id: "03",
-    num: "03",
-    title: "初回面談の標準化",
-    subtitle: "一貫性のある意思決定の技術：共感と論理の分離",
-    sections: [
-      {
-        title: "1. 「同時進行」という過ち",
-        content: [
-          "初回面談において、エラーを引き起こす最大の原因は「聞く（受け止める）」と「判断する（決定する）」を同時に行おうとすることです。専門家がこれらを同時に行うと、顧客の感情に引きずられてロジックが歪みます。その結果、臨床的な必要性ではなく、その時の「共感の度合い」によって決定が左右されてしまいます。"
-        ]
-      },
-      {
-        title: "2. 解決策：標準化のための分離",
-        content: [
-          "チームの誰もが同じ結論に達することを保証するために、プロセスを時間軸で分離します：",
-          "・フェーズ1：傾聴（アナムネーゼ）：100%事実の収集と受け止めに集中します。ここでは答えを出したり解決しようとしてはいけません。「証拠」を集めることに徹します。",
-          "・フェーズ2：判断（決定）：収集されたデータを冷静に分析する独立したステップです。ここで、サポートを開始するか、準備期間を置くか、あるいは医師へ紹介するかを冷徹に決定します。"
-        ]
-      },
-      {
-        title: "3. 意思決定の範囲を定義する",
-        content: [
-          "初回面談は60分間で顧客の人生すべてを解決する場ではありません。以下の3つの重要な問いに答えるための場です：",
-          "1. このケースは私たちが扱うべきものか？",
-          "2. 最初の方向性は何か（即開始か、準備からか）？",
-          "3. 開始を妨げるリスクは存在しないか？",
-          "詳細なタスクや複雑な指導は、継続的なサポート期間に委ねます。これにより担当者のプレッシャーを軽減し、決定をプロフェッショナルなものに保ちます。"
-        ]
-      }
-    ]
-  },
-  "04": {
-    id: "04",
-    num: "04",
-    title: "診断のエンジニアリング",
-    subtitle: "教育・運営・保護を同時に行うツール",
-    sections: [
-      {
-        title: "1. ブロック式アーキテクチャ：運営の安全性",
-        content: [
-          "本メソッドの診断は、単なるアンケートではありません。「傾聴」「判断」「提案」という明確なブロックで設計されたアーキテクチャです。これにより、経験値の異なるスタッフが安全に活用できるようになります。経験の浅いスタッフが背伸びをしてミスをすることを防ぎ、ベテランが基礎を飛ばすことを防ぎます。"
-        ]
-      },
-      {
-        title: "2. ツールの教育的機能",
-        content: [
-          "新しいメンバーをトレーニングする最良の方法は、膨大な理論を詰め込むことではなく、思考をガイドする構造化されたツールを提供することです。",
-          "・初心者：台本に従って「傾聴」ブロックをこなすだけで、重要なデータの見落としをゼロにできます。",
-          "・中級者：集まったデータを照らし合わせ、「判断」のプロセスを学びます。",
-          "・上級者：統合されたデータから「価値ある提案」を創造します。"
-        ]
-      },
-      {
-        title: "3. 深さ vs 推測",
-        content: [
-          "診断項目が多いのには、意図があります。浅い診断は、行間を「直感」で埋めることができる熟練の天才を必要とします。深い診断は推測の必要性を排除します。回答の構造自体が、顧客の日常に隠れたパターンとズレを自動的に浮かび上がらせます。質問のボリュームは、専門家の認知負荷を減らすために設計されています。"
-        ]
-      }
-    ]
-  },
-  "05": {
-    id: "05",
-    num: "05",
-    title: "3ヶ月サポートの科学",
-    subtitle: "継続と習慣：持続可能な結果のエンジニアリング",
-    sections: [
-      {
-        title: "1. 時間的ロジック：なぜ90日間なのか？",
-        content: [
-          "3ヶ月という期間は、ランダムに選ばれたものではありません。神経可塑性が働き、生理的な適応が定着するために必要な最小期間です。短すぎれば結果は一過性となり、長すぎれば心理的な参入障壁が高まります。目標は健康的に体重を落とすこと、そしてそれ以上に「新しい正常な状態」を脳と体に記憶させることです。"
-        ]
-      },
-      {
-        title: "2. 運営リズム：調整 vs 監視",
-        content: [
-          "顧客を「監視（ポリス）」することに焦点を当てる他メソッドとは異なり、私たちの焦点は「ルートの調整（アジャスト）」にあります。",
-          "・週次の「ハートビート」：週に一度、対面またはオンラインでカウンセリングを行います。ここでは説教をするのではなく、何が機能し、何が失敗したかを分析し、翌週の目標を再設定します。",
-          "・低負荷な日次レポート：アプリ等を通じて、データを生成するための記録を行います。即時のレスポンスを強いるのではなく、顧客が自分自身の行動を意識し続けるための仕組みです。"
-        ]
-      },
-      {
-        title: "3. 戦略的柔軟性",
-        content: [
-          "システムは、顧客が「失敗する」ことを前提に設計されています。実生活には不測の事態がつきものです。逸脱があってもサポートはジャッジせず、目標の調整や計画的な一時停止を提案します。この柔軟性が、サイクルを完了する顧客の成功率を90%以上に保つ鍵となります。"
-        ]
-      }
-    ]
-  },
-  "06": {
-    id: "06",
-    num: "06",
-    title: "施設認定と運営管理",
-    subtitle: "個人の信頼から組織の信頼へ",
-    sections: [
-      {
-        title: "1. 「個人ブランド」の問題",
-        content: [
-          "ビジネスが個人のカリスマ性に依存しているなら、そのビジネスに売却価値（エクイティ）はなく、あなたは自分自身のビジネスの奴隷になってしまいます。顧客が信頼すべきは、特定の個人ではなく「施設（クリニック・会社）」とその「プロセス」であるべきです。"
-        ]
-      },
-      {
-        title: "2. 運営責任者（オペレーショナル・マネージャー）の役割",
-        content: [
-          "栄養学の最高技術者である必要はありません。彼は「標準（スタンダード）の守護者」としての役割を担います。",
-          "・プロセスの責任：診断が正しく行われ、独自の解釈で改変されていないかを保証します。",
-          "・限界の責任：安全基準が守られているか、受け入れるべきでないケースを拒否しているかを監視します。",
-          "・安定性：技術チームが入れ替わっても、一貫した基準を維持するための参照点となります。"
-        ]
-      },
-      {
-        title: "3. 施設認定",
-        content: [
-          "施設とそのプロセスを認定することで、誰が担当しても（ベテランでも訓練を受けた新人でも）、決定とケアの基準が同一であることを顧客に保証します。これが長期的な安心感、高い継続率、そして不動のブランド価値を生み出します。"
-        ]
-      }
-    ]
-  },
-  "07": {
-    id: "07",
-    num: "07",
-    title: "チームとトレーニング",
-    subtitle: "安全な権限委譲：品質を落とさずにチームを拡大する方法",
-    sections: [
-      {
-        title: "1. 「完全な自由」という神話",
-        content: [
-          "多くの経営者が、新人に完全な自由を与えることが「信頼」だと勘違いして失敗します。実際には、それは不安とエラーを招だけです。本メソッドにおける「委譲」とは、安全に定義された枠組みの中での自律を意味します。エラーを犯すことが物理的に困難な環境を作ることが目標です。"
-        ]
-      },
-      {
-        title: "2. 安全な委譲のステップ（エスカレーター）",
-        content: [
-          "会社にリスクを負わせず、新人メンバーに即座に価値を生み出させるための3ステップ：",
-          "・フェーズ1（収集）：新人は診断シートのヒアリングを担当します。システムが質問の質を担保するため、彼は実行に専念でき、パフォーマンスへのプレッシャーから解放されます。",
-          "・フェーズ2（読解）：繰り返しの経験を通じて、回答の中からパターンを読み解き、シニア向けに情報を整理することを学びます。",
-          "・フェーズ3（提案）：プロトコルの監視下で、アクションプランの提案とカウンセリングの完遂へと進みます。"
-        ]
-      },
-      {
-        title: "3. 人材育成の工場",
-        content: [
-          "施設を一つの「実践的な学校」へと変貌させます。システムがジュニアを致命的なミスから守り、顧客を未熟な指導から守ることで、技術が構造的に伝承され、チームは有機的に成長できるようになります。"
-        ]
-      }
-    ]
-  },
-  "08": {
-    id: "08",
-    num: "08",
-    title: "倫理と専門的限界",
-    subtitle: "「NO」と言える力：差別化要因としての倫理と法的安全",
-    sections: [
-      {
-        title: "1. プロフェッショナリズムの定義",
-        content: [
-          "ハイレベルなプロフェッショナルは、何をするかだけでなく、何を「拒否するか」によって定義されます。助けることができない顧客（深刻な摂食障害、急性疾患、コミットメントの欠如）を受け入れることは、治療の失敗と、施設への法的トラブルを招くレシピとなります。"
-        ]
-      },
-      {
-        title: "2. ビジネスツールとしての倫理",
-        content: [
-          "明確な限界を設定することは、売上を失うことではなく、権威と尊敬を獲得することです。",
-          "・拒否基準：ダイエットを開始する前に医師や心理学者に相談すべきケースを特定する明確なプロトコルを持ちます。肥満がより大きな病気の症状である場合、私たちは症状ではなく原因に対処するため、外部へ繋ぎます。",
-          "・ブランドの保護：不可能なケースを受け入れることは、顧客に不満を抱かせ、ブランドを傷つけます。倫理的な拒否は、逆に高い信頼を生みます。"
-        ]
-      },
-      {
-        title: "3. コンサルティブな「NO」",
-        content: [
-          "顧客をただ見捨てるのではなく、診断によって正しい道（外部の専門家など）を指し示します。これにより、顧客は「この施設は本当に自分の利益を考えてくれている」と確信します。私たちが「引き受ける」と言った時、それは確実に結果を出せる時だという揺るぎない信頼が構築されます。"
-        ]
-      }
-    ]
-  },
-  "09": { id: "09", num: "09", title: "第9章：コンテンツ準備中", subtitle: "近日公開予定", sections: [], isDraft: true },
-  "10": { id: "10", num: "10", title: "第10章：コンテンツ準備中", subtitle: "近日公開予定", sections: [], isDraft: true }
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  const faqData = [
+    { 
+      q: "Q1. 結局、どんな指導法なんですか?", 
+      a: (
+        <div className="space-y-3">
+          <p>ダイエットマスターの指導は、「〇〇を食べてください」「△△をやりましょう」といった単発のアドバイス型指導ではありません。</p>
+          <p>初回のダイエット診断とカウンセリングで、体の状態・生活習慣・行動のクセを整理し、行動修正療法を軸にした設計型のダイエットサポートを行います。</p>
+          <p>何をどれだけ頑張らせるかではなく、<br /><strong>「どこをどう整えれば、自然に体が変わるか」</strong>を見極める指導法です。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q2. 他に導入している施設では、どんなメニューを作っていますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>プロフェッショナルコースでは、メニューの作り方を固定していません。多くの施設では、以下の2点を軸にしながら、自分たちの業態に合わせてメニューを組み立てています。</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>初回の「ダイエット診断」</li>
+            <li>3 か月間のダイエットサポート</li>
+          </ul>
+          <p>たとえば、カウンセリング重視型、食事・生活改善サポート中心、既存サービスと組み合わせたコースなど、同じ考え方・同じ判断基準で、見せ方だけを変える形が多いです。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q3. サプリ・エステ・パーソナルトレーニングなどと組み合わせられますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>はい、組み合わせ可能です。むしろ、多くの施設が既存メニューと併用しています。</p>
+          <p>ダイエットマスターの考え方では、サプリ・エステ・トレーニング等は「主役」ではなく<strong>「サポート要素」</strong>。ダイエット診断とサポート設計で必要性があると判断した場合に、無理なく組み合わせる、という位置づけです。</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>無理な売り込みにならない</li>
+            <li>顧客に納得感がある</li>
+            <li>継続しやすい</li>
+          </ul>
+          <p>プロフェッショナルコースは、特定の商品やサービスを売るための仕組みではありません。どんなサービスを組み合わせてもブレない「判断の軸」を施設に持つことを目的としています。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q4. スタッフ全員が資格を取る必要はありますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>いいえ。施設認定のため、全員必須ではありません。</p>
+          <p>ただし、スタッフが複数名いる場合は、施設内に判断できる担当者がいることを推奨しています。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q5. オーナー本人が受講しないといけませんか?", 
+      a: (
+        <div className="space-y-3">
+          <p>原則として、事業の運営責任を担う方の受講を想定しています。</p>
+          <p>現場責任者を別に置く場合は、その方の受講でも可能です。</p>
+        </div>
+      )
+    },
+    { 
+      q: "Q6. 費用はどれくらいかかりますか?", 
+      a: (
+        <div className="space-y-3">
+          <p>費用は内容説明後にご案内しています。</p>
+          <p>まずは、導入の考え方や相性を確認したうえでご検討ください。</p>
+        </div>
+      )
+    }
+  ];
+
+  const chapters = [
+    { icon: LineChart, num: "01", title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。「静かな逸脱」を防ぎ、事業を資産化するための基盤構築。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
+    { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合. ビジネスのハブを構築する。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: ClipboardCheck, num: "03", title: "面談の標準化技術", desc: "「傾聴」と「判断」を時間軸で分離。誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
+    { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感と推測を排除するブロック式診断ツール。運営の安全性を高め、チームの教育を加速させる。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { icon: CalendarRange, num: "05", title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。監視ではなく「ルート調整」による圧倒的な成功率。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
+    { icon: ShieldCheck, num: "06", title: "施設認定と運営管理", desc: "「個人ブランド」を脱却し、組織の信頼へ。運営責任者の役割と、施設全体の品質保証体制。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { icon: Users, num: "07", title: "安全な権限委譲と教育", desc: "新人が即戦力化する「委譲のエスカレーター」。品質を落とさずにチームを拡大する人材育成術。", textColor: "text-orange-600", bgColor: "bg-orange-50" },
+    { icon: Scale, num: "08", title: "倫理と専門的限界", desc: "「NO」と言える力が権威を生む。プロの境界線と法的安全。顧客とブランドを守る倫理戦略。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
+    { icon: Layers, num: "09", title: "第9章：コンテンツ準備中", desc: "このセクションの内容は現在構築中です。公開まで今しばらくお待ちください。", textColor: "text-stone-400", bgColor: "bg-stone-50", isDraft: true },
+    { icon: Rocket, num: "10", title: "第10章：コンテンツ準備中", desc: "このセクションの内容は現在構築中です。公開まで今しばらくお待ちください。", textColor: "text-stone-400", bgColor: "bg-stone-50", isDraft: true }
+  ];
+
+  return (
+    <div className="bg-white text-stone-800 font-sans">
+      
+      {/* 1. Hero Section */}
+      <section className="relative h-[700px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format&fit=crop&q=80" 
+            alt="Professional Environment" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-stone-900/70 backdrop-blur-[2px]"></div>
+        </div>
+        
+        <div className="w-[92%] max-w-[1400px] mx-auto relative z-10">
+          <div className="max-w-3xl animate-in fade-in slide-in-from-left-10 duration-1000">
+            <span className="inline-block text-teal-400 font-bold tracking-[0.4em] text-xs uppercase mb-6 border-l-2 border-teal-500 pl-4">
+              Professional Master Program
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 font-serif-jp">
+              認定ダイエットマスター<br />
+              <span className="text-teal-400">加盟店・施設</span>への昇華。
+            </h1>
+            <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
+              個人の才能に依存しない。技術ではなく「システム」として<br className="hidden md:block" />
+              ダイエット指導を運用するためのプロフェッショナルコース。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5">
+              <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>
+                無料個別導入相談会を予約する
+              </Button>
+              <Button size="xl" variant="outline" className="border-white text-white hover:bg-white/10">
+                プログラム資料をダウンロード
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Concept Section */}
+      <section className="py-24 bg-stone-50 border-b border-stone-200">
+        <div className="w-[92%] max-w-[1200px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-16">
+            <div className="md:w-1/2 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-teal-500/10 blur-3xl rounded-full scale-150"></div>
+                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-double border-teal-500/30 flex flex-col items-center justify-center bg-white shadow-2xl">
+                  <Award size={80} className="text-teal-600 mb-4" strokeWidth={1} />
+                  <div className="text-center px-8">
+                    <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-1">CERTIFIED</div>
+                    <div className="text-xl font-bold text-stone-800 font-serif-jp">施設認定制度</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-8 font-serif-jp leading-tight">
+                なぜ、個人ではなく<br />「施設」を認定するのか？
+              </h2>
+              <div className="space-y-6 text-stone-600 leading-loose">
+                <p className="font-medium">
+                  本コースでは、個人ではなく「施設（事業所）」を認定します。これは、その施設がダイエットマスターの理念と基準に基づいた診断・サポートを提供している証となります。
+                </p>
+                <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm">
+                  <h4 className="font-bold text-stone-800 mb-2 flex items-center">
+                    <CheckCircle2 size={18} className="text-teal-600 mr-2" />
+                    消費者にとっての信頼の証
+                  </h4>
+                  <p className="text-sm">
+                    「誰が担当しても、統一された安全な基準に基づいた指導を受けられる」という安心感。これが顧客満足度を高め、ブランドの評価を守る直結の鍵となります。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Curriculum Grid - SALES OPTIMIZED */}
+      <section className="py-32 bg-stone-50">
+        <div className="w-[92%] max-w-[1600px] mx-auto">
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 font-bold px-6 py-2 rounded-full text-xs tracking-[0.2em] uppercase mb-6 border border-teal-200 animate-pulse">
+              <Zap size={14} fill="currentColor" />
+              Comprehensive Curriculum
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight mb-6">
+              プロフェッショナル・マスター<br className="md:hidden" />
+              <span className="text-teal-600">全10章の体系</span>
+            </h2>
+            <p className="text-stone-500 text-lg md:text-xl max-w-3xl mx-auto font-medium">
+              経営・集客・指導・教育。一流の施設として必要な<br className="hidden md:block" />
+              全てのノウハウを、10のステップで完全にインストール。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {chapters.map((chapter, idx) => (
+              <div 
+                key={idx} 
+                className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full overflow-hidden"
+              >
+                {/* Background Number Accent */}
+                <div className="absolute top-6 right-6 text-5xl font-black text-stone-200/40 group-hover:text-stone-200 transition-colors pointer-events-none select-none font-sans">
+                  {chapter.num}
+                </div>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Icon with Refined Hover */}
+                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} group-hover:bg-white group-hover:shadow-sm transition-all duration-500 shadow-inner group-hover:rotate-6`}>
+                    <chapter.icon size={32} strokeWidth={1.5} />
+                  </div>
+
+                  <div className="flex-grow mt-8">
+                    <div className="flex items-center gap-2 mb-3">
+                       <span className={`w-2 h-2 rounded-full ${chapter.isDraft ? 'bg-stone-300' : chapter.bgColor.replace('bg-', 'bg-')}`}></span>
+                       <span className="text-stone-400 font-bold text-[11px] tracking-widest uppercase font-sans">Chapter {chapter.num}</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-stone-900 mb-4 font-serif-jp leading-snug group-hover:text-teal-700 transition-colors">
+                      {chapter.title}
+                    </h4>
+                    <p className="text-xs text-stone-500 leading-relaxed font-medium mb-6">
+                      {chapter.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto">
+                    {!chapter.isDraft ? (
+                      <button 
+                        onClick={() => navigate(`/courses/professional/chapter/${chapter.num}`)}
+                        className="w-full py-3 rounded-xl border border-stone-200 text-stone-400 group-hover:text-teal-600 group-hover:border-teal-100 group-hover:bg-teal-50 transition-all text-[11px] font-bold tracking-widest uppercase flex items-center justify-center gap-2"
+                      >
+                        詳しく見る <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    ) : (
+                      <div className="w-full py-3 rounded-xl bg-stone-50 text-stone-300 text-[11px] font-bold tracking-widest uppercase text-center border border-stone-100 italic">
+                        準備中
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20 text-center">
+             <div className="inline-flex items-center gap-4 p-2 bg-white border border-stone-200 rounded-3xl shadow-sm pr-8">
+                <div className="w-12 h-12 bg-teal-500 text-white rounded-2xl flex items-center justify-center animate-bounce">
+                   <Sparkles size={20} />
+                </div>
+                <div className="text-left">
+                   <p className="text-xs font-bold text-stone-800">全章オンライン受講・課題提出に対応</p>
+                   <p className="text-[10px] text-stone-400 font-medium">あなたのペースで、場所を選ばず最高峰の学びを。</p>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Step Flow Section */}
+      <section className="py-24 bg-white">
+        <div className="w-[92%] max-w-[1200px] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">導入までの3ステップ</h2>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-8">
+            {[
+              { step: "01", title: "プロフェッショナルコース受講", desc: "経営者または技術責任者が受講（レギュラー・シニア修了が必須）。" },
+              { step: "02", title: "確認・認定証の発行", desc: "修了および理解度の確認後、「認定施設シール」と称号を発行。" },
+              { step: "03", title: "現場導入と共有", desc: "施設へのメニュー導入、スタッフへの基準共有、正式運用開始。" }
+            ].map((item, idx) => (
+              <div key={idx} className="flex-1 bg-stone-50 p-8 rounded-3xl shadow-sm relative">
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+                  {item.step}
+                </div>
+                <h4 className="text-lg font-bold text-stone-900 mb-4 mt-4 font-serif-jp">{item.title}</h4>
+                <p className="text-stone-500 text-sm leading-relaxed">{item.desc}</p>
+                {idx < 2 && (
+                  <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-stone-200">
+                    <ArrowRight size={32} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ Section */}
+      <section className="py-24 bg-stone-50">
+        <div className="w-[92%] max-w-3xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">よくあるご質問</h2>
+            <p className="text-stone-500 mt-2 font-medium">プロフェッショナルコースに関する疑問にお答えします</p>
+          </div>
+
+          <div className="space-y-4">
+            {faqData.map((faq, idx) => (
+              <div key={idx} className="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-stone-50 transition-colors"
+                >
+                  <span className="font-bold text-stone-800 pr-8">{faq.q}</span>
+                  <ChevronDown size={20} className={`text-stone-400 transition-transform duration-300 ${activeFaq === idx ? 'rotate-180' : ''}`} />
+                </button>
+                {activeFaq === idx && (
+                  <div className="px-6 pb-6 text-stone-600 text-sm leading-relaxed border-t border-stone-50 pt-6 animate-in fade-in duration-300">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Authority Section */}
+      <section className="py-24 bg-white border-y border-stone-200">
+        <div className="w-[92%] max-w-4xl mx-auto px-4">
+          <div className="bg-stone-900 rounded-[3rem] p-10 md:p-16 text-white text-center relative overflow-hidden">
+             <div className="absolute top-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl"></div>
+             
+             <div className="relative z-10">
+                <h3 className="text-2xl md:text-3xl font-bold mb-8 font-serif-jp">お申込み前の注意事項</h3>
+                <p className="text-stone-400 leading-loose text-base mb-12">
+                  本コースは「短期間で稼ぐテクニック」を教えるものではありません。<br className="hidden md:block" />
+                  自身のやり方に固執せず、長期的な事業として指導体制を「仕組み化」したい方のためのプログラムです。
+                </p>
+
+                <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-10 border-t border-white/10">
+                   <div className="flex items-center gap-4">
+                      <div className="text-right">
+                         <div className="text-xs text-teal-400 font-bold tracking-wider">Supervision</div>
+                         <div className="text-lg font-bold font-serif-jp">小野 誠 監修</div>
+                      </div>
+                      <div className="w-px h-10 bg-white/20"></div>
+                      <div className="text-left">
+                         <p className="text-[10px] text-stone-500 font-medium">医学・栄養学・運動の<br />専門家による学術的裏付け</p>
+                      </div>
+                   </div>
+                </div>
+
+                <p className="mt-12 text-sm text-stone-500 italic">
+                  Professional Courseは資格を取ることが目的ではありません。<br />
+                  あなたの施設に完成された指導メカニズムを導入し、育てることが真の目的です。
+                </p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Final CTA */}
+      <section className="py-24 bg-white text-center">
+        <div className="w-[92%] max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-8 font-serif-jp">
+            あなたの施設に、<br className="md:hidden" />プロフェッショナルの信頼を。
+          </h2>
+          <p className="text-stone-500 mb-12 font-medium">導入に関するご相談、シミュレーションは無料で承っております。</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-5">
+            <Button size="xl" variant="teal" className="px-16" onClick={() => navigate('/pricing')}>
+              導入相談（無料）を予約する
+            </Button>
+            <Button size="xl" variant="outline" onClick={() => navigate('/courses')}>
+              コース一覧に戻る
+            </Button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
 };
