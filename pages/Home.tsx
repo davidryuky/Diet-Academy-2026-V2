@@ -16,7 +16,8 @@ import {
   ThumbsUp,
   Star,
   Quote,
-  Award
+  Award,
+  CheckCircle2
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
@@ -101,50 +102,149 @@ export const Home: React.FC = () => {
           </div>
       </div>
 
-      {/* Path Choice Section */}
-      <div className="py-24 bg-white border-y border-stone-100 relative">
-          <div className="w-[92%] max-w-[1600px] mx-auto">
-              <div className="text-center mb-16">
+      {/* Path Choice Section - ENHANCED */}
+      <div className="py-24 bg-white border-y border-stone-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-[#FFF5F0]/30 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
+          
+          <div className="w-[92%] max-w-[1600px] mx-auto relative z-10">
+              <div className="text-center mb-20">
+                  <span className="text-[#FF8C6B] font-bold tracking-[0.4em] text-xs uppercase mb-4 block">Choose Your Path</span>
                   <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif-jp tracking-tight">あなたの「目的」に最適な道をお選びください</h2>
-                  <div className="w-16 h-1.5 bg-[#FF8C6B] mx-auto rounded-full mb-8"></div>
+                  <div className="w-20 h-1.5 bg-[#FF8C6B] mx-auto rounded-full"></div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                  {/* Card 1: Regular Course */}
-                  <div onClick={() => navigate('/courses/regular')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
-                      <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-[#FF8C6B] rounded-3xl shadow-sm group-hover:bg-[#FF8C6B] group-hover:text-white transition-all duration-500 group-hover:rotate-6">
-                          <Target size={40} strokeWidth={1.5} />
+              <div className="grid md:grid-cols-3 gap-10">
+                  
+                  {/* Card 1: Regular Course (Personal Improvement) */}
+                  <div 
+                    onClick={() => navigate('/courses/regular')} 
+                    className="group relative bg-white rounded-[3rem] p-10 border border-stone-100 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col"
+                  >
+                      <div className="flex items-center gap-6 mb-8">
+                        <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-orange-50 text-[#FF8C6B] rounded-2xl group-hover:bg-[#FF8C6B] group-hover:text-white transition-all duration-500 shadow-sm">
+                            <Target size={32} strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-black text-stone-300 tracking-[0.2em] uppercase">Level 01</span>
+                          <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">自分を劇的に変える</h3>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「自分」を劇的に変える</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">リバウンドから卒業し、一生モノの健康な体を手に入れたい初心者・実践者はこちら。</p>
-                          <div className="flex items-center text-[#FF8C6B] text-sm font-bold group-hover:translate-x-2 transition-transform">レギュラーコース(L01)詳細へ <ArrowRight size={18} className="ml-2" /></div>
+
+                      <div className="flex-grow">
+                          <p className="text-stone-500 text-sm leading-relaxed font-medium mb-8">
+                            リバウンドから卒業し、一生モノの健康な体を手に入れたい方へ。科学的根拠に基づくダイエットの「正解」をマスターします。
+                          </p>
+                          
+                          <div className="bg-stone-50 rounded-2xl p-6 mb-8">
+                            <h4 className="text-xs font-black text-stone-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                              <Users size={14} className="text-[#FF8C6B]" /> Ideal For / 対象
+                            </h4>
+                            <ul className="space-y-3">
+                              {['ダイエットを繰り返している方', '家族の健康管理を学びたい方', '正しい栄養学を身につけたい方'].map((item, i) => (
+                                <li key={i} className="flex items-center gap-2 text-xs font-bold text-stone-700">
+                                  <CheckCircle2 size={14} className="text-emerald-500" /> {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                      </div>
+
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-xs font-bold text-stone-400 group-hover:text-[#FF8C6B] transition-colors uppercase tracking-widest">Regular Course</span>
+                        <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-[#FF8C6B] group-hover:text-white group-hover:border-[#FF8C6B] transition-all group-hover:translate-x-2">
+                          <ArrowRight size={18} />
+                        </div>
                       </div>
                   </div>
 
-                  {/* Card 2: Senior Course (Prerequisite of Regular) */}
-                  <div onClick={() => navigate('/courses/senior')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
-                      <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-[#5D9B9B] rounded-3xl shadow-sm group-hover:bg-[#5D9B9B] group-hover:text-white transition-all duration-500 group-hover:rotate-6">
-                          <Award size={40} strokeWidth={1.5} />
+                  {/* Card 2: Senior Course (Instructional Skills) */}
+                  <div 
+                    onClick={() => navigate('/courses/senior')} 
+                    className="group relative bg-white rounded-[3rem] p-10 border border-stone-100 hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col"
+                  >
+                      <div className="flex items-center gap-6 mb-8">
+                        <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-teal-50 text-[#5D9B9B] rounded-2xl group-hover:bg-[#5D9B9B] group-hover:text-white transition-all duration-500 shadow-sm">
+                            <Award size={32} strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-black text-stone-300 tracking-[0.2em] uppercase">Level 02</span>
+                          <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">指導力で信頼を築く</h3>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「指導力」で信頼を築く</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">※レギュラー修了者限定。対人コーチングとカウンセリング技術を極め、プロの指導者へ。</p>
-                          <div className="flex items-center text-[#5D9B9B] text-sm font-bold group-hover:translate-x-2 transition-transform">シニアコース(L02)詳細へ <ArrowRight size={18} className="ml-2" /></div>
+
+                      <div className="flex-grow">
+                          <p className="text-stone-500 text-sm leading-relaxed font-medium mb-8">
+                            対人コーチングとカウンセリング技術を極め、「教えるプロ」として活躍したい方へ。他者の人生を変える力を習得します。
+                          </p>
+                          
+                          <div className="bg-teal-50/50 rounded-2xl p-6 mb-8">
+                            <h4 className="text-xs font-black text-stone-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                              <Users size={14} className="text-[#5D9B9B]" /> Ideal For / 対象
+                            </h4>
+                            <ul className="space-y-3">
+                              {['トレーナー・講師を目指す方', 'カウンセリング力を高めたい方', 'L01修了後、さらに深く学びたい方'].map((item, i) => (
+                                <li key={i} className="flex items-center gap-2 text-xs font-bold text-stone-700">
+                                  <CheckCircle2 size={14} className="text-emerald-500" /> {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                      </div>
+
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-xs font-bold text-stone-400 group-hover:text-[#5D9B9B] transition-colors uppercase tracking-widest">Senior Course</span>
+                        <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-[#5D9B9B] group-hover:text-white group-hover:border-[#5D9B9B] transition-all group-hover:translate-x-2">
+                          <ArrowRight size={18} />
+                        </div>
                       </div>
                   </div>
 
-                  {/* Card 3: Professional Course */}
-                  <div onClick={() => navigate('/courses/professional')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-indigo-600 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
-                      <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-indigo-600 rounded-3xl shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500 group-hover:rotate-6">
-                          <Crown size={40} strokeWidth={1.5} />
+                  {/* Card 3: Professional Course (Business Management) */}
+                  <div 
+                    onClick={() => navigate('/courses/professional')} 
+                    className="group relative bg-stone-900 rounded-[3rem] p-10 border border-transparent transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col text-white"
+                  >
+                      <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Crown size={120} />
                       </div>
-                      <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「仕組み」で売上を創る</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">個人の才能をシステムへ。店舗運営とマネジメントを統合し、事業を加速させたい経営者向け。</p>
-                          <div className="flex items-center text-indigo-600 text-sm font-bold group-hover:translate-x-2 transition-transform">プロコース(L03)詳細へ <ArrowRight size={18} className="ml-2" /></div>
+
+                      <div className="flex items-center gap-6 mb-8 relative z-10">
+                        <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-white/10 backdrop-blur-md text-white rounded-2xl group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shadow-sm border border-white/10">
+                            <Crown size={32} strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-black text-stone-500 tracking-[0.2em] uppercase">Level 03</span>
+                          <h3 className="text-2xl font-bold font-serif-jp">仕組みで売上を創る</h3>
+                        </div>
+                      </div>
+
+                      <div className="flex-grow relative z-10">
+                          <p className="text-stone-400 text-sm leading-relaxed font-medium mb-8">
+                            個人の才能をシステムへ。店舗運営、マネジメント、集客を統合し、ビジネスを自動化・資産化したい経営者向けの最高峰。
+                          </p>
+                          
+                          <div className="bg-white/5 rounded-2xl p-6 mb-8 border border-white/10">
+                            <h4 className="text-xs font-black text-stone-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                              <Users size={14} className="text-white" /> Ideal For / 対象
+                            </h4>
+                            <ul className="space-y-3">
+                              {['ジム・サロンのオーナー', '事業を多店舗展開したい方', '自動化システムを導入したい経営者'].map((item, i) => (
+                                <li key={i} className="flex items-center gap-2 text-xs font-bold text-stone-200">
+                                  <CheckCircle2 size={14} className="text-teal-400" /> {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                      </div>
+
+                      <div className="mt-auto flex items-center justify-between relative z-10">
+                        <span className="text-xs font-bold text-stone-500 group-hover:text-white transition-colors uppercase tracking-widest">Professional Course</span>
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-stone-900 group-hover:border-white transition-all group-hover:translate-x-2">
+                          <ArrowRight size={18} />
+                        </div>
                       </div>
                   </div>
+
               </div>
           </div>
       </div>
@@ -189,7 +289,7 @@ export const Home: React.FC = () => {
                           <span className="text-[#FF8C6B] font-bold text-xs tracking-[0.4em] uppercase">Supervision</span>
                           <h3 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp">小野 誠 監修：妥協なき品質。</h3>
                           <p className="text-stone-700 leading-loose text-lg font-medium">
-                              「ただ痩せる」だけの知識はどこにでもあります。私たちが教えるのは、最新の医学と栄養学、大して行動心理学に基づいた「一生モノの健康管理術」です。
+                              「ただ痩せる」だけの知識 is どこにでもあります。私たちが教えるのは、最新の医学と栄養学、大して行動心理学に基づいた「一生モノの健康管理術」です。
                           </p>
                           <Button variant="outline" className="bg-white" onClick={() => navigate('/methods')}>メソッドの詳細へ</Button>
                       </div>

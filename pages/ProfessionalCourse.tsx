@@ -14,7 +14,11 @@ import {
   CheckCircle2,
   TrendingUp,
   Award,
-  Layers
+  Layers,
+  UserPlus,
+  Store,
+  HelpCircle,
+  ArrowDownRight
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -61,6 +65,122 @@ export const ProfessionalCourse: React.FC = () => {
                 導入相談（無料）を予約
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Decision Guide: Which path? - NEW SECTION */}
+      <section className="py-24 bg-stone-50 border-b border-stone-200">
+        <div className="w-[92%] max-w-[1200px] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 font-serif-jp mb-4">どのコースから始めるべきか？</h2>
+            <p className="text-stone-500 font-medium">目的と現在の状況に合わせて、最適なロードマップを提示します。</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Case A: Personal Growth */}
+            <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-6 opacity-5">
+                  <UserPlus size={100} />
+               </div>
+               <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-[#FF8C6B] mb-6 flex items-center gap-2 font-serif-jp">
+                    <CheckCircle2 size={24} /> 目的：自分や周囲をきれいにしたい
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-sm text-stone-600 leading-loose">
+                      「まずは自分が痩せたい」「家族の健康を守りたい」という方は、ビジネス運営のL03ではなく、**L01（レギュラーコース）**からスタートしてください。
+                    </p>
+                    <div className="bg-orange-50 p-4 rounded-xl">
+                       <span className="text-[10px] font-black text-orange-400 uppercase block mb-1">Recommended Path</span>
+                       <div className="font-bold text-stone-800 text-sm">L01 レギュラー or マスタープログラム</div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+
+            {/* Case B: Business Growth */}
+            <div className="bg-stone-900 p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden text-white">
+               <div className="absolute top-0 right-0 p-6 opacity-10">
+                  <TrendingUp size={100} />
+               </div>
+               <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-teal-400 mb-6 flex items-center gap-2 font-serif-jp">
+                    <TrendingUp size={24} /> 目的：収益とキャリアの拡大
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-sm text-stone-400 leading-loose">
+                      「プロとして独立したい」「今の事業の売上を倍増させたい」という方は、**L02（シニア）およびL03（プロ）**が必須となります。
+                    </p>
+                    <div className="bg-white/10 p-4 rounded-xl border border-white/10">
+                       <span className="text-[10px] font-black text-teal-400 uppercase block mb-1">Recommended Path</span>
+                       <div className="font-bold text-white text-sm">L02 シニア ＋ L03 プロフェッショナル</div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specific Target Scenarios - NEW SECTION */}
+      <section className="py-32 bg-white">
+        <div className="w-[92%] max-w-[1200px] mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-4">Target Personas</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">
+              このような悩みを持つ方に、<br />このコースは革命を起こします。
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16">
+            
+            {/* Persona 1: The Aspiring Entrepreneur */}
+            <div className="flex flex-col gap-6 group">
+               <div className="w-full h-64 bg-stone-100 rounded-[3rem] overflow-hidden relative shadow-inner">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" 
+                    alt="Salon staff"
+                  />
+                  <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20">
+                    <div className="text-xs font-black text-stone-400 mb-1 uppercase tracking-widest">Case Study 01</div>
+                    <div className="text-lg font-bold text-stone-800 font-serif-jp">独立を目指すサロンスタッフ</div>
+                  </div>
+               </div>
+               <div className="space-y-4 px-2">
+                  <h4 className="text-xl font-bold text-stone-800 font-serif-jp flex items-center gap-2">
+                    <ArrowDownRight className="text-teal-500" /> 技術はあるが、「経営」が不安
+                  </h4>
+                  <p className="text-stone-500 text-sm leading-loose">
+                    現在エステサロン等に勤務しており、将来的に独立を考えている方。「独自のダイエットメニューを作りたいが、どう集客し、どう運営すればいいか分からない」という悩みに対し、プロコースは「売れる仕組み」をそのまま提供します。L02（シニア）で指導技術を、L03（プロ）で運営システムを手に入れるのが最短ルートです。
+                  </p>
+               </div>
+            </div>
+
+            {/* Persona 2: The Stagnant Business Owner */}
+            <div className="flex flex-col gap-6 group">
+               <div className="w-full h-64 bg-stone-100 rounded-[3rem] overflow-hidden relative shadow-inner">
+                  <img 
+                    src="https://images.unsplash.com/photo-1542744173-8e7e54815a1a?w=800&auto=format&fit=crop&q=80" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" 
+                    alt="Business Owner"
+                  />
+                  <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20">
+                    <div className="text-xs font-black text-stone-400 mb-1 uppercase tracking-widest">Case Study 02</div>
+                    <div className="text-lg font-bold text-stone-800 font-serif-jp">売上が伸び悩むジム・経営者</div>
+                  </div>
+               </div>
+               <div className="space-y-4 px-2">
+                  <h4 className="text-xl font-bold text-stone-800 font-serif-jp flex items-center gap-2">
+                    <ArrowDownRight className="text-teal-500" /> 商品はあるが、「差別化」ができない
+                  </h4>
+                  <p className="text-stone-500 text-sm leading-loose">
+                    既にダイエット指導を行っているが、高単価で売れない、あるいは継続率が低い経営者の方。プロコースの「ダイエット診断システム」を導入することで、他社には真似できない圧倒的な科学的根拠をフロントエンドに置くことができます。感覚的な指導を卒業し、組織として売上を積み上げる基盤が完成します。
+                  </p>
+               </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -121,7 +241,7 @@ export const ProfessionalCourse: React.FC = () => {
                 {[
                   "プロトコルに基づいた『診断オートメーション』の導入",
                   "スタッフの習熟度に関わらず、一定の指導品質を維持",
-                  "LTV（顧客生涯価値）を最大化する継続課金モデルの設計",
+                  "LTV（顧客生涯価値）を最大化する継続課金モデル의 설계",
                   "リスクマネジメントを統合した運営マニュアルの提供"
                 ].map((point, i) => (
                   <div key={i} className="flex items-center gap-4 text-stone-600 font-medium">
