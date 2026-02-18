@@ -24,7 +24,10 @@ import {
   Dumbbell,
   Sparkle,
   TrendingUp,
-  Briefcase
+  Briefcase,
+  MousePointerClick,
+  BarChart3,
+  Zap
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
@@ -74,7 +77,7 @@ export const ProfessionalCourse: React.FC = () => {
   return (
     <div className="bg-white text-stone-800 font-sans selection:bg-teal-100 selection:text-teal-900 overflow-x-hidden">
       
-      {/* 1. Hero Section - Strategic Sales Focus */}
+      {/* 1. Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 bg-stone-950">
         <div className="absolute inset-0 z-0 opacity-40">
           <img 
@@ -107,7 +110,7 @@ export const ProfessionalCourse: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-5 items-center">
               <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="h-20 px-12 group text-xl shadow-2xl shadow-teal-500/20">
                 <span className="flex items-center gap-3">
-                  無料導入相談を予約する
+                  導入相談（無料）を予約する
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
                 </span>
               </Button>
@@ -116,10 +119,10 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Introduction - Business System Focus */}
+      {/* 2. Strategy - The Solution */}
       <section className="py-40 relative overflow-hidden bg-white">
         <div className="w-[90%] max-w-[1000px] mx-auto text-center">
-          <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-6">The System</span>
+          <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-6">The Solution</span>
           <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight mb-12">
             これは「資格」ではなく、<br />
             <span className="text-teal-600">「売れる仕組み」の導入</span>です。
@@ -129,15 +132,26 @@ export const ProfessionalCourse: React.FC = () => {
               本コースは、ダイエット指導を収益の柱として確立したい経営者のための特別プログラムです。
               特定の担当者に頼らず、サービスの質が一切落ちない「判断基準」と「運営デザイン」を貴施設に構築します。
             </p>
-            <p className="bg-stone-50 p-8 rounded-[2rem] border border-stone-100">
-              顧客が「この施設なら安心だ」と感じる、属人性を排除した強固な信頼構造こそが、
-              高単価でも選ばれ続ける理由となります。
-            </p>
+            <div className="grid md:grid-cols-3 gap-8 mt-16">
+              {[
+                { icon: Zap, title: "収益の安定化", desc: "高単価な食事指導メニューを既存ビジネスに追加。" },
+                { icon: Users, title: "属人性の排除", desc: "誰が担当しても同じ成果が出るマニュアル化。" },
+                { icon: BarChart3, title: "LTVの向上", desc: "90日間の伴走モデルで顧客との強固な信頼を構築。" }
+              ].map((item, idx) => (
+                <div key={idx} className="p-8 bg-stone-50 rounded-3xl border border-stone-100">
+                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-teal-600 mx-auto mb-4 shadow-sm">
+                    <item.icon size={20} />
+                  </div>
+                  <h4 className="font-bold text-stone-800 mb-2">{item.title}</h4>
+                  <p className="text-xs text-stone-500">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Target Profiles - Adequacy for Professionals */}
+      {/* 3. Target Profiles */}
       <section className="py-40 bg-stone-50 relative overflow-hidden">
         <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-24">
@@ -167,7 +181,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Professional Curriculum - COMPACT 2-LIST LAYOUT */}
+      {/* 4. Curriculum - 5x2 Layout */}
       <section className="py-40 bg-white">
         <div className="w-[90%] max-w-[1100px] mx-auto">
           <div className="text-center mb-24">
@@ -179,7 +193,6 @@ export const ProfessionalCourse: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-            {/* First List (Chapters 1-5) */}
             <div className="space-y-4">
               {firstHalf.map((chapter) => (
                 <div 
@@ -206,7 +219,6 @@ export const ProfessionalCourse: React.FC = () => {
               ))}
             </div>
 
-            {/* Second List (Chapters 6-10) */}
             <div className="space-y-4">
               {secondHalf.map((chapter) => (
                 <div 
@@ -236,7 +248,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Use Cases - Maximizing Attention */}
+      {/* 5. Case Studies */}
       <section className="py-40 bg-stone-50">
         <div className="w-[90%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
@@ -277,7 +289,7 @@ export const ProfessionalCourse: React.FC = () => {
               },
               { 
                 q: "サプリメントや既存のサービスと組み合わせることはできますか？", 
-                a: "はい. ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
+                a: "はい。ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
               },
               { 
                 q: "スタッフ全員が資格を取得する必要がありますか？", 
@@ -316,7 +328,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. Final CTA - To Contact Page */}
+      {/* 7. Final CTA */}
       <section className="py-40 bg-white text-center">
         <div className="w-[90%] max-w-4xl mx-auto">
           <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase mb-12 block">Get in Touch</span>
