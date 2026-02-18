@@ -20,7 +20,9 @@ import {
   HelpCircle,
   ArrowDownRight,
   Users,
-  Clock
+  Clock,
+  Sparkles,
+  ChevronRight
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,17 +30,21 @@ export const ProfessionalCourse: React.FC = () => {
   const navigate = useNavigate();
 
   const chapters = [
-    { id: "01", icon: LineChart, title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。事業を資産化するための基盤構築。", textColor: "text-teal-600" },
-    { id: "02", icon: Layout, title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合システム。", textColor: "text-blue-600" },
-    { id: "03", icon: ClipboardCheck, title: "面談の標準化技術", desc: "誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600" },
-    { id: "04", icon: Brain, title: "診断のエンジニアリング", desc: "直感を排除する診断ツール. 運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600" },
-    { id: "05", icon: CalendarRange, title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。高い成功率を実現する。", textColor: "text-purple-600" },
-    { id: "06", icon: Building, title: "施設認定と運営管理", desc: "個人の信頼から組織の信頼へ。一貫した基準を維持するための管理体制。", textColor: "text-emerald-600" },
-    { id: "07", icon: Users, title: "チームとトレーニング", desc: "品質を落とさずにチームを拡大する。安全な権限委譲と教育の仕組み。", textColor: "text-amber-600" },
-    { id: "08", icon: ShieldCheck, title: "倫理と専門的限界", desc: "「NO」と言える力。法的安全と高い信頼を築くための専門家としての矜持。", textColor: "text-rose-600" },
-    { id: "09", icon: Settings, title: "運営オートメーション", desc: "集客から診断、アフターフォローまでを自動化し、経営者の時間を創出する。", textColor: "text-stone-400" },
-    { id: "10", icon: Clock, title: "将来の展望とアップデート", desc: "変わり続ける栄養学への対応と、コミュニティを活用した継続的な事業成長。", textColor: "text-stone-400" }
+    { id: "01", icon: LineChart, title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。事業を資産化するための基盤構築。", textColor: "text-teal-600", bgColor: "bg-teal-50" },
+    { id: "02", icon: Layout, title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合システム。", textColor: "text-blue-600", bgColor: "bg-blue-50" },
+    { id: "03", icon: ClipboardCheck, title: "面談の標準化技術", desc: "誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600", bgColor: "bg-cyan-50" },
+    { id: "04", icon: Brain, title: "診断のエンジニアリング", desc: "直感を排除する診断ツール. 運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { id: "05", icon: CalendarRange, title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。高い成功率を実現する。", textColor: "text-purple-600", bgColor: "bg-purple-50" },
+    { id: "06", icon: Building, title: "施設認定と運営管理", desc: "個人の信頼から組織の信頼へ。一貫した基準を維持するための管理体制。", textColor: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { id: "07", icon: Users, title: "チームとトレーニング", desc: "品質を落とさずにチームを拡大する。安全な権限委譲と教育の仕組み。", textColor: "text-amber-600", bgColor: "bg-amber-50" },
+    { id: "08", icon: ShieldCheck, title: "倫理と専門的限界", desc: "「NO」と言える力。法的安全と高い信頼を築くための専門家としての矜持。", textColor: "text-rose-600", bgColor: "bg-rose-50" },
+    { id: "09", icon: Settings, title: "運営オートメーション", desc: "集客から診断、アフターフォローまでを自動化し、経営者の時間を創出する。", textColor: "text-stone-500", bgColor: "bg-stone-50" },
+    { id: "10", icon: Clock, title: "将来の展望とアップデート", desc: "変わり続ける栄養学への対応と、コミュニティを活用した継続的な事業成長。", textColor: "text-stone-500", bgColor: "bg-stone-50" }
   ];
+
+  // Dividir capítulos em duas listas de 5
+  const firstHalf = chapters.slice(0, 5);
+  const secondHalf = chapters.slice(5, 10);
 
   return (
     <div className="bg-white text-stone-800 font-sans">
@@ -55,7 +61,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
         
         <div className="w-[92%] max-w-[1400px] mx-auto relative z-10">
-          <div className="max-w-3xl animate-in fade-in slide-in-from-left-10 duration-1000">
+          <div className="max-w-4xl animate-in fade-in slide-in-from-left-10 duration-1000">
             <span className="inline-block text-teal-400 font-bold tracking-[0.4em] text-xs uppercase mb-6 border-l-2 border-teal-500 pl-4">
               Business Owner Program
             </span>
@@ -68,8 +74,12 @@ export const ProfessionalCourse: React.FC = () => {
               ダイエットビジネスの運営権を手に入れる唯一の道。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/20 h-16 px-12">
-                導入相談（無料）を予約
+              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/40 h-16 px-12 group relative overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  <Sparkles size={20} className="animate-pulse" />
+                  「成功のシステム」を導入し、収益を最大化する
+                </span>
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
               </Button>
             </div>
           </div>
@@ -85,7 +95,6 @@ export const ProfessionalCourse: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Case A: Personal Growth */}
             <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm relative overflow-hidden">
                <div className="absolute top-0 right-0 p-6 opacity-5">
                   <UserPlus size={100} />
@@ -106,7 +115,6 @@ export const ProfessionalCourse: React.FC = () => {
                </div>
             </div>
 
-            {/* Case B: Business Growth */}
             <div className="bg-stone-900 p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden text-white">
                <div className="absolute top-0 right-0 p-6 opacity-10">
                   <TrendingUp size={100} />
@@ -130,121 +138,70 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* Specific Target Scenarios */}
+      {/* Curriculum Lists - MINIMALIST LIST DESIGN */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1200px] mx-auto">
-          <div className="text-center mb-20">
-            <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-4">Target Personas</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">
-              このような悩みを持つ方に、<br />このコースは革命を起こします。
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-16">
-            
-            {/* Persona 1: The Aspiring Entrepreneur */}
-            <div className="flex flex-col gap-6 group">
-               <div className="w-full h-64 bg-stone-100 rounded-[3rem] overflow-hidden relative shadow-inner">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" 
-                    alt="Salon staff"
-                  />
-                  <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20">
-                    <div className="text-xs font-black text-stone-400 mb-1 uppercase tracking-widest">Case Study 01</div>
-                    <div className="text-lg font-bold text-stone-800 font-serif-jp">独立を目指すサロンスタッフ</div>
-                  </div>
-               </div>
-               <div className="space-y-4 px-2">
-                  <h4 className="text-xl font-bold text-stone-800 font-serif-jp flex items-center gap-2">
-                    <ArrowDownRight className="text-teal-500" /> 技術はあるが、「経営」が不安
-                  </h4>
-                  <p className="text-stone-500 text-sm leading-loose">
-                    現在エステサロン等に勤務しており、将来的に独立を考えている方。「独自のダイエットメニューを作りたいが、どう集客し、どう運営すればいいか分からない」という悩みに対し、プロコースは「売れる仕組み」をそのまま提供します。L02（シニア）で指導技術を、L03（プロ）で運営システムを手に入れるのが最短ルートです。
-                  </p>
-               </div>
-            </div>
-
-            {/* Persona 2: The Stagnant Business Owner */}
-            <div className="flex flex-col gap-6 group">
-               <div className="w-full h-64 bg-stone-100 rounded-[3rem] overflow-hidden relative shadow-inner">
-                  <img 
-                    src="https://images.unsplash.com/photo-1542744173-8e7e54815a1a?w=800&auto=format&fit=crop&q=80" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" 
-                    alt="Business Owner"
-                  />
-                  <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20">
-                    <div className="text-xs font-black text-stone-400 mb-1 uppercase tracking-widest">Case Study 02</div>
-                    <div className="text-lg font-bold text-stone-800 font-serif-jp">売上が伸び悩むジム・経営者</div>
-                  </div>
-               </div>
-               <div className="space-y-4 px-2">
-                  <h4 className="text-xl font-bold text-stone-800 font-serif-jp flex items-center gap-2">
-                    <ArrowDownRight className="text-teal-500" /> 商品はあるが、「差別化」ができない
-                  </h4>
-                  <p className="text-stone-500 text-sm leading-loose">
-                    既にダイエット指導を行っているが、高単価で売れない、あるいは継続率が低い経営者の方。プロコースの「ダイエット診断システム」を導入することで、他社には真似できない圧倒的な科学的根拠をフロントエンドに置くことができます。感覚的な指導を卒業し, 組織として売上を積み上げる基盤が完成します。
-                  </p>
-               </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 2 Certifications Highlight */}
-      <section className="py-20 bg-teal-600 text-white">
-          <div className="w-[92%] max-w-[1200px] mx-auto">
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Layers size={48} />
-                  </div>
-                  <div>
-                      <h2 className="text-2xl md:text-4xl font-bold font-serif-jp mb-2">プロコースは「2つの認定資格」を同時に授与します</h2>
-                      <p className="text-teal-50 font-medium">マネジメント運営認定に加え, 専門指導者としての最上位ライセンスを付与。組織としての信頼を保証します。</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      {/* Curriculum Grid - RESTORED TO 10 CHAPTERS */}
-      <section className="py-32 bg-stone-50">
-        <div className="w-[92%] max-w-[1600px] mx-auto">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight mb-6">
-              プロフェッショナル・マスター<br className="md:hidden" />
-              <span className="text-teal-600">全10章の体系</span>
+            <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-4">Curriculum Overview</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">
+              プロフェッショナル・マスター全10章の体系
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {chapters.map((chapter, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => navigate(`/courses/professional/chapter/${chapter.id}`)}
-                className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:border-teal-100 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer"
-              >
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} transition-all duration-500 shadow-sm`}>
-                    <chapter.icon size={32} strokeWidth={1.5} />
+          <div className="grid lg:grid-cols-2 gap-x-16 gap-y-4">
+            {/* First List: Chapters 01-05 */}
+            <div className="space-y-4">
+              {firstHalf.map((chapter) => (
+                <div 
+                  key={chapter.id}
+                  onClick={() => navigate(`/courses/professional/chapter/${chapter.id}`)}
+                  className="group flex items-center gap-6 p-5 rounded-2xl hover:bg-stone-50 transition-all duration-300 cursor-pointer border border-transparent hover:border-stone-100"
+                >
+                  <div className={`w-14 h-14 rounded-xl ${chapter.bgColor} flex items-center justify-center ${chapter.textColor} flex-shrink-0 transition-transform group-hover:scale-110 shadow-sm`}>
+                    <chapter.icon size={28} strokeWidth={1.5} />
                   </div>
-                  <div className="mt-8">
-                    <span className="text-[10px] font-black text-stone-300 tracking-[0.2em] uppercase">Chapter {chapter.id}</span>
-                    <h4 className="text-lg font-bold text-stone-900 mt-2 mb-4 font-serif-jp leading-snug group-hover:text-teal-600 transition-colors">
+                  <div className="flex-grow">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-[10px] font-black text-stone-300 tracking-widest uppercase">Chapter {chapter.id}</span>
+                      <div className="h-px flex-grow bg-stone-100"></div>
+                    </div>
+                    <h3 className="text-lg font-bold text-stone-800 font-serif-jp group-hover:text-teal-600 transition-colors">
                       {chapter.title}
-                    </h4>
+                    </h3>
                   </div>
-                  <p className="text-xs text-stone-500 leading-relaxed mb-6 font-medium">
-                    {chapter.desc}
-                  </p>
+                  <ChevronRight size={18} className="text-stone-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
                 </div>
-                <div className="mt-auto flex items-center justify-end">
-                   <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center text-stone-300 group-hover:bg-teal-500 group-hover:text-white transition-all">
-                      <ArrowRight size={14} />
-                   </div>
+              ))}
+            </div>
+
+            {/* Second List: Chapters 06-10 */}
+            <div className="space-y-4">
+              {secondHalf.map((chapter) => (
+                <div 
+                  key={chapter.id}
+                  onClick={() => navigate(`/courses/professional/chapter/${chapter.id}`)}
+                  className="group flex items-center gap-6 p-5 rounded-2xl hover:bg-stone-50 transition-all duration-300 cursor-pointer border border-transparent hover:border-stone-100"
+                >
+                  <div className={`w-14 h-14 rounded-xl ${chapter.bgColor} flex items-center justify-center ${chapter.textColor} flex-shrink-0 transition-transform group-hover:scale-110 shadow-sm`}>
+                    <chapter.icon size={28} strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-[10px] font-black text-stone-300 tracking-widest uppercase">Chapter {chapter.id}</span>
+                      <div className="h-px flex-grow bg-stone-100"></div>
+                    </div>
+                    <h3 className="text-lg font-bold text-stone-800 font-serif-jp group-hover:text-teal-600 transition-colors">
+                      {chapter.title}
+                    </h3>
+                  </div>
+                  <ChevronRight size={18} className="text-stone-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+             <p className="text-stone-400 text-sm font-medium">※各章をクリックすると、詳細な学習内容をご確認いただけます。</p>
           </div>
         </div>
       </section>
@@ -324,9 +281,16 @@ export const ProfessionalCourse: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-stone-900 mb-12 font-serif-jp leading-tight">
             あなたの施設に、<br className="md:hidden" />プロフェッショナルの信頼を。
           </h2>
-          <Button size="xl" variant="teal" className="px-16 h-18 text-xl shadow-2xl shadow-teal-100" onClick={() => navigate('/contact')}>
-            導入相談（無料）を予約する
+          <Button size="xl" variant="teal" className="px-16 h-18 text-xl shadow-2xl shadow-teal-500/20 group relative overflow-hidden" onClick={() => navigate('/contact')}>
+             <span className="relative z-10 flex items-center gap-3">
+                <Sparkles size={24} className="animate-pulse" />
+                【無料】あなたの施設を「稼げる仕組み」に変える相談をする
+             </span>
+             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
           </Button>
+          <p className="mt-8 text-stone-400 font-medium text-sm">
+             ※導入相談は完全無料です。現在のビジネスの課題をヒアリングし、最適なシステムをご提案します。
+          </p>
         </div>
       </section>
 
