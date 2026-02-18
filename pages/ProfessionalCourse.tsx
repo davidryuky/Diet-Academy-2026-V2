@@ -31,7 +31,7 @@ import {
   BarChart3,
   Flower2,
   HeartPulse,
-  UtensilsCrossed
+  GraduationCap
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
@@ -81,14 +81,14 @@ export const ProfessionalCourse: React.FC = () => {
       desc: "「美しくしなやかな体」を内側から作る食事メソッドを導入。既存のレッスンと組み合わせた『3ヶ月集中パッケージ』の展開が可能に。" 
     },
     { 
+      title: "教育機関・スポーツスクール", 
+      icon: GraduationCap, 
+      desc: "部活動やジュニア選手の育成プログラムに「認定栄養指導」を組み込み。才能に頼らない、科学的な体づくりの仕組みを標準教育化。" 
+    },
+    { 
       title: "法人向けウェルネス", 
       icon: HeartPulse, 
       desc: "企業の福利厚生として、社員の健康管理システムを提供。メタボ対策やメンタルヘルスを「食事の仕組み」からアプローチするB2B事業。" 
-    },
-    { 
-      title: "健康食・宅食サービス", 
-      icon: UtensilsCrossed, 
-      desc: "単なる食事提供ではなく、認定に基づく「行動変容プログラム」を付随。科学的根拠を強みに、競合他社との圧倒的な差別化を図る。" 
     }
   ];
 
@@ -156,7 +156,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Introduction - The Core Concept */}
+      {/* 2. Introduction */}
       <section className="py-40 relative overflow-hidden bg-white">
         <div className="w-[90%] max-w-[1000px] mx-auto text-center">
           <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-6">The System</span>
@@ -177,7 +177,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Comparison Section - Nós vs Outros (DECISIVE COMPARISON) */}
+      {/* 3. Comparison Section - Nós vs Outros */}
       <section className="py-40 bg-stone-950 text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
            <BarChart3 className="absolute -bottom-20 -right-20 w-[600px] h-[600px]" />
@@ -192,7 +192,6 @@ export const ProfessionalCourse: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-px bg-stone-800 rounded-[3.5rem] overflow-hidden border border-stone-800 shadow-2xl">
-            {/* Others */}
             <div className="bg-stone-900 p-12 md:p-16">
               <div className="flex items-center gap-4 mb-10 opacity-50">
                  <XCircle className="text-stone-500" size={32} />
@@ -214,7 +213,6 @@ export const ProfessionalCourse: React.FC = () => {
               </ul>
             </div>
 
-            {/* Diet Master System */}
             <div className="bg-stone-900 p-12 md:p-16 relative">
               <div className="absolute inset-0 bg-teal-500/5 pointer-events-none"></div>
               <div className="flex items-center gap-4 mb-10">
@@ -270,7 +268,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Professional Curriculum - COMPACT 5x2 LAYOUT */}
+      {/* 5. Professional Curriculum - 5x2 LAYOUT */}
       <section className="py-40 bg-white">
         <div className="w-[90%] max-w-[1100px] mx-auto">
           <div className="text-center mb-24">
@@ -337,7 +335,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Use Cases - EXAMPLES OF IMPLEMENTATION */}
+      {/* 6. Implementation Scenarios */}
       <section className="py-40 bg-stone-50">
         <div className="w-[90%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
@@ -360,7 +358,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. FAQ - Fiel ao solicitado */}
+      {/* 7. FAQ */}
       <section className="py-40 bg-white">
         <div className="w-[90%] max-w-[800px] mx-auto">
           <div className="text-center mb-20">
@@ -375,7 +373,7 @@ export const ProfessionalCourse: React.FC = () => {
               },
               { 
                 q: "サプリメントや既存のサービスと組み合わせることはできますか？", 
-                a: "はい. ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
+                a: "はい。ダイエットマスターでは、サプリメントやトレーニングを主役ではなく「サポート要素」として捉えています。このシステムは、それらを使用するための論理的な根拠を作り出し、顧客の納得感（コンプライアンス）を高めます。" 
               },
               { 
                 q: "スタッフ全員が資格を取得する必要がありますか？", 
