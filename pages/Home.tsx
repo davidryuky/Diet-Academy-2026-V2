@@ -15,7 +15,8 @@ import {
   Activity,
   ThumbsUp,
   Star,
-  Quote
+  Quote,
+  Award
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
@@ -100,7 +101,7 @@ export const Home: React.FC = () => {
           </div>
       </div>
 
-      {/* Path Choice Section */}
+      {/* Path Choice Section - UPDATED TO INCLUDE THE 3 COURSES CLEARLY */}
       <div className="py-24 bg-white border-y border-stone-100 relative">
           <div className="w-[92%] max-w-[1600px] mx-auto">
               <div className="text-center mb-16">
@@ -109,49 +110,53 @@ export const Home: React.FC = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
+                  {/* Card 1: Regular Course */}
                   <div onClick={() => navigate('/courses/regular')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
                       <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-[#FF8C6B] rounded-3xl shadow-sm group-hover:bg-[#FF8C6B] group-hover:text-white transition-all duration-500 group-hover:rotate-6">
                           <Target size={40} strokeWidth={1.5} />
                       </div>
                       <div className="flex-1">
                           <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「自分」を劇的に変える</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">リバウンドから卒業し、一生モノの健康な体を手に入れたい方はこちら。</p>
-                          <div className="flex items-center text-[#FF8C6B] text-sm font-bold group-hover:translate-x-2 transition-transform">ダイエット実践・基礎へ <ArrowRight size={18} className="ml-2" /></div>
+                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">リバウンドから卒業し、一生モノの健康な体を手に入れたい初心者・実践者はこちら。</p>
+                          <div className="flex items-center text-[#FF8C6B] text-sm font-bold group-hover:translate-x-2 transition-transform">レギュラーコース(L01)詳細へ <ArrowRight size={18} className="ml-2" /></div>
                       </div>
                   </div>
 
-                  <div onClick={() => navigate('/instructors')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
+                  {/* Card 2: Senior Course (Prerequisite of Regular) */}
+                  <div onClick={() => navigate('/courses/senior')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
                       <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-[#5D9B9B] rounded-3xl shadow-sm group-hover:bg-[#5D9B9B] group-hover:text-white transition-all duration-500 group-hover:rotate-6">
-                          <GraduationCap size={40} strokeWidth={1.5} />
+                          <Award size={40} strokeWidth={1.5} />
                       </div>
                       <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「指導力」で勝負する</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">トレーナーや講師として独立したい、確かな理論と「資格」が欲しいプロ向け。</p>
-                          <div className="flex items-center text-[#5D9B9B] text-sm font-bold group-hover:translate-x-2 transition-transform">プロ指導者養成へ <ArrowRight size={18} className="ml-2" /></div>
+                          <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「指導力」で信頼を築く</h3>
+                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">※レギュラー修了者限定。対人コーチングとカウンセリング技術を極め、プロの指導者へ。</p>
+                          <div className="flex items-center text-[#5D9B9B] text-sm font-bold group-hover:translate-x-2 transition-transform">シニアコース(L02)詳細へ <ArrowRight size={18} className="ml-2" /></div>
                       </div>
                   </div>
 
+                  {/* Card 3: Professional Course */}
                   <div onClick={() => navigate('/courses/professional')} className="group relative bg-stone-50 rounded-[2.5rem] p-10 border-2 border-transparent hover:border-indigo-600 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col md:flex-row gap-8 items-start">
                       <div className="w-20 h-20 flex-shrink-0 p-5 bg-white text-indigo-600 rounded-3xl shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500 group-hover:rotate-6">
                           <Crown size={40} strokeWidth={1.5} />
                       </div>
                       <div className="flex-1">
                           <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif-jp">「仕組み」で売上を創る</h3>
-                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">サロンやジムの売上を安定させたい経営者。個人の技術をシステムへ昇華させます。</p>
-                          <div className="flex items-center text-indigo-600 text-sm font-bold group-hover:translate-x-2 transition-transform">経営・運営責任者向けへ <ArrowRight size={18} className="ml-2" /></div>
+                          <p className="text-stone-500 text-base leading-relaxed font-medium mb-6">個人の才能をシステムへ。店舗運営とマネジメントを統合し、事業を加速させたい経営者向け。</p>
+                          <div className="flex items-center text-indigo-600 text-sm font-bold group-hover:translate-x-2 transition-transform">プロコース(L03)詳細へ <ArrowRight size={18} className="ml-2" /></div>
                       </div>
                   </div>
               </div>
           </div>
       </div>
 
-      {/* Trust & Features Section */}
+      {/* Layout with Sidebar */}
       <div className="w-[92%] max-w-[1600px] mx-auto py-24 flex flex-col lg:flex-row gap-16">
           <aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-32 self-start">
               <Sidebar />
           </aside>
 
           <main className="flex-1 space-y-20">
+              {/* Features section */}
               <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-sm border border-stone-200 text-center relative overflow-hidden">
                   <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-10 font-serif-jp leading-tight relative z-10">
                       忙しいあなたのための、<br />
@@ -175,7 +180,7 @@ export const Home: React.FC = () => {
               </div>
 
               {/* Supervision Section */}
-              <div className="bg-stripe rounded-[3rem] p-10 md:p-20 border border-stone-200">
+              <div id="supervision" className="bg-stripe rounded-[3rem] p-10 md:p-20 border border-stone-200">
                   <div className="flex flex-col md:flex-row gap-16 items-center">
                       <div className="md:w-2/5">
                           <PlaceholderImage height="380px" className="rounded-[2.5rem] shadow-2xl w-full" color="bg-stone-200" text="CHIEF SUPERVISOR" />
@@ -191,8 +196,20 @@ export const Home: React.FC = () => {
                   </div>
               </div>
 
-              {/* 合格者の声 (Testimonials) Section - REPOSITIONED AT THE VERY BOTTOM */}
-              <div className="pt-20">
+              {/* Media Placeholders Section - AS REQUESTED (MAINTAINED) */}
+              <div className="py-12">
+                  <div className="text-center mb-8">
+                      <span className="text-stone-300 font-bold tracking-[0.3em] text-[10px] uppercase">Media & Featured In</span>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 opacity-40 grayscale">
+                      {[1, 2, 3, 4, 5, 6].map(i => (
+                          <PlaceholderImage key={i} height="60px" text={`LOGO ${i}`} color="bg-stone-200" />
+                      ))}
+                  </div>
+              </div>
+
+              {/* 合格者の声 (Testimonials) Section - AT THE VERY BOTTOM */}
+              <div className="pt-20 border-t border-stone-100">
                   <div className="text-center mb-16">
                       <span className="text-[#FF8C6B] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">Voices of Success</span>
                       <h2 className="text-3xl md:text-5xl font-bold text-stone-800 font-serif-jp">合格者の声</h2>
