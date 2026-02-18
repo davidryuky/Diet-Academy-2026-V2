@@ -1,4 +1,5 @@
-import { GraduationCap, Award, Crown, Rocket, Target } from 'lucide-react';
+
+import { GraduationCap, Award, Crown, Rocket, Target, MessageCircle } from 'lucide-react';
 
 export interface CourseDetail {
   id: string;
@@ -22,10 +23,10 @@ export const courses: CourseDetail[] = [
   {
     id: 'regular-study',
     level: 'L01: Basic Foundation',
-    name: 'Diet Master (学習版)',
-    subtitle: 'ダイエット基礎実践認定',
-    description: '知識の習得 e 認定証取得を目的とした標準プラン。一生モノの栄養学の基礎を築きます。',
-    target: '教養・知識習得を優先する方',
+    name: '学習版',
+    subtitle: 'ダイエット基礎理論習得',
+    description: '自分のペースで学び、資格を取得したい方向けの標準プラン。全14章の共通カリキュラムで一生モノの知識を築きます。',
+    target: '知識習得・資格保持を優先する方',
     price: '59,800',
     period: '標準2ヶ月 / 質問1年間',
     features: ['全14章のデジタル講義', 'ダイエットマスター認定証', '1年間の質問サポート', 'オンライン試験'],
@@ -36,17 +37,17 @@ export const courses: CourseDetail[] = [
   },
   {
     id: 'regular-master',
-    level: 'L01: Master Program',
-    name: 'Diet Master (実践サポート版)',
-    subtitle: '基礎認定 ＋ 3ヶ月集中減量サポート',
-    description: '知識だけでなく「結果」を出すための最上位プラン。専任講師が3ヶ月間あなたのダイエットを伴走します。',
-    target: '確実に体を変えたい・結果を出したい方',
+    level: 'L01: Practical Support',
+    name: '実践サポート版',
+    subtitle: '基礎理論 ＋ 3ヶ月減量伴走',
+    description: '共通の14章の学びに加え、専任講師が3ヶ月間あなたのダイエットを徹底サポート。確実に結果を出したい方のための上位プラン。',
+    target: '確実に体を変えたい・実践を重視する方',
     price: '79,800',
     period: '講義14章 ＋ 3ヶ月集中指導',
-    features: ['全14章のデジタル講義', '専任講師の個別チャット指導', '週次フィードバック', 'ダイエット診断(必須)'],
+    features: ['全14章のデジタル講義', '専任講師の個別チャット指導', '3ヶ月間の実践サポート', 'ダイエットマスター認定証'],
     color: 'bg-emerald-600',
     accent: 'text-emerald-600',
-    icon: Target,
+    icon: MessageCircle,
     path: '/courses/regular'
   },
   {
@@ -106,7 +107,6 @@ export const comparisonFeatures = [
   { name: "ダイエットマスター認定証", study: true, master: true, senior: true, pro: true },
   { name: "1年間の質問サポート", study: true, master: true, senior: true, pro: true },
   { name: "専任講師の個別指導(3ヶ月)", study: false, master: true, senior: true, pro: true },
-  { name: "初回ダイエット診断", study: false, master: true, senior: true, pro: true },
   { name: "シニアコーチ認定資格", study: false, master: false, senior: true, pro: true },
   { name: "指導者用カウンセリング技術", study: false, master: false, senior: true, pro: true },
   { name: "ビジネス運営ライセンス", study: false, master: false, senior: false, pro: true },
