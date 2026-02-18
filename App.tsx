@@ -25,6 +25,7 @@ import { CourseStudyView } from './pages/member/CourseStudyView';
 import { AdminLogin } from './pages/admin/AdminLogin';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminCurriculumEditor } from './pages/admin/AdminCurriculumEditor';
+import { Contact } from './pages/Contact';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
@@ -106,6 +107,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
           <Route path="/member" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
 
           <Route 
             path="/member-area" 

@@ -13,9 +13,10 @@ import {
   Rocket,
   Lock,
   Award,
-  Crown
+  Crown,
+  Minus
 } from 'lucide-react';
-import { courses, bundles } from '../data/coursesData';
+import { courses, bundles, comparisonFeatures } from '../data/coursesData';
 import { useNavigate } from 'react-router';
 
 export const Pricing: React.FC = () => {
@@ -46,7 +47,7 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-24">
           
           {/* Card 1: Regular (L01) */}
           <div className="flex flex-col bg-white rounded-[2.5rem] border-2 border-[#FF8C6B] shadow-xl relative overflow-hidden group">
@@ -194,7 +195,7 @@ export const Pricing: React.FC = () => {
                 fullWidth 
                 variant="teal" 
                 className="rounded-xl h-12 bg-indigo-600 hover:bg-indigo-700 border-none"
-                onClick={() => navigate('/courses/professional')}
+                onClick={() => navigate('/contact')}
               >
                 導入相談を予約
               </Button>
@@ -249,6 +250,45 @@ export const Pricing: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Comparison Table Section */}
+        <div className="mb-24 overflow-x-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">プラン別機能比較表</h2>
+            <p className="text-stone-400 text-sm mt-2">各コースの提供サービスを詳細に比較いただけます</p>
+          </div>
+          
+          <table className="w-full min-w-[800px] bg-white rounded-[2rem] shadow-sm border border-stone-100 overflow-hidden">
+            <thead>
+              <tr className="bg-stone-50">
+                <th className="p-6 text-left text-xs font-bold text-stone-400 uppercase tracking-widest border-b border-stone-100">Service / Feature</th>
+                <th className="p-6 text-center text-sm font-bold text-stone-800 border-b border-stone-100">L01 学習版</th>
+                <th className="p-6 text-center text-sm font-bold text-emerald-600 border-b border-stone-100">L01 実践版</th>
+                <th className="p-6 text-center text-sm font-bold text-teal-600 border-b border-stone-100">L02 シニア</th>
+                <th className="p-6 text-center text-sm font-bold text-indigo-700 border-b border-stone-100">L03 / Pack</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-stone-50">
+              {comparisonFeatures.map((feature, idx) => (
+                <tr key={idx} className="hover:bg-stone-50/50 transition-colors">
+                  <td className="p-6 text-sm font-bold text-stone-700">{feature.name}</td>
+                  <td className="p-6 text-center">
+                    {feature.study ? <Check className="mx-auto text-orange-400" size={20} /> : <Minus className="mx-auto text-stone-200" size={20} />}
+                  </td>
+                  <td className="p-6 text-center">
+                    {feature.master ? <Check className="mx-auto text-emerald-500" size={20} /> : <Minus className="mx-auto text-stone-200" size={20} />}
+                  </td>
+                  <td className="p-6 text-center">
+                    {feature.senior ? <Check className="mx-auto text-teal-600" size={20} /> : <Minus className="mx-auto text-stone-200" size={20} />}
+                  </td>
+                  <td className="p-6 text-center">
+                    {feature.pro ? <Check className="mx-auto text-indigo-600" size={20} /> : <Minus className="mx-auto text-stone-200" size={20} />}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         {/* Support & Guarantee */}

@@ -25,7 +25,7 @@ export const ProfessionalCourse: React.FC = () => {
     { icon: LineChart, num: "01", title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。事業を資産化するための基盤構築。", textColor: "text-teal-600" },
     { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合システム。", textColor: "text-blue-600" },
     { icon: ClipboardCheck, num: "03", title: "面談の標準化技術", desc: "誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600" },
-    { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感を排除する診断ツール。運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600" },
+    { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感を排除する診断ツール. 運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600" },
     { icon: CalendarRange, num: "05", title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。高い成功率を実現する。", textColor: "text-purple-600" }
   ];
 
@@ -53,11 +53,11 @@ export const ProfessionalCourse: React.FC = () => {
               <span className="text-teal-400">「システム」へ昇華させる。</span>
             </h1>
             <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
-              個人の才能に依存しない。どんなスタッフでも最高の結果を出せる、<br className="hidden md:block" />
+              個人の才能に依存しない. どんなスタッフでも最高の結果を出せる、<br className="hidden md:block" />
               ダイエットビジネスの運営権を手に入れる唯一の道。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="xl" variant="teal" onClick={() => navigate('/pricing')} className="shadow-2xl shadow-teal-500/20 h-16 px-12">
+              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/20 h-16 px-12">
                 導入相談（無料）を予約
               </Button>
             </div>
@@ -185,7 +185,7 @@ export const ProfessionalCourse: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-stone-900 mb-12 font-serif-jp leading-tight">
             あなたの施設に、<br className="md:hidden" />プロフェッショナルの信頼を。
           </h2>
-          <Button size="xl" variant="teal" className="px-16 h-18 text-xl shadow-2xl shadow-teal-100" onClick={() => navigate('/pricing')}>
+          <Button size="xl" variant="teal" className="px-16 h-18 text-xl shadow-2xl shadow-teal-100" onClick={() => navigate('/contact')}>
             導入相談（無料）を予約する
           </Button>
         </div>

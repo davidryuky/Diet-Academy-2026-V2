@@ -10,7 +10,9 @@ import {
   CheckCircle2, 
   Zap,
   ShoppingBag,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  TrendingDown
 } from 'lucide-react';
 
 export const Checkout: React.FC = () => {
@@ -25,6 +27,7 @@ export const Checkout: React.FC = () => {
   
   // Buscar em cursos normais ou bundles
   const course = [...courses, ...bundles].find(c => c.id === courseId) || courses[0];
+  const isStudyOnly = course.id === 'regular-study';
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +38,10 @@ export const Checkout: React.FC = () => {
       sessionStorage.setItem('member_auth', 'true');
       navigate('/member-area');
     }, 2000);
+  };
+
+  const handleUpgrade = () => {
+    navigate('/checkout?courseId=regular-master');
   };
 
   return (
@@ -57,6 +64,33 @@ export const Checkout: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           
           <div className="lg:w-2/3 space-y-8">
+            {/* Order Bump Section */}
+            {isStudyOnly && (
+              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-[2rem] p-8 text-white shadow-xl relative overflow-hidden animate-in slide-in-from-top-4 duration-500">
+                <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                  <Sparkles size={120} />
+                </div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-4">
+                     <div className="bg-white/20 px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Limited Offer</div>
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold mb-4 font-serif-jp">
+                    あと ¥20,000 で「3ヶ月の専任サポート」を追加しませんか？
+                  </h2>
+                  <p className="text-emerald-50 text-sm leading-relaxed mb-8 font-medium">
+                    独学は挫折のリスクが90%以上です。マスター版なら、プロが毎日チャットであなたの食事を分析。確実に理想の体へと導きます。
+                  </p>
+                  <button 
+                    onClick={handleUpgrade}
+                    className="bg-white text-emerald-600 px-8 py-4 rounded-xl font-black text-sm flex items-center gap-2 hover:bg-emerald-50 transition-all shadow-lg"
+                  >
+                    マスター版へアップグレードする
+                    <ArrowRight size={18} />
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-stone-100">
               <h1 className="text-2xl font-bold text-stone-800 mb-8 font-serif-jp flex items-center gap-3">
                 <ShoppingBag size={24} className="text-[#FF8C6B]" />
@@ -140,6 +174,16 @@ export const Checkout: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+                <div className="flex items-center gap-3 mb-4 text-stone-800 font-bold text-sm">
+                   <ShieldCheck size={20} className="text-emerald-600" />
+                   100% 返金保証
+                </div>
+                <p className="text-[10px] text-stone-500 leading-relaxed">
+                   教材到着後8日以内であれば、開封後でも返品・返金が可能です。私たちは受講生の満足度を第一に考えています。
+                </p>
               </div>
             </div>
           </div>

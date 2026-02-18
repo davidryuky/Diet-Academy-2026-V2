@@ -24,7 +24,7 @@ export const courses: CourseDetail[] = [
     level: 'L01: Basic Foundation',
     name: 'Diet Master (学習版)',
     subtitle: 'ダイエット基礎実践認定',
-    description: '知識の習得と認定証取得を目的とした標準プラン。一生モノの栄養学の基礎を築きます。',
+    description: '知識の習得 e 認定証取得を目的とした標準プラン。一生モノの栄養学の基礎を築きます。',
     target: '教養・知識習得を優先する方',
     price: '59,800',
     period: '標準2ヶ月 / 質問1年間',
@@ -99,4 +99,16 @@ export const bundles: CourseDetail[] = [
     path: '/checkout?courseId=full-career-pack',
     isBundle: true
   }
+];
+
+export const comparisonFeatures = [
+  { name: "デジタル講義アクセス", study: true, master: true, senior: true, pro: true },
+  { name: "ダイエットマスター認定証", study: true, master: true, senior: true, pro: true },
+  { name: "1年間の質問サポート", study: true, master: true, senior: true, pro: true },
+  { name: "専任講師の個別指導(3ヶ月)", study: false, master: true, senior: true, pro: true },
+  { name: "初回ダイエット診断", study: false, master: true, senior: true, pro: true },
+  { name: "シニアコーチ認定資格", study: false, master: false, senior: true, pro: true },
+  { name: "指導者用カウンセリング技術", study: false, master: false, senior: true, pro: true },
+  { name: "ビジネス運営ライセンス", study: false, master: false, senior: false, pro: true },
+  { name: "経営個別コンサルティング", study: false, master: false, senior: false, pro: true },
 ];
