@@ -1,30 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/common/Button';
 import { 
   Check, 
   ShieldCheck, 
   ArrowDown, 
   Star, 
-  Rocket, 
   ChevronRight, 
   Zap, 
   CreditCard, 
   Info,
   Clock,
   CheckCircle2,
-  TrendingDown
+  TrendingDown,
+  Target,
+  GraduationCap
 } from 'lucide-react';
 import { courses } from '../data/coursesData';
 import { useNavigate } from 'react-router';
 
 export const Pricing: React.FC = () => {
   const navigate = useNavigate();
+  const [l01Option, setL01Option] = useState<'study' | 'master'>('master');
+
+  const regularStudy = courses.find(c => c.id === 'regular-study')!;
+  const regularMaster = courses.find(c => c.id === 'regular-master')!;
+  const seniorCourse = courses.find(c => c.id === 'senior')!;
+  const proCourse = courses.find(c => c.id === 'professional')!;
 
   return (
     <div className="min-h-screen bg-stone-50 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header with Urgency - NEW */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-orange-50 text-[#FF8C6B] px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 border border-orange-100 animate-bounce">
             <Clock size={14} /> 2026年 春の受講応援キャンペーン実施中
@@ -38,229 +44,190 @@ export const Pricing: React.FC = () => {
           </p>
         </div>
 
-        {/* Visual Roadmap / Prerequisites Info */}
-        <div className="max-w-5xl mx-auto mb-24">
-           <div className="bg-white rounded-[3rem] p-10 border border-stone-200 shadow-sm">
-              <h3 className="text-xl font-bold text-stone-800 text-center mb-12 font-serif-jp flex items-center justify-center gap-3">
-                 <Info size={20} className="text-stone-300" />
-                 資格取得のロードマップ
+        {/* Pricing Cards Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-24 items-stretch">
+          
+          {/* L01: Regular Course with Toggle */}
+          <div className="relative flex flex-col bg-white rounded-[2.5rem] overflow-hidden border-2 border-[#FF8C6B] shadow-2xl lg:-translate-y-4">
+            <div className="bg-[#FF8C6B] text-white text-[10px] font-bold text-center py-2.5 tracking-[0.2em] uppercase">
+              Most Popular - 選べる2つのプラン
+            </div>
+            
+            <div className="p-8 md:p-10 flex-grow">
+              {/* Option Switcher */}
+              <div className="flex bg-stone-100 p-1.5 rounded-2xl mb-8">
+                <button 
+                  onClick={() => setL01Option('master')}
+                  className={`flex-1 py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-1 ${l01Option === 'master' ? 'bg-white text-[#FF8C6B] shadow-sm' : 'text-stone-400 hover:text-stone-600'}`}
+                >
+                  <Target size={16} />
+                  実践マスター版
+                </button>
+                <button 
+                  onClick={() => setL01Option('study')}
+                  className={`flex-1 py-3 px-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-1 ${l01Option === 'study' ? 'bg-white text-stone-700 shadow-sm' : 'text-stone-400 hover:text-stone-600'}`}
+                >
+                  <GraduationCap size={16} />
+                  学習のみ
+                </button>
+              </div>
+
+              <div className={`w-14 h-14 rounded-2xl ${l01Option === 'master' ? 'bg-emerald-600' : 'bg-orange-500'} flex items-center justify-center text-white mb-6 transition-colors shadow-lg`}>
+                  {l01Option === 'master' ? <Target size={28} /> : <GraduationCap size={28} />}
+              </div>
+              
+              <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">
+                {l01Option === 'master' ? 'ダイエットマスター' : 'レギュラーコース'}
+                <span className="block text-xs font-normal mt-1 text-stone-400">
+                  {l01Option === 'master' ? '(実践サポート版)' : '(学習のみ版)'}
+                </span>
               </h3>
               
-              <div className="flex flex-col md:flex-row items-stretch justify-between gap-4">
-                 {[
-                   { step: "01", name: "Regular", icon: courses[0].icon, color: "bg-orange-500", desc: "全ての土台", req: "受講資格：なし" },
-                   { step: "02", name: "Senior", icon: courses[1].icon, color: "bg-teal-600", desc: "指導力の習得", req: "受講条件：L01修了" },
-                   { step: "03", name: "Professional", icon: courses[2].icon, color: "bg-indigo-700", desc: "経営と運営", req: "受講条件：L02修了" }
-                 ].map((item, i) => (
-                   <React.Fragment key={i}>
-                     <div className="flex-1 flex flex-col items-center text-center group">
-                        <div className={`w-16 h-16 rounded-2xl ${item.color} flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                           <item.icon size={30} />
-                        </div>
-                        <div className="text-[10px] font-bold text-stone-400 uppercase mb-1">Step {item.step}</div>
-                        <div className="text-lg font-bold text-stone-800 font-serif-jp">{item.name}</div>
-                        <div className="text-[10px] text-stone-500 font-bold mb-2">{item.desc}</div>
-                        <div className="px-3 py-1 bg-stone-50 rounded-full text-[10px] font-bold text-stone-400 border border-stone-100">
-                           {item.req}
-                        </div>
-                     </div>
-                     {i < 2 && (
-                       <div className="flex items-center justify-center md:pt-4">
-                          <ArrowDown className="md:-rotate-90 text-stone-200" size={32} strokeWidth={1} />
-                       </div>
-                     )}
-                   </React.Fragment>
-                 ))}
+              <div className="my-8 flex items-baseline">
+                <span className="text-5xl font-black text-stone-800 font-serif-jp">
+                  {l01Option === 'master' ? regularMaster.price : regularStudy.price}
+                </span>
+                <span className="ml-2 text-sm text-stone-400 font-bold">円 (税込)</span>
               </div>
-           </div>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {courses.map((course, idx) => (
-            <div 
-              key={course.id} 
-              className={`relative flex flex-col bg-white rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:shadow-2xl border-2 ${idx === 1 ? 'border-[#FF8C6B] shadow-xl md:-translate-y-4' : 'border-stone-100 shadow-sm'} ${course.id === 'professional' ? 'bg-gradient-to-b from-white to-stone-50/50' : ''}`}
-            >
-              {idx === 1 && (
-                <div className="bg-[#FF8C6B] text-white text-[10px] font-bold text-center py-2.5 tracking-[0.2em] uppercase">
-                  Best For Career Start - 指導者を目指すなら
-                </div>
-              )}
               
-              <div className="p-10 flex-grow">
-                <div className={`w-14 h-14 rounded-2xl ${course.color} flex items-center justify-center text-white mb-6 shadow-lg`}>
-                    <course.icon size={28} />
-                </div>
-                <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">{course.name}</h3>
-                <p className="text-[10px] text-stone-400 font-bold tracking-widest mt-1 mb-8 uppercase">{course.level}</p>
-                
-                <div className="mb-10 flex items-baseline">
-                  {course.id === 'professional' ? (
-                    <span className="text-3xl font-bold text-stone-800 font-serif-jp">要お問合せ</span>
-                  ) : (
-                    <>
-                      <span className={`text-5xl font-bold ${idx === 1 ? 'text-[#FF8C6B]' : 'text-stone-800'} font-serif-jp`}>{course.price}</span>
-                      <span className="ml-2 text-sm text-stone-400 font-bold">円 (税込)</span>
-                    </>
-                  )}
-                </div>
-                
-                <ul className="space-y-4 text-sm font-medium text-stone-600 mb-10">
-                  {course.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start">
-                      <Check className={`h-5 w-5 ${course.accent} mr-3 flex-shrink-0 mt-0.5`} /> 
-                      <span className="leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                  <li className="flex items-start text-stone-400 pt-2 border-t border-stone-50">
-                    <Info className="h-4 w-4 text-stone-300 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-[10px]">{course.period}</span>
+              <ul className="space-y-4 text-sm font-medium text-stone-600 mb-10">
+                {(l01Option === 'master' ? regularMaster.features : regularStudy.features).map((feature, fIdx) => (
+                  <li key={fIdx} className="flex items-start">
+                    <Check className={`h-5 w-5 ${l01Option === 'master' ? 'text-emerald-500' : 'text-orange-500'} mr-3 flex-shrink-0 mt-0.5`} /> 
+                    <span className="leading-relaxed">{feature}</span>
                   </li>
-                </ul>
-              </div>
+                ))}
+              </ul>
+            </div>
 
-              <div className="p-10 bg-stone-50/50 border-t border-stone-100">
-                <Button 
-                    fullWidth 
-                    variant={course.id === 'professional' ? 'teal' : idx === 1 ? 'orange' : 'outline'} 
-                    size="lg"
-                    className="rounded-2xl h-14"
-                    onClick={() => {
-                      if (course.id === 'professional') {
-                        navigate('/courses/professional');
-                      } else {
-                        navigate(`/checkout?courseId=${course.id}`);
-                      }
-                    }}
-                >
-                  {course.id === 'professional' ? '導入相談を予約' : '受講を申し込む'}
-                </Button>
-                <p className="text-center text-[10px] text-stone-400 mt-4 font-bold tracking-widest uppercase">
-                   8日間返品保証・分割払い対応
-                </p>
+            <div className="p-8 bg-stone-50/50 border-t border-stone-100">
+              <Button 
+                fullWidth 
+                variant="orange" 
+                size="lg"
+                className={`rounded-2xl h-14 ${l01Option === 'master' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-orange-500'}`}
+                onClick={() => {
+                  const id = l01Option === 'master' ? 'regular-master' : 'regular-study';
+                  if (l01Option === 'master') navigate('/calculator');
+                  else navigate(`/checkout?courseId=${id}`);
+                }}
+              >
+                {l01Option === 'master' ? '診断を受けて開始する' : '今すぐ学習を始める'}
+              </Button>
+            </div>
+          </div>
+
+          {/* L02: Senior Course */}
+          <div className="relative flex flex-col bg-white rounded-[2.5rem] border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-500">
+            <div className="p-8 md:p-10 flex-grow">
+              <div className="w-14 h-14 rounded-2xl bg-teal-600 flex items-center justify-center text-white mb-6 shadow-lg">
+                  <seniorCourse.icon size={28} />
+              </div>
+              <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">{seniorCourse.name}</h3>
+              <p className="text-[10px] text-stone-400 font-bold tracking-widest mt-1 mb-8 uppercase">{seniorCourse.level}</p>
+              
+              <div className="mb-10 flex items-baseline">
+                <span className="text-5xl font-black text-stone-800 font-serif-jp">{seniorCourse.price}</span>
+                <span className="ml-2 text-sm text-stone-400 font-bold">円 (税込)</span>
+              </div>
+              
+              <ul className="space-y-4 text-sm font-medium text-stone-600 mb-10">
+                {seniorCourse.features.map((feature, fIdx) => (
+                  <li key={fIdx} className="flex items-start">
+                    <Check className="h-5 w-5 text-teal-600 mr-3 flex-shrink-0 mt-0.5" /> 
+                    <span className="leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-amber-50 text-amber-700 p-4 rounded-xl text-[10px] font-bold">
+                ※L01修了または同時申し込みが必要です。
               </div>
             </div>
-          ))}
+
+            <div className="p-8 bg-stone-50/50 border-t border-stone-100 mt-auto">
+              <Button 
+                fullWidth 
+                variant="outline" 
+                size="lg"
+                className="rounded-2xl h-14"
+                onClick={() => navigate(`/checkout?courseId=senior`)}
+              >
+                指導者資格を取得する
+              </Button>
+            </div>
+          </div>
+
+          {/* L03: Professional Course */}
+          <div className="relative flex flex-col bg-stone-900 rounded-[2.5rem] border border-stone-800 shadow-sm hover:shadow-2xl transition-all duration-500 text-white">
+            <div className="p-8 md:p-10 flex-grow">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-700 flex items-center justify-center text-white mb-6 shadow-lg">
+                  <proCourse.icon size={28} />
+              </div>
+              <h3 className="text-2xl font-bold font-serif-jp">{proCourse.name}</h3>
+              <p className="text-[10px] text-stone-500 font-bold tracking-widest mt-1 mb-8 uppercase">{proCourse.level}</p>
+              
+              <div className="mb-10">
+                <span className="text-3xl font-black font-serif-jp">要お問合せ</span>
+              </div>
+              
+              <ul className="space-y-4 text-sm font-medium text-stone-400 mb-10">
+                {proCourse.features.map((feature, fIdx) => (
+                  <li key={fIdx} className="flex items-start">
+                    <Check className="h-5 w-5 text-indigo-500 mr-3 flex-shrink-0 mt-0.5" /> 
+                    <span className="leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white/5 border-t border-white/10 mt-auto">
+              <Button 
+                fullWidth 
+                variant="teal" 
+                size="lg"
+                className="rounded-2xl h-14 bg-indigo-600 hover:bg-indigo-700"
+                onClick={() => navigate('/courses/professional')}
+              >
+                導入相談を予約
+              </Button>
+            </div>
+          </div>
+
         </div>
 
-        {/* THE BUNDLE - Strategic Offer for Business Owners / Career High-Performers */}
+        {/* The Bundle Pack */}
         <div className="max-w-5xl mx-auto mb-20 relative">
-           {/* Saving Label */}
            <div className="absolute -top-6 -right-6 z-20 bg-red-600 text-white p-6 rounded-full shadow-2xl rotate-12 flex flex-col items-center justify-center border-4 border-white animate-pulse">
               <span className="text-[10px] font-black uppercase">Savings</span>
               <span className="text-2xl font-black">¥16,600</span>
            </div>
 
-           <div className="relative group overflow-hidden bg-stone-900 rounded-[3.5rem] p-1 shadow-2xl transition-transform hover:-translate-y-2 duration-500">
-              {/* Animated Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-transparent to-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              
-              <div className="relative bg-stone-900 rounded-[3.4rem] p-10 md:p-16 flex flex-col lg:flex-row items-center gap-12 border border-white/5">
+           <div className="bg-stone-900 rounded-[3.5rem] p-1 shadow-2xl">
+              <div className="bg-stone-900 rounded-[3.4rem] p-10 md:p-16 flex flex-col lg:flex-row items-center gap-12 border border-white/5">
                  <div className="lg:w-2/3">
                     <div className="flex items-center gap-3 mb-6">
-                       <span className="bg-amber-500 text-stone-900 text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-[0.2em] animate-pulse">
-                          Bundle Offer
-                       </span>
-                       <span className="text-amber-500/50 text-xs font-bold font-serif-jp italic">
-                          一括受講で最大限の成果を
-                       </span>
+                       <span className="bg-amber-500 text-stone-900 text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-[0.2em]">Bundle Offer</span>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-serif-jp leading-tight">
-                       プロフェッショナル<br className="md:hidden" />・キャリアパック
-                    </h2>
-                    <p className="text-stone-400 text-lg mb-8 leading-relaxed font-medium">
-                       レギュラーからプロフェッショナルまで。全3段階を最短で駆け抜け、ダイエットビジネスの運営権と指導者ライセンスを一括で手に入れる最高峰のプランです。
-                    </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                       {["全ライセンスの一括付与", "特別受講料優待（16,600円引）", "代表理事への直接質問権", "施設運営スターターキット付属"].map((item, i) => (
-                         <div key={i} className="flex items-center gap-3 text-stone-200 font-bold text-sm">
-                            <Star className="text-amber-500" size={16} fill="currentColor" /> {item}
-                         </div>
-                       ))}
-                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-serif-jp leading-tight">Professional Career Pack</h2>
+                    <p className="text-stone-400 text-lg mb-8 leading-relaxed font-medium">全3段階を一括受講。L01は「実践マスター版」が適用されます。最短で指導者、経営者への道へ。</p>
                  </div>
-                 
                  <div className="lg:w-1/3 w-full bg-white/5 backdrop-blur-md rounded-[2.5rem] p-10 border border-white/10 text-center">
-                    <div className="text-stone-400 text-xs font-bold line-through mb-1">通常合計：¥144,600</div>
-                    <div className="text-5xl font-black text-amber-500 font-serif-jp mb-2">¥128,000</div>
-                    <div className="text-[10px] text-amber-500/70 font-bold mb-8 uppercase tracking-widest">Limited Bundle Price (Inc. Tax)</div>
-                    <Button 
-                      fullWidth 
-                      variant="orange" 
-                      size="xl" 
-                      className="bg-amber-500 hover:bg-amber-600 text-stone-900 border-none h-16 shadow-xl shadow-amber-500/20"
-                      onClick={() => navigate('/checkout?courseId=full-career-pack')}
-                    >
-                      パックで受講する
-                    </Button>
-                    <button className="mt-4 text-[10px] font-bold text-stone-500 hover:text-white transition-colors flex items-center justify-center mx-auto gap-2">
-                      内容を詳しく見る <ChevronRight size={12} />
-                    </button>
+                    <div className="text-5xl font-black text-amber-500 font-serif-jp mb-8">¥128,000</div>
+                    <Button fullWidth variant="orange" size="xl" className="bg-amber-500 text-stone-900 h-16" onClick={() => navigate('/checkout?courseId=full-career-pack')}>パックで受講する</Button>
                  </div>
               </div>
            </div>
         </div>
 
-        {/* Value Comparison Table - NEW FOR SALES */}
-        <div className="max-w-4xl mx-auto mb-20 bg-white rounded-[2.5rem] border border-stone-200 overflow-hidden shadow-sm">
-           <div className="p-8 border-b border-stone-100 bg-stone-50/50">
-              <h3 className="text-xl font-bold text-stone-800 font-serif-jp">コース機能比較表</h3>
-           </div>
-           <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                 <thead>
-                    <tr className="bg-stone-50 text-stone-400 text-[10px] font-black uppercase tracking-widest">
-                       <th className="p-6">機能・サポート</th>
-                       <th className="p-6 text-center">Regular</th>
-                       <th className="p-6 text-center">Senior</th>
-                       <th className="p-6 text-center text-amber-600 bg-amber-50/30">Career Pack</th>
-                    </tr>
-                 </thead>
-                 <tbody className="divide-y divide-stone-100">
-                    {[
-                       { f: "100%資格取得保証", r: true, s: true, b: true },
-                       { f: "24時間質問サポート", r: "1年間", s: "無期限", b: "優先対応" },
-                       { f: "指導者ライセンス", r: false, s: true, b: true },
-                       { f: "施設運営システム", r: false, s: false, b: true },
-                       { f: "経営個別コンサル", r: false, s: false, b: "特別優待" }
-                    ].map((row, i) => (
-                       <tr key={i} className="hover:bg-stone-50 transition-colors">
-                          <td className="p-6 font-bold text-stone-700">{row.f}</td>
-                          <td className="p-6 text-center">{typeof row.r === 'boolean' ? (row.r ? <CheckCircle2 className="mx-auto text-stone-300" size={18} /> : <span className="text-stone-200">ー</span>) : row.r}</td>
-                          <td className="p-6 text-center">{typeof row.s === 'boolean' ? (row.s ? <CheckCircle2 className="mx-auto text-stone-300" size={18} /> : <span className="text-stone-200">ー</span>) : row.s}</td>
-                          <td className="p-6 text-center bg-amber-50/10 font-black text-amber-600">{typeof row.b === 'boolean' ? (row.b ? <CheckCircle2 className="mx-auto" size={18} /> : row.b) : row.b}</td>
-                       </tr>
-                    ))}
-                 </tbody>
-              </table>
-           </div>
-        </div>
-
-        {/* Trust/Guarantee */}
+        {/* Support Guarantee */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-white border border-stone-200 rounded-[2.5rem] p-10 shadow-sm flex flex-col md:flex-row items-center gap-12">
             <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center text-[#FF8C6B] flex-shrink-0">
                 <ShieldCheck size={56} strokeWidth={1} />
             </div>
             <div className="text-center md:text-left flex-1">
-                <h3 className="text-2xl font-bold text-stone-800 mb-4 font-serif-jp">
-                  100% 取得サポート保証
-                </h3>
-                <p className="text-stone-600 leading-relaxed font-medium">
-                  本気で学びたい方を最後まで見捨てません。スペシャル講座なら課題提出で100%資格取得。取得後も、最新の学術データの提供や質問サポートを生涯継続します。
-                </p>
-                <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">
-                    <span className="bg-stone-50 px-3 py-1.5 rounded-lg border border-stone-100 flex items-center gap-2">
-                       <CreditCard className="text-stone-300" size={14} /> Visa / Master / JCB
-                    </span>
-                    <span className="bg-stone-50 px-3 py-1.5 rounded-lg border border-stone-100 flex items-center gap-2">
-                       <Zap className="text-[#FF9900]" size={14} fill="currentColor" /> Amazon Pay
-                    </span>
-                    <span className="bg-stone-50 px-3 py-1.5 rounded-lg border border-stone-100 flex items-center gap-2">
-                       <Star className="text-red-500" size={14} fill="currentColor" /> PayPay
-                    </span>
-                </div>
+                <h3 className="text-2xl font-bold text-stone-800 mb-4 font-serif-jp">100% 取得サポート保証</h3>
+                <p className="text-stone-600 leading-relaxed font-medium">スペシャル講座なら課題提出で100%資格取得。取得後も、最新の学術データの提供や質問サポートを生涯継続します。</p>
             </div>
           </div>
         </div>

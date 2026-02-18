@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Crown, Rocket } from 'lucide-react';
+import { GraduationCap, Award, Crown, Rocket, Target } from 'lucide-react';
 
 export interface CourseDetail {
   id: string;
@@ -8,7 +8,7 @@ export interface CourseDetail {
   description: string;
   target: string;
   price: string;
-  fullPrice?: string; // Para mostrar descontos
+  fullPrice?: string;
   period: string;
   features: string[];
   color: string;
@@ -20,18 +20,33 @@ export interface CourseDetail {
 
 export const courses: CourseDetail[] = [
   {
-    id: 'regular',
+    id: 'regular-study',
     level: 'L01: Basic Foundation',
-    name: 'Diet Master',
+    name: 'Diet Master (学習版)',
     subtitle: 'ダイエット基礎実践認定',
-    description: '全ての教育の土台となる科学的根拠。自分自身の体を変え、正しい知識の基礎を築きます。',
-    target: '個人・初心者・全ての導入者',
+    description: '知識の習得と認定証取得を目的とした標準プラン。一生モノの栄養学の基礎を築きます。',
+    target: '教養・知識習得を優先する方',
     price: '59,800',
-    period: '標準2ヶ月 (最短1ヶ月)',
-    features: ['基礎栄養学の完全習得', '代謝メカニズムの理解', 'リバウンド防衛策', 'デジタル認定証授与'],
+    period: '標準2ヶ月 / 質問1年間',
+    features: ['全14章のデジタル講義', 'ダイエットマスター認定証', '1年間の質問サポート', 'オンライン試験'],
     color: 'bg-orange-500',
     accent: 'text-orange-500',
     icon: GraduationCap,
+    path: '/courses/regular'
+  },
+  {
+    id: 'regular-master',
+    level: 'L01: Master Program',
+    name: 'Diet Master (実践サポート版)',
+    subtitle: '基礎認定 ＋ 3ヶ月集中減量サポート',
+    description: '知識だけでなく「結果」を出すための最上位プラン。専任講師が3ヶ月間あなたのダイエットを伴走します。',
+    target: '確実に体を変えたい・結果を出したい方',
+    price: '79,800',
+    period: '講義14章 ＋ 3ヶ月集中指導',
+    features: ['全14章のデジタル講義', '専任講師の個別チャット指導', '週次フィードバック', 'ダイエット診断(必須)'],
+    color: 'bg-emerald-600',
+    accent: 'text-emerald-600',
+    icon: Target,
     path: '/courses/regular'
   },
   {
@@ -42,8 +57,8 @@ export const courses: CourseDetail[] = [
     description: '他者を導くための心理学とカウンセリング技術。停滞期を突破させるプロの指導力を習得。',
     target: '講師・トレーナー・カウンセラー',
     price: '84,800',
-    period: '標準3ヶ月 (最短1.5ヶ月)',
-    features: ['コーチング心理学', '献立作成指導技術', '停滞期脱出メソッド', '指導者ライセンス授与'],
+    period: '標準3ヶ月 / 指導者ライセンス',
+    features: ['コーチング心理学', '献立作成指導技術', '停滞期脱出メソッド', 'Wライセンス授与'],
     color: 'bg-teal-600',
     accent: 'text-teal-600',
     icon: Award,

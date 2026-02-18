@@ -101,7 +101,7 @@ export const Home: React.FC = () => {
           </div>
       </div>
 
-      {/* Path Choice Section - UPDATED TO INCLUDE THE 3 COURSES CLEARLY */}
+      {/* Path Choice Section */}
       <div className="py-24 bg-white border-y border-stone-100 relative">
           <div className="w-[92%] max-w-[1600px] mx-auto">
               <div className="text-center mb-16">
@@ -189,26 +189,14 @@ export const Home: React.FC = () => {
                           <span className="text-[#FF8C6B] font-bold text-xs tracking-[0.4em] uppercase">Supervision</span>
                           <h3 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp">小野 誠 監修：妥協なき品質。</h3>
                           <p className="text-stone-700 leading-loose text-lg font-medium">
-                              「ただ痩せる」だけの知識はどこにでもあります。私たちが教えるのは、最新の医学と栄養学、そして行動心理学に基づいた「一生モノの健康管理術」です。
+                              「ただ痩せる」だけの知識はどこにでもあります。私たちが教えるのは、最新の医学と栄養学、大して行動心理学に基づいた「一生モノの健康管理術」です。
                           </p>
                           <Button variant="outline" className="bg-white" onClick={() => navigate('/methods')}>メソッドの詳細へ</Button>
                       </div>
                   </div>
               </div>
 
-              {/* Media Placeholders Section - AS REQUESTED (MAINTAINED) */}
-              <div className="py-12">
-                  <div className="text-center mb-8">
-                      <span className="text-stone-300 font-bold tracking-[0.3em] text-[10px] uppercase">Media & Featured In</span>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 opacity-40 grayscale">
-                      {[1, 2, 3, 4, 5, 6].map(i => (
-                          <PlaceholderImage key={i} height="60px" text={`LOGO ${i}`} color="bg-stone-200" />
-                      ))}
-                  </div>
-              </div>
-
-              {/* 合格者の声 (Testimonials) Section - AT THE VERY BOTTOM */}
+              {/* 合格者の声 (Testimonials) Section - DIRECTLY AFTER SUPERVISION */}
               <div className="pt-20 border-t border-stone-100">
                   <div className="text-center mb-16">
                       <span className="text-[#FF8C6B] font-bold tracking-[0.3em] text-xs uppercase mb-4 block">Voices of Success</span>
