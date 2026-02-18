@@ -55,7 +55,7 @@ export const RegularCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* Strategic Offer Comparison - THE KEY SECTION */}
+      {/* Strategic Offer Comparison */}
       <section id="offer-comparison" className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
@@ -75,7 +75,7 @@ export const RegularCourse: React.FC = () => {
                </div>
                
                <p className="text-slate-600 leading-loose mb-10 font-medium">
-                  自身の教養として、あるいは将来の指導者としての基礎を築きたい方向け。最新の栄養学とダイエット理論を体系的に学び、資格取得を目指します。
+                  自身の教養として、あるいは将来の指導者としての基礎を築きたい方向け. 最新の栄養学とダイエット理論を体系的に学び、資格取得を目指します。
                </p>
 
                <div className="space-y-4 mb-12 flex-grow">
@@ -96,7 +96,7 @@ export const RegularCourse: React.FC = () => {
 
                <div className="pt-8 border-t border-stone-50">
                   <div className="text-3xl font-bold text-slate-900 mb-6 font-serif-jp">¥59,800 <span className="text-sm font-normal text-stone-400">円(税込)</span></div>
-                  <Button fullWidth size="lg" variant="outline" onClick={() => navigate('/checkout?courseId=regular')}>学習コースを申し込む</Button>
+                  <Button fullWidth size="lg" variant="outline" onClick={() => navigate('/checkout?courseId=regular-study')}>学習コースを申し込む</Button>
                </div>
             </div>
 
@@ -118,7 +118,7 @@ export const RegularCourse: React.FC = () => {
                </div>
                
                <p className="text-slate-400 leading-loose mb-10 font-medium relative z-10">
-                  知識を得るだけでなく、実際に体を変えたい方向け。3ヶ月の専任サポートにより、確実に理想の体へと導きます。<span className="text-emerald-400">※受講前に専門のダイエット診断が必要です。</span>
+                  知識を得るだけでなく、実際に体を変えたい方向け. 3ヶ月の専任サポートにより、確実に理想の体へと導きます。<span className="text-emerald-400 block mt-2">※お申し込み後、受講開始前に「ダイエット診断」を実施します。</span>
                </p>
 
                <div className="space-y-4 mb-12 flex-grow relative z-10">
@@ -139,7 +139,7 @@ export const RegularCourse: React.FC = () => {
 
                <div className="pt-8 border-t border-white/10 relative z-10">
                   <div className="text-3xl font-bold text-white mb-6 font-serif-jp">¥79,800 <span className="text-sm font-normal text-slate-500">円(税込)</span></div>
-                  <Button fullWidth size="lg" variant="orange" className="bg-emerald-500 text-slate-900 hover:bg-emerald-400 border-none h-14" onClick={() => navigate('/calculator')}>診断を受けて開始する</Button>
+                  <Button fullWidth size="lg" variant="orange" className="bg-emerald-500 text-slate-900 hover:bg-emerald-400 border-none h-14" onClick={() => navigate('/checkout?courseId=regular-master')}>プログラムに申し込む</Button>
                </div>
             </div>
           </div>
@@ -172,7 +172,7 @@ export const RegularCourse: React.FC = () => {
              </h2>
              <div className="space-y-8">
                 <p className="text-slate-600 text-lg leading-loose font-medium">
-                  世の中には溢れるほどの「手法」があります。しかし、なぜその手法が必要なのか、あなたの体に何が起きているのかを理解せずに始めれば、それは単なるギャンブルです。
+                  世の中には溢れるほどの「手法」があります. しかし、なぜその手法が必要なのか、あなたの体に何が起きているのかを理解せずに始めれば、それは単なるギャンブルです。
                 </p>
                 <div className="p-10 bg-slate-900 rounded-[3rem] text-white shadow-xl relative overflow-hidden">
                    <p className="text-lg font-bold font-serif-jp italic leading-relaxed relative z-10">
