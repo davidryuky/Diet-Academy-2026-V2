@@ -29,7 +29,8 @@ import {
   Heart,
   ChevronRight
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// Fix: Import useNavigate from 'react-router' instead of 'react-router-dom' to avoid routing issues
+import { useNavigate } from 'react-router';
 
 export const ProfessionalCourse: React.FC = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ export const ProfessionalCourse: React.FC = () => {
     { id: "05", icon: CalendarRange, title: "3ヶ月サポート運用モデル", desc: "属人性を排除し、成果と継続を安定させる仕組み。90日間のルーチン管理。" },
     { id: "06", icon: Building, title: "ユニット認定と責任", desc: "技術責任者の役割と認定シールの真の意味。施設全体の信頼性を担保する管理体制。" },
     { id: "07", icon: Users, title: "チーム運営とトレーニング設計", desc: "品質を維持しながら自律的に動くチームの育て方。安全な権限委譲のプロセス。" },
-    { id: "08", icon: ShieldCheck, title: "倫理と専門的限界", desc: "守るべき一線と、変えて良いものの定義。リスク管理とプロとしての誇り。" },
+    { id: "08", icon: ShieldCheck, title: "倫理と専門性", desc: "守るべき一線と、変えて良いものの定義。リスク管理とプロとしての誇り。" },
     { id: "09", icon: Settings, title: "既存サービスとの統合", desc: "サプリ、エステ、トレーニング等、既存メニューとの相乗効果。付加価値の最大化。" },
     { id: "10", icon: Clock, title: "次のステップと拡張", desc: "受講後の事業拡大と進化の選択肢。コミュニティを活用した継続的な事業成長。" }
   ];
@@ -92,11 +93,12 @@ export const ProfessionalCourse: React.FC = () => {
               誰が担当しても安全に、一定の基準で提供できる運営デザインを共有します。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/20 h-16 px-12 group">
-                <span className="flex items-center gap-2">
+              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/40 h-16 px-12 group relative overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
                   <Sparkles size={20} className="animate-pulse" />
-                  無料個別相談を予約する
+                  「成功のシステム」を導入し、収益を最大化する相談をする
                 </span>
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
               </Button>
             </div>
           </div>
@@ -165,7 +167,7 @@ export const ProfessionalCourse: React.FC = () => {
               { 
                 title: "施設認定による信頼と安全", 
                 icon: Building2, 
-                desc: "全スタッフが同じ理念と判断基準を共有する体制を構築。担当が変わっても品質が変わらない保証は、顧客に圧倒的な安心感を与えます。" 
+                desc: "全スタッフが同じ理念と判断基準を共有する体制を構築. 担当が変わっても品質が変わらない保証は、顧客に圧倒的な安心感を与えます。" 
               },
               { 
                 title: "即導入可能な運営モデル", 
@@ -402,7 +404,7 @@ export const ProfessionalCourse: React.FC = () => {
           <Button size="xl" variant="teal" className="px-16 h-20 text-xl shadow-2xl shadow-teal-500/20 group relative overflow-hidden" onClick={() => navigate('/contact')}>
              <span className="relative z-10 flex items-center gap-3">
                 <Sparkles size={24} className="animate-pulse" />
-                施設のプロフェッショナル化を相談する
+                【無料】あなたの施設を「稼げる仕組み」に変える相談をする
              </span>
              <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
           </Button>

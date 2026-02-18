@@ -1,14 +1,18 @@
+
 import React from 'react';
+// Fix: Use useNavigate and useParams from 'react-router'
 import { useParams, useNavigate } from 'react-router';
 import { professionalChapters } from '../data/professionalChaptersData';
 import { Button } from '../components/common/Button';
-import { ChevronLeft, ArrowRight, Lightbulb, ShieldCheck, Target } from 'lucide-react';
+import { ChevronLeft, Lightbulb, ShieldCheck, Target } from 'lucide-react';
 
 export const ProfessionalChapterDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  // Safe lookup for the chapter data
   const chapter = id ? professionalChapters[id] : null;
 
+  // Handle case where chapter is missing or marked as draft
   if (!chapter || chapter.isDraft) {
     return (
       <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
@@ -23,7 +27,7 @@ export const ProfessionalChapterDetail: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen font-sans">
-      {/* Sticky Sub-Header */}
+      {/* Sticky Sub-Header for navigation context */}
       <div className="sticky top-20 z-30 bg-white/80 backdrop-blur-md border-b border-stone-100 py-4">
         <div className="w-[92%] max-w-[1200px] mx-auto flex items-center justify-between">
           <button 
@@ -39,7 +43,7 @@ export const ProfessionalChapterDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section for the specific Chapter */}
       <section className="py-20 bg-stone-50">
         <div className="w-[92%] max-w-[900px] mx-auto text-center">
           <span className="inline-block text-teal-600 font-bold tracking-[0.3em] text-[10px] uppercase mb-6 bg-teal-50 px-4 py-1 rounded-full border border-teal-100">
@@ -54,13 +58,14 @@ export const ProfessionalChapterDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections: Rendering dynamic array from data */}
       <section className="py-24">
         <div className="w-[92%] max-w-[800px] mx-auto space-y-24">
           {chapter.sections.map((section, sIdx) => (
             <div key={sIdx} className="animate-in fade-in slide-in-from-bottom-8 duration-700" style={{ animationDelay: `${sIdx * 150}ms` }}>
               <div className="flex items-center gap-4 mb-8">
                  <div className="w-10 h-10 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0">
+                    {/* Alternate icons based on section index */}
                     {sIdx === 0 ? <Lightbulb size={20} /> : sIdx === 1 ? <Target size={20} /> : <ShieldCheck size={20} />}
                  </div>
                  <h2 className="text-2xl font-bold text-stone-900 font-serif-jp">
@@ -79,7 +84,7 @@ export const ProfessionalChapterDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Bottom Navigation */}
+      {/* Bottom Navigation / CTA */}
       <section className="py-24 border-t border-stone-100 bg-stone-50">
         <div className="w-[92%] max-w-[800px] mx-auto">
           <div className="bg-white rounded-[3rem] p-12 shadow-sm border border-stone-200 text-center">
