@@ -14,12 +14,6 @@ import {
   ChevronUp,
   Building2,
   Settings2,
-  Stethoscope,
-  Dumbbell,
-  Check,
-  X,
-  Target,
-  Layout,
   ClipboardCheck,
   Brain,
   CalendarRange,
@@ -27,9 +21,12 @@ import {
   Settings,
   Clock,
   Heart,
-  ChevronRight
+  ChevronRight,
+  Layout,
+  Stethoscope,
+  Dumbbell
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 export const ProfessionalCourse: React.FC = () => {
   const navigate = useNavigate();
@@ -43,7 +40,7 @@ export const ProfessionalCourse: React.FC = () => {
     { id: "01", icon: Layout, title: "ビジネスとしてのダイエット", desc: "才能依存からの脱却と持続可能なビジョンの構築。指導を「技術」から「事業」へ変える。" },
     { id: "02", icon: Settings2, title: "ビジネスデザイン", desc: "集客からサポート開始までの全体構造の設計。収益性と顧客満足を両立させるフロー。" },
     { id: "03", icon: ClipboardCheck, title: "診断・初回カウンセリング設計", desc: "誰が担当しても同じ結論に達するマニュアル化。直感を排除した客観的判断基準。" },
-    { id: "04", icon: Brain, title: "行動変容療法のデザイン", desc: "62項目のチェックアップによる習慣의ズレ特定。心理学的にプランを構築する技術。" },
+    { id: "04", icon: Brain, title: "行動変容療法のデザイン", desc: "62項目のチェックアップによる習慣のズレ特定。心理学的にプランを構築する技術。" },
     { id: "05", icon: CalendarRange, title: "3ヶ月サポート運用モデル", desc: "属人性を排除し、成果と継続を安定させる仕組み。90日間のルーチン管理。" },
     { id: "06", icon: Building, title: "ユニット認定と責任", desc: "技術責任者の役割と認定シールの真の意味。施設全体の信頼性を担保する管理体制。" },
     { id: "07", icon: Users, title: "チーム運営とトレーニング設計", desc: "品質を維持しながら自律的に動くチームの育て方。安全な権限委譲のプロセス。" },
@@ -53,46 +50,61 @@ export const ProfessionalCourse: React.FC = () => {
   ];
 
   const faqs = [
-    { q: "どのような指導内容を教えますか？", a: "単なるアドバイスではなく、行動変容療法を用いて「なぜ今の体型になっているのか」の習慣のズレを特定し、自然に体が変わるようルーチンを調整する構造的なサポートを伝授します。" },
-    { q: "サプリメントや自社のサービスと組み合わせられますか？", a: "はい。ダイエットマスターはサプリやトレーニングを「サポート要素」と捉えます。システムがそれらの必要性を論理的に裏付けるため、顧客への提案力と納得感が高まります。" },
-    { q: "全スタッフの資格取得が必要ですか？", a: "いいえ。本コースは「施設認定」です。運営責任者が基準を管理する体制を構築するため、全スタッフの個別取得は必須ではありませんが、基準の共有を推奨しています。" },
-    { q: "オーナーが必ず受講する必要がありますか？", a: "はい。または事業の運営責任者の受講が必要です。個人の技術ではなく「経営・サービスデザイン」が焦点となるためです。" },
-    { q: "費用はいくらですか？", a: "ビジネスモデルや施設の規模に合わせて最適な導入プランをご提案するため、個別相談後に詳細をお伝えしております。" }
+    { 
+      q: "どのような指導内容を教えますか？", 
+      a: "単なるアドバイスではなく、行動変容療法を用いて「なぜ今の体型になっているのか」の習慣のズレを特定し、自然に体が変わるようルーチンを調整する構造的なサポートを伝授します。" 
+    },
+    { 
+      q: "サプリメントや自社のサービスと組み合わせられますか？", 
+      a: "はい。ダイエットマスターはサプリやトレーニングを「サポート要素」と捉えます。システムがそれらの必要性を論理的に裏付けるため、顧客への提案力と納得感が高まります。" 
+    },
+    { 
+      q: "全スタッフの資格取得が必要ですか？", 
+      a: "いいえ。本コースは「施設認定」です。運営責任者が基準を管理する体制を構築するため、全スタッフの個別取得は必須ではありませんが、基準の共有を推奨しています。" 
+    },
+    { 
+      q: "オーナーが必ず受講する必要がありますか？", 
+      a: "はい。または事業の運営責任者の受講が必要です。個人の技術ではなく「経営・サービスデザイン」が焦点となるためです。" 
+    },
+    { 
+      q: "費用はいくらですか？", 
+      a: "ビジネスモデルや施設の規模に合わせて最適な導入プランをご提案するため、個別相談後に詳細をお伝えしております。" 
+    }
   ];
 
   return (
-    <div className="bg-white text-stone-800 font-sans">
+    <div className="bg-white text-stone-800 font-sans selection:bg-teal-100 selection:text-teal-900">
       
-      {/* 1. First View (FV) */}
-      <section className="relative h-[800px] flex items-center overflow-hidden">
+      {/* 1. First View (FV) - O Impacto Inicial */}
+      <section className="relative h-[85vh] min-h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format&fit=crop&q=80" 
-            alt="Professional Studio" 
+            alt="Modern Professional Studio" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-stone-900/70 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-stone-900/75 backdrop-blur-[2px]"></div>
         </div>
         
         <div className="w-[92%] max-w-[1400px] mx-auto relative z-10 text-white">
           <div className="max-w-4xl animate-in fade-in slide-in-from-left-10 duration-1000">
             <span className="inline-block text-teal-400 font-bold tracking-[0.4em] text-sm uppercase mb-6 border-l-2 border-teal-500 pl-4">
-              Professional Course
+              Academic & Professional Standard
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 font-serif-jp">
               ダイエットマスター<br />
               <span className="text-teal-400">認定施設への昇華。</span>
             </h1>
-            <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-stone-200 mb-10 leading-relaxed font-medium">
               個人の才能に依存しない。ダイエット指導を「個人技」ではなく<br className="hidden md:block" />
               「システム」として運用するためのプロフェッショナル向けコース。
             </p>
-            <p className="text-stone-400 mb-12 max-w-2xl text-sm md:text-base leading-relaxed">
+            <p className="text-stone-400 mb-12 max-w-3xl text-sm md:text-base leading-relaxed">
               ダイエットマスター・プロコースは、診断やサポートが「個人の経験や勘」に左右されないよう開発されました。
-              誰が担当しても安全に、一定の基準で提供できる運営デザインを共有します。
+              誰が担当しても安全に、一定の基準で提供できる運営デザインを共有し、あなたのビジネスを強固なものにします。
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/20 h-16 px-12 group">
+              <Button size="xl" variant="teal" onClick={() => navigate('/contact')} className="shadow-2xl shadow-teal-500/30 h-16 px-12 group">
                 <span className="flex items-center gap-2">
                   <Sparkles size={20} className="animate-pulse" />
                   無料個別相談を予約する
@@ -103,7 +115,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Concept Section */}
+      {/* 2. O Conceito de Certificação de Estabelecimento */}
       <section className="py-32 bg-stone-50 overflow-hidden">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-20">
@@ -119,7 +131,7 @@ export const ProfessionalCourse: React.FC = () => {
                 </h2>
                 <div className="space-y-6 text-stone-600 leading-loose font-medium">
                   <p>
-                    本コースでは、個人の資格取得に留まらず、その「施設（事業）」自体を認定します。これは、その店舗がダイエットマスターの理念と基準に基づいた診断・サポートを提供している証となります。
+                    本コースでは、個人の資格取得に留まらず、その施設（ビジネス）自体を認定します。これは、その店舗がダイエットマスターの理念と基準に基づいた診断・サポートを提供している証となります。
                   </p>
                   <div className="bg-white p-8 rounded-3xl border border-teal-100 shadow-sm">
                     <h4 className="text-teal-700 font-bold flex items-center gap-2 mb-2">
@@ -133,16 +145,16 @@ export const ProfessionalCourse: React.FC = () => {
               </div>
             </div>
             <div className="lg:w-1/2 grid grid-cols-2 gap-6">
-              <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-stone-100 text-center">
-                <Users size={40} className="text-teal-600 mx-auto mb-4" />
+              <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-stone-100 text-center flex flex-col items-center justify-center">
+                <Users size={40} className="text-teal-600 mb-4" />
                 <div className="text-lg font-bold font-serif-jp">信頼の共有</div>
               </div>
-              <div className="bg-teal-600 p-10 rounded-[3rem] shadow-xl text-white text-center">
-                <ShieldCheck size={40} className="mx-auto mb-4" />
+              <div className="bg-teal-600 p-10 rounded-[3rem] shadow-xl text-white text-center flex flex-col items-center justify-center">
+                <ShieldCheck size={40} className="mb-4" />
                 <div className="text-lg font-bold font-serif-jp">基準の統一</div>
               </div>
-              <div className="bg-stone-900 p-10 rounded-[3rem] shadow-xl text-white text-center col-span-2">
-                <TrendingUp size={40} className="mx-auto mb-4 text-teal-400" />
+              <div className="bg-stone-900 p-10 rounded-[3rem] shadow-xl text-white text-center col-span-2 flex flex-col items-center justify-center">
+                <TrendingUp size={40} className="mb-4 text-teal-400" />
                 <div className="text-lg font-bold font-serif-jp">事業の資産化</div>
               </div>
             </div>
@@ -150,11 +162,11 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Three Pillars Section */}
+      {/* 3. Os 3 Grandes Diferenciais (Recursos) */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
-            <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-4">Core Features</span>
+            <span className="text-teal-600 font-bold tracking-[0.3em] text-xs uppercase block mb-4">Core Resources</span>
             <h2 className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp leading-tight">
               プロフェッショナルを支える3つの柱
             </h2>
@@ -168,14 +180,14 @@ export const ProfessionalCourse: React.FC = () => {
                 desc: "全スタッフが同じ理念と判断基準を共有する体制を構築。担当が変わっても品質が変わらない保証は、顧客に圧倒的な安心感を与えます。" 
               },
               { 
-                title: "即導入可能な運営モデル", 
+                title: "導入後すぐに稼働する運用モデル", 
                 icon: Layers, 
-                desc: "長年の実践から導き出された3ヶ月サポートの運営モデルと診断フローをそのまま提供。ゼロから考える必要はなく、仕組みとして導入できます。" 
+                desc: "長年の実践から導き出された3ヶ月サポートの運営モデルと、行動変容療法に基づく診断フローを提供。ゼロから考える必要はありません。" 
               },
               { 
                 title: "チーム力と継続性の設計", 
                 icon: Users, 
-                desc: "個人のスキルに頼りすぎない。判断基準を共有することで、チーム全体が同じ方向を向き、長期的に安定したサービス提供を可能にします。" 
+                desc: "個人のスキルに頼りすぎない「思考の形」を共有。チーム全体が同じ方向を向き、長期的に安定したサービス提供と収益化を可能にします。" 
               }
             ].map((item, i) => (
               <div key={i} className="group p-10 rounded-[3rem] border border-stone-100 hover:border-teal-200 hover:shadow-2xl transition-all duration-500 bg-stone-50/30">
@@ -190,12 +202,12 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Comparison Table Section */}
+      {/* 4. Comparação Decisiva (Nós vs. Outros) */}
       <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[1000px] mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-stone-900 font-serif-jp">比較でわかる圧倒的優位性</h2>
-            <p className="text-stone-500 mt-4 font-medium">「資格」の枠を超え、「事業システム」としての価値を追求。</p>
+            <p className="text-stone-500 mt-4 font-medium">「資格」の枠を超え、「事業システム」としての価値を追求します。</p>
           </div>
 
           <div className="bg-white rounded-[3rem] shadow-xl overflow-hidden border border-stone-200">
@@ -203,16 +215,16 @@ export const ProfessionalCourse: React.FC = () => {
               <thead>
                 <tr className="bg-stone-900 text-white">
                   <th className="p-8 text-sm font-bold tracking-widest uppercase">比較項目</th>
-                  <th className="p-8 text-sm font-bold tracking-widest uppercase text-stone-400">一般的な資格</th>
-                  <th className="p-8 text-sm font-bold tracking-widest uppercase text-teal-400">プロフェッショナル</th>
+                  <th className="p-8 text-sm font-bold tracking-widest uppercase text-stone-400">一般的な認定資格</th>
+                  <th className="p-8 text-sm font-bold tracking-widest uppercase text-teal-400">Diet Master Professional</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">
                 {[
-                  { label: "最終目的", common: "個人の知識習得", pro: "ダイエット事業の安定運営" },
-                  { label: "認定単位", common: "個人（本人のみが対象）", pro: "施設・チーム（組織が対象）" },
-                  { label: "標準化", common: "指導者によって内容がバラつく", pro: "既製の運営モデルと基準を共有" },
-                  { label: "顧客価値", common: "「先生」への個人的な依存", pro: "施設への安心感とブランドの信頼" }
+                  { label: "最終目的", common: "個人の知識習得・修了がゴール", pro: "ダイエット事業の安定した運営" },
+                  { label: "認定単位", common: "個人（その人が辞めると無効）", pro: "施設・チーム（組織に資産が残る）" },
+                  { label: "標準化", common: "指導者によって内容がバラつく", pro: "完成された運用モデルと基準の共有" },
+                  { label: "価値の継続性", common: "有資格者の数が増えるほど差別化困難", pro: "施設への安心感によるブランド構築" }
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-teal-50/30 transition-colors">
                     <td className="p-8 text-sm font-bold text-stone-800 font-serif-jp">{row.label}</td>
@@ -226,7 +238,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. 10 Chapters Curriculum Section */}
+      {/* 5. Conteúdo Detalhado do Curso (10 Capítulos) */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-24">
@@ -264,7 +276,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Introduction Flow (3 Steps) */}
+      {/* 6. Fluxo de Introdução (3 Passos) */}
       <section className="py-32 bg-stone-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(20,184,166,0.1),transparent)]"></div>
         <div className="w-[92%] max-w-[1200px] mx-auto relative z-10">
@@ -290,7 +302,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. Use Cases Section */}
+      {/* 7. Exemplos de Onde Implementar */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
@@ -330,11 +342,11 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. FAQ Section */}
+      {/* 8. FAQ (Perguntas Frequentes) */}
       <section className="py-32 bg-stone-50">
         <div className="w-[92%] max-w-[800px] mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">よくある質問</h2>
+            <h2 className="text-3xl font-bold text-stone-900 font-serif-jp">よくあるご質問</h2>
           </div>
 
           <div className="space-y-4">
@@ -363,7 +375,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. Final Authority & Supervision */}
+      {/* 9. Avisos e Autoridade Final */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1000px] mx-auto">
           <div className="bg-stone-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
@@ -391,7 +403,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* 10. Final CTA */}
+      {/* 10. Chamada Final */}
       <section className="py-40 bg-white text-center">
         <div className="w-[92%] max-w-4xl mx-auto">
           <span className="text-teal-600 font-bold tracking-[0.4em] text-xs uppercase mb-8 block">Final Call</span>
