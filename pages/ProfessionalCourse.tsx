@@ -18,7 +18,9 @@ import {
   UserPlus,
   Store,
   HelpCircle,
-  ArrowDownRight
+  ArrowDownRight,
+  Users,
+  Clock
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,11 +28,16 @@ export const ProfessionalCourse: React.FC = () => {
   const navigate = useNavigate();
 
   const chapters = [
-    { icon: LineChart, num: "01", title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。事業を資産化するための基盤構築。", textColor: "text-teal-600" },
-    { icon: Layout, num: "02", title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合システム。", textColor: "text-blue-600" },
-    { icon: ClipboardCheck, num: "03", title: "面談の標準化技術", desc: "誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600" },
-    { icon: Brain, num: "04", title: "診断のエンジニアリング", desc: "直感を排除する診断ツール. 運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600" },
-    { icon: CalendarRange, num: "05", title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。高い成功率を実現する。", textColor: "text-purple-600" }
+    { id: "01", icon: LineChart, title: "ビジネスモデルとしての指導", desc: "才能への依存からプロセスの運営へ。事業を資産化するための基盤構築。", textColor: "text-teal-600" },
+    { id: "02", icon: Layout, title: "システムの全体設計", desc: "「ダイエット診断」を核とした集客・面談・サポートの統合システム。", textColor: "text-blue-600" },
+    { id: "03", icon: ClipboardCheck, title: "面談の標準化技術", desc: "誰が担当しても一貫した結論に達するための標準プロトコル。", textColor: "text-cyan-600" },
+    { id: "04", icon: Brain, title: "診断のエンジニアリング", desc: "直感を排除する診断ツール. 運営の安全性を高め、教育を加速させる。", textColor: "text-indigo-600" },
+    { id: "05", icon: CalendarRange, title: "3ヶ月サポートの科学", desc: "習慣化の科学に基づく90日間の運用リズム。高い成功率を実現する。", textColor: "text-purple-600" },
+    { id: "06", icon: Building, title: "施設認定と運営管理", desc: "個人の信頼から組織の信頼へ。一貫した基準を維持するための管理体制。", textColor: "text-emerald-600" },
+    { id: "07", icon: Users, title: "チームとトレーニング", desc: "品質を落とさずにチームを拡大する。安全な権限委譲と教育の仕組み。", textColor: "text-amber-600" },
+    { id: "08", icon: ShieldCheck, title: "倫理と専門的限界", desc: "「NO」と言える力。法的安全と高い信頼を築くための専門家としての矜持。", textColor: "text-rose-600" },
+    { id: "09", icon: Settings, title: "運営オートメーション", desc: "集客から診断、アフターフォローまでを自動化し、経営者の時間を創出する。", textColor: "text-stone-400" },
+    { id: "10", icon: Clock, title: "将来の展望とアップデート", desc: "変わり続ける栄養学への対応と、コミュニティを活用した継続的な事業成長。", textColor: "text-stone-400" }
   ];
 
   return (
@@ -69,12 +76,12 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* Decision Guide: Which path? - NEW SECTION */}
+      {/* Decision Guide: Which path? */}
       <section className="py-24 bg-stone-50 border-b border-stone-200">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-stone-900 font-serif-jp mb-4">どのコースから始めるべきか？</h2>
-            <p className="text-stone-500 font-medium">目的と現在の状況に合わせて、最適なロードマップを提示します。</p>
+            <p className="text-stone-500 font-medium">目的と現在の状況に合わせて, 最適なロードマップを提示します。</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -106,7 +113,7 @@ export const ProfessionalCourse: React.FC = () => {
                </div>
                <div className="relative z-10">
                   <h3 className="text-xl font-bold text-teal-400 mb-6 flex items-center gap-2 font-serif-jp">
-                    <TrendingUp size={24} /> 目的：収益とキャリアの拡大
+                    <TrendingUp size={24} /> 目的：収益 e キャリアの拡大
                   </h3>
                   <div className="space-y-4">
                     <p className="text-sm text-stone-400 leading-loose">
@@ -123,7 +130,7 @@ export const ProfessionalCourse: React.FC = () => {
         </div>
       </section>
 
-      {/* Specific Target Scenarios - NEW SECTION */}
+      {/* Specific Target Scenarios */}
       <section className="py-32 bg-white">
         <div className="w-[92%] max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
@@ -176,7 +183,7 @@ export const ProfessionalCourse: React.FC = () => {
                     <ArrowDownRight className="text-teal-500" /> 商品はあるが、「差別化」ができない
                   </h4>
                   <p className="text-stone-500 text-sm leading-loose">
-                    既にダイエット指導を行っているが、高単価で売れない、あるいは継続率が低い経営者の方。プロコースの「ダイエット診断システム」を導入することで、他社には真似できない圧倒的な科学的根拠をフロントエンドに置くことができます。感覚的な指導を卒業し、組織として売上を積み上げる基盤が完成します。
+                    既にダイエット指導を行っているが、高単価で売れない、あるいは継続率が低い経営者の方。プロコースの「ダイエット診断システム」を導入することで、他社には真似できない圧倒的な科学的根拠をフロントエンドに置くことができます。感覚的な指導を卒業し, 組織として売上を積み上げる基盤が完成します。
                   </p>
                </div>
             </div>
@@ -194,10 +201,52 @@ export const ProfessionalCourse: React.FC = () => {
                   </div>
                   <div>
                       <h2 className="text-2xl md:text-4xl font-bold font-serif-jp mb-2">プロコースは「2つの認定資格」を同時に授与します</h2>
-                      <p className="text-teal-50 font-medium">マネジメント運営認定に加え、専門指導者としての最上位ライセンスを付与。組織としての信頼を保証します。</p>
+                      <p className="text-teal-50 font-medium">マネジメント運営認定に加え, 専門指導者としての最上位ライセンスを付与。組織としての信頼を保証します。</p>
                   </div>
               </div>
           </div>
+      </section>
+
+      {/* Curriculum Grid - RESTORED TO 10 CHAPTERS */}
+      <section className="py-32 bg-stone-50">
+        <div className="w-[92%] max-w-[1600px] mx-auto">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight mb-6">
+              プロフェッショナル・マスター<br className="md:hidden" />
+              <span className="text-teal-600">全10章の体系</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {chapters.map((chapter, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => navigate(`/courses/professional/chapter/${chapter.id}`)}
+                className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl hover:border-teal-100 transition-all duration-500 flex flex-col h-full overflow-hidden cursor-pointer"
+              >
+                <div className="relative z-10">
+                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} transition-all duration-500 shadow-sm`}>
+                    <chapter.icon size={32} strokeWidth={1.5} />
+                  </div>
+                  <div className="mt-8">
+                    <span className="text-[10px] font-black text-stone-300 tracking-[0.2em] uppercase">Chapter {chapter.id}</span>
+                    <h4 className="text-lg font-bold text-stone-900 mt-2 mb-4 font-serif-jp leading-snug group-hover:text-teal-600 transition-colors">
+                      {chapter.title}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-stone-500 leading-relaxed mb-6 font-medium">
+                    {chapter.desc}
+                  </p>
+                </div>
+                <div className="mt-auto flex items-center justify-end">
+                   <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center text-stone-300 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                      <ArrowRight size={14} />
+                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ROI / Business Impact Section */}
@@ -206,14 +255,14 @@ export const ProfessionalCourse: React.FC = () => {
             <div className="text-center mb-20">
                <h2 className="text-3xl md:text-5xl font-bold font-serif-jp mb-6">導入による圧倒的なインパクト</h2>
                <div className="w-16 h-1 bg-teal-500 mx-auto rounded-full"></div>
-               <p className="text-stone-400 mt-8 font-medium">属人化を排除し、組織として強固な収益基盤を構築します。</p>
+               <p className="text-stone-400 mt-8 font-medium">属人化を排除し, 組織として強固な収益基盤を構築します。</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-12">
                {[
                  { title: "売上の安定化", icon: DollarSign, desc: "「ダイエット診断」からの成約フローを確立し、月々の収益予測を可能にします。成約率のバラつきを解消。" },
                  { title: "教育コストの削減", icon: Building, desc: "標準化された診断ツールにより、新人の教育期間を従来の50%以下に短縮。即戦力化を加速。" },
-                 { title: "ブランド価値の向上", icon: Award, desc: "「日本ダイエットアカデミー協会認定施設」の称号が、地域での信頼を不動のものに。" }
+                 { title: "ブランド価値の向上", icon: Award, desc: "「日本ダイエットアカデミー協会認定施設」の称号が, 地域での信頼を不動のものに。" }
                ].map((item, i) => (
                  <div key={i} className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:bg-white/10 transition-all group">
                     <div className="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-500 mb-8 group-hover:bg-teal-500 group-hover:text-white transition-all">
@@ -241,7 +290,7 @@ export const ProfessionalCourse: React.FC = () => {
                 {[
                   "プロトコルに基づいた『診断オートメーション』の導入",
                   "スタッフの習熟度に関わらず、一定の指導品質を維持",
-                  "LTV（顧客生涯価値）を最大化する継続課金モデル의 설계",
+                  "LTV（顧客生涯価値）を最大化する継続課金モデルの設計",
                   "リスクマネジメントを統合した運営マニュアルの提供"
                 ].map((point, i) => (
                   <div key={i} className="flex items-center gap-4 text-stone-600 font-medium">
@@ -265,36 +314,6 @@ export const ProfessionalCourse: React.FC = () => {
                   <div className="text-xl font-bold font-serif-jp mb-1">資産化</div>
                </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Curriculum Grid */}
-      <section className="py-32 bg-stone-50">
-        <div className="w-[92%] max-w-[1600px] mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold text-stone-900 font-serif-jp leading-tight mb-6">
-              プロフェッショナル・マスター<br className="md:hidden" />
-              <span className="text-teal-600">全10章の体系</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {chapters.map((chapter, idx) => (
-              <div key={idx} className="group relative bg-white rounded-[2.5rem] p-10 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full overflow-hidden">
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-400 group-hover:${chapter.textColor} transition-all duration-500`}>
-                    <chapter.icon size={32} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="text-lg font-bold text-stone-900 mt-8 mb-4 font-serif-jp leading-snug">
-                    {chapter.title}
-                  </h4>
-                  <p className="text-xs text-stone-500 leading-relaxed mb-6 font-medium">
-                    {chapter.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
