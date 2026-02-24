@@ -19,7 +19,7 @@ import {
   Award,
   CheckCircle2
 } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -113,12 +113,12 @@ export const Home: React.FC = () => {
                   <div className="w-20 h-1.5 bg-[#FF8C6B] mx-auto rounded-full"></div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-10">
+              <div className="flex justify-center">
                   
                   {/* Card 1: Regular Course (Personal Improvement) */}
                   <div 
                     onClick={() => navigate('/courses/regular')} 
-                    className="group relative bg-white rounded-[3rem] p-10 border border-stone-100 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col"
+                    className="group relative bg-white rounded-[3rem] p-10 border border-stone-100 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col w-full max-w-2xl"
                   >
                       <div className="flex items-center gap-6 mb-8">
                         <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-orange-50 text-[#FF8C6B] rounded-2xl group-hover:bg-[#FF8C6B] group-hover:text-white transition-all duration-500 shadow-sm">
@@ -152,94 +152,6 @@ export const Home: React.FC = () => {
                       <div className="mt-auto flex items-center justify-between">
                         <span className="text-xs font-bold text-stone-400 group-hover:text-[#FF8C6B] transition-colors uppercase tracking-widest">Regular Course</span>
                         <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-[#FF8C6B] group-hover:text-white group-hover:border-[#FF8C6B] transition-all group-hover:translate-x-2">
-                          <ArrowRight size={18} />
-                        </div>
-                      </div>
-                  </div>
-
-                  {/* Card 2: Senior Course (Instructional Skills) */}
-                  <div 
-                    onClick={() => navigate('/courses/senior')} 
-                    className="group relative bg-white rounded-[3rem] p-10 border border-stone-100 hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col"
-                  >
-                      <div className="flex items-center gap-6 mb-8">
-                        <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-teal-50 text-[#5D9B9B] rounded-2xl group-hover:bg-[#5D9B9B] group-hover:text-white transition-all duration-500 shadow-sm">
-                            <Award size={32} strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-black text-stone-300 tracking-[0.2em] uppercase">Level 02</span>
-                          <h3 className="text-2xl font-bold text-stone-800 font-serif-jp">指導力で信頼を築く</h3>
-                        </div>
-                      </div>
-
-                      <div className="flex-grow">
-                          <p className="text-stone-500 text-sm leading-relaxed font-medium mb-8">
-                            対人コーチングとカウンセリング技術を極め、「教えるプロ」として活躍したい方へ。他者の人生を変える力を習得します。
-                          </p>
-                          
-                          <div className="bg-teal-50/50 rounded-2xl p-6 mb-8">
-                            <h4 className="text-xs font-black text-stone-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                              <Users size={14} className="text-[#5D9B9B]" /> Ideal For / 対象
-                            </h4>
-                            <ul className="space-y-3">
-                              {['トレーナー・講師を目指す方', 'カウンセリング力を高めたい方', 'L01修了後、さらに深く学びたい方'].map((item, i) => (
-                                <li key={i} className="flex items-center gap-2 text-xs font-bold text-stone-700">
-                                  <CheckCircle2 size={14} className="text-emerald-500" /> {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                      </div>
-
-                      <div className="mt-auto flex items-center justify-between">
-                        <span className="text-xs font-bold text-stone-400 group-hover:text-[#5D9B9B] transition-colors uppercase tracking-widest">Senior Course</span>
-                        <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-[#5D9B9B] group-hover:text-white group-hover:border-[#5D9B9B] transition-all group-hover:translate-x-2">
-                          <ArrowRight size={18} />
-                        </div>
-                      </div>
-                  </div>
-
-                  {/* Card 3: Professional Course (Business Management) */}
-                  <div 
-                    onClick={() => navigate('/courses/professional')} 
-                    className="group relative bg-stone-900 rounded-[3rem] p-10 border border-transparent transition-all duration-500 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col text-white"
-                  >
-                      <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Crown size={120} />
-                      </div>
-
-                      <div className="flex items-center gap-6 mb-8 relative z-10">
-                        <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-white/10 backdrop-blur-md text-white rounded-2xl group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shadow-sm border border-white/10">
-                            <Crown size={32} strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-black text-stone-500 tracking-[0.2em] uppercase">Level 03</span>
-                          <h3 className="text-2xl font-bold font-serif-jp">仕組みで売上を創る</h3>
-                        </div>
-                      </div>
-
-                      <div className="flex-grow relative z-10">
-                          <p className="text-stone-400 text-sm leading-relaxed font-medium mb-8">
-                            個人の才能をシステムへ。店舗運営、マネジメント、集客を統合し、ビジネスを自動化・資産化したい経営者向けの最高峰。
-                          </p>
-                          
-                          <div className="bg-white/5 rounded-2xl p-6 mb-8 border border-white/10">
-                            <h4 className="text-xs font-black text-stone-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                              <Users size={14} className="text-white" /> Ideal For / 対象
-                            </h4>
-                            <ul className="space-y-3">
-                              {['ジム・サロンのオーナー', '事業を多店舗展開したい方', '自動化システムを導入したい経営者'].map((item, i) => (
-                                <li key={i} className="flex items-center gap-2 text-xs font-bold text-stone-200">
-                                  <CheckCircle2 size={14} className="text-teal-400" /> {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                      </div>
-
-                      <div className="mt-auto flex items-center justify-between relative z-10">
-                        <span className="text-xs font-bold text-stone-500 group-hover:text-white transition-colors uppercase tracking-widest">Professional Course</span>
-                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-stone-900 group-hover:border-white transition-all group-hover:translate-x-2">
                           <ArrowRight size={18} />
                         </div>
                       </div>

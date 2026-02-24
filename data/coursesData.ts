@@ -27,7 +27,7 @@ export const courses: CourseDetail[] = [
     subtitle: 'ダイエット基礎理論習得',
     description: '自分のペースで学び、資格を取得したい方向けの標準プラン。全14章の共通カリキュラムで一生モノの知識を築きます。',
     target: '知識習得・資格保持を優先する方',
-    price: '59,800',
+    price: '66,000',
     period: '標準2ヶ月 / 質問1年間',
     features: ['全14章のデジタル講義', 'ダイエットマスター認定証', '1年間の質問サポート', 'オンライン試験'],
     color: 'bg-orange-500',
